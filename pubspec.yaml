@@ -1,0 +1,18 @@
+name: wordpress_api
+description: A flutter library for the WordPress API with support for WooCommerce and custom namespaces.
+version: 0.0.1
+author: Douglas Harrington Muhone <doug@dhmgroup.net>
+homepage: https://github.com/dhmgroup/dart-wp
+
+environment:
+  sdk: '>=2.0.0-dev.68.0 <3.0.0'
+  flutter: '>=0.1.4 <2.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.12.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
