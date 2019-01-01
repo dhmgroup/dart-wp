@@ -1,13 +1,22 @@
-# WordPress API for Dart ([Flutter](http://flutter.io))
+# WordPress API client for Dart ([Flutter](http://flutter.io))
 
 ## Description
 
-A flutter library for the WordPress API with support for WooCommerce and custom namespaces.
+A WordPress API client for flutter with support for WooCommerce and custom namespaces.
 
-## Featured
+## Features
 
 - Retrieve data from any endpoint.
 - Retrieve data from any namespace.
+- Support for WooCommerce API v3.
+
+## Installation
+
+In the `dependencies:` section of your `pubspec.yaml`, add the following line:
+
+```yaml
+wordpress_api: <latest_version>
+```
 
 ## Example
 
@@ -18,4 +27,6 @@ _coming soon.._
 - Add authentication function
 - Add postAsync function
 
-_Note_: This library is still in development. Report any issues [here](https://github.com/dhmgroup/dart-wp/issues)
+_Note_: This library is still in development.
+
+Contribtions are welcome, report any issues [here](https://github.com/dhmgroup/dart-wp/issues)

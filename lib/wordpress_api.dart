@@ -12,9 +12,13 @@ class WordPressAPI {
 
   // Initialization
   WordPressAPI(
+    /// 
     this.site, {
+    /// [String] WooCommerce consumer key.
     this.consumerKey = '',
+    /// [String] WooCommerce consumer secret.
     this.consumerSecret = '',
+    /// [bool] determine whether if the site is a woocommerce site.
     this.isWooCommerce = false,
   }) {
     if (!site.startsWith('http')) {
@@ -23,7 +27,8 @@ class WordPressAPI {
     }
   }
 
-  /// String endpoint of WP/v2 can any of the default WordPress endpoint
+  /// Return a [Map<String, dynamic>] with two keys (data and meta). 
+  /// The "data" key stores the return results from the endpoint while the "meta" provides information that is useful for implementing pagination.
   Future<Map<String, dynamic>> getAsync(
     String endpoint, {
     String namespace = '',
