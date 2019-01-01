@@ -106,9 +106,3 @@ class WordPressAPI {
     }
   }
 }
-
-void main() async {
-  final api = WordPressAPI('260blog.com');
-  final posts = await api.getAsync('posts');
-  print(posts);
-}
