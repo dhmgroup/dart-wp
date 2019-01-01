@@ -1,3 +1,7 @@
+## [0.1.1]
+
+- Updated example and readme
+
 ## [0.1.0]
 
 - Added an example
