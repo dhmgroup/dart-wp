@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 import 'package:wordpress_api/wordpress_api.dart';
 
 void main() => runApp(MyApp());
@@ -57,12 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ListTile(
               title: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Html(
-                  data: post['title']['rendered'],
+                child: Text(
+                  post['title']['rendered'],
                 ),
               ),
-              subtitle: Html(
-                data: post['excerpt']['rendered'],
+              subtitle: Text(
+                post['excerpt']['rendered'],
               ),
             ),
           );
