@@ -1,7 +1,11 @@
-## [0.0.2] 01-01-2019
+## [0.1.0]
+
+- Added an example
+
+## [0.0.2]
 
 - Updated documentation
 
-## [0.0.1] 31-12-2018
+## [0.0.1]
 
 - Initial release.

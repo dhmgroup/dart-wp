@@ -30,10 +30,10 @@ class WordPressAPI {
     }
   }
 
-  /// Returns a data from a given endpoint
+  /// Retrieves data from a given endpoint
   Future<Map<String, dynamic>> getAsync(
     String endpoint, {
-    String namespace = '',
+    String namespace,
   }) async {
     final url = await _getLink();
     // print('DISCOVERED URL: $url');
@@ -42,7 +42,7 @@ class WordPressAPI {
       endpoint = endpoint.substring(1);
     }
 
-    if (namespace.isNotEmpty) {
+    if (namespace != null) {
       // CHECK IF NAMESPACE HAS A TRAILING SLASH
       if (namespace.endsWith('/')) {
         _apiNamespace =
@@ -78,7 +78,7 @@ class WordPressAPI {
 
     if (res.statusCode == 200) {
       final data = {
-        'data': json.decode(res.body),
+        'data': json.decode(res.body).toList(),
         'meta': {
           'total': int.parse(res.headers['x-wp-total']),
           'totalPages': int.parse(res.headers['x-wp-totalpages'])
@@ -101,8 +101,8 @@ class WordPressAPI {
     if (res.statusCode == 200) {
       final links = res.headers['link'].split(';')[0];
       return links.substring(1, links.length - 1);
+    } else {
+      throw Exception(res.body);
     }
-
-    return null;
   }
 }
