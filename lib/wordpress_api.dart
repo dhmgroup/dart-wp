@@ -78,7 +78,7 @@ class WordPressAPI {
 
     if (res.statusCode == 200) {
       final data = {
-        'data': json.decode(res.body).toList(),
+        'data': json.decode(res.body).cast<Map<String, dynamic>>(),
         'meta': {
           'total': int.parse(res.headers['x-wp-total']),
           'totalPages': int.parse(res.headers['x-wp-totalpages'])
@@ -105,4 +105,10 @@ class WordPressAPI {
       throw Exception(res.body);
     }
   }
+}
+
+void main() async {
+  final api = WordPressAPI('260blog.com');
+  final posts = await api.getAsync('posts');
+  print(posts);
 }

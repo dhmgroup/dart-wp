@@ -1,3 +1,7 @@
+## [0.1.1+1]
+
+- Changed getAsync return data to a map.
+
 ## [0.1.1]
 
 - Updated example and readme
