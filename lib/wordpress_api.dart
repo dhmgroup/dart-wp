@@ -12,12 +12,15 @@ class WordPressAPI {
 
   // Initialization
   WordPressAPI(
-    /// 
+    ///
     this.site, {
+
     /// [String] WooCommerce consumer key.
     this.consumerKey = '',
+
     /// [String] WooCommerce consumer secret.
     this.consumerSecret = '',
+
     /// [bool] determine whether if the site is a woocommerce site.
     this.isWooCommerce = false,
   }) {
@@ -27,8 +30,7 @@ class WordPressAPI {
     }
   }
 
-  /// Return a [Map<String, dynamic>] with two keys (data and meta). 
-  /// The "data" key stores the return results from the endpoint while the "meta" provides information that is useful for implementing pagination.
+  /// Returns a data from a given endpoint
   Future<Map<String, dynamic>> getAsync(
     String endpoint, {
     String namespace = '',
@@ -72,30 +74,35 @@ class WordPressAPI {
       // print('GET LINK: $_link');
     }
 
-    try {
-      final res = await _client.get(_link);
+    final res = await _client.get(_link);
 
+    if (res.statusCode == 200) {
       final data = {
         'data': json.decode(res.body),
         'meta': {
           'total': int.parse(res.headers['x-wp-total']),
           'totalPages': int.parse(res.headers['x-wp-totalpages'])
-        }
+        },
+        'statusCode': 200
       };
       return data;
-    } catch (e) {
-      throw Exception(e);
+    } else {
+      return {
+        'data': null,
+        'error': res.body,
+        'statusCode': res.statusCode,
+      };
     }
   }
 
   // DISCOVER API LINK FROM HEADER
   Future<String> _getLink() async {
-    try {
-      final res = await _client.head(site);
+    final res = await _client.head(site);
+    if (res.statusCode == 200) {
       final links = res.headers['link'].split(';')[0];
       return links.substring(1, links.length - 1);
-    } catch (e) {
-      throw Exception(e);
     }
+
+    return null;
   }
 }

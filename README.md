@@ -27,6 +27,6 @@ _coming soon.._
 - Add authentication function
 - Add postAsync function
 
-_Note_: This library is still in development.
+Contributions are welcome, report any issues [here](https://github.com/dhmgroup/dart-wp/issues)
 
-Contribtions are welcome, report any issues [here](https://github.com/dhmgroup/dart-wp/issues)
+_Note_: This library is still in development.
