@@ -1,5 +1,7 @@
 library wordpress_api;
 
+import 'dart:convert';
+
 import 'package:http/http.dart' show Client;
 
 class WordPressAPI {
@@ -88,7 +90,7 @@ class WordPressAPI {
     } else {
       return {
         'data': null,
-        'error': res.body,
+        'error': json.decode(res.body),
         'statusCode': res.statusCode,
       };
     }
@@ -101,7 +103,7 @@ class WordPressAPI {
       final links = res.headers['link'].split(';')[0];
       return links.substring(1, links.length - 1);
     } else {
-      throw Exception(res.body);
+      throw Exception(json.decode(res.body));
     }
   }
 }

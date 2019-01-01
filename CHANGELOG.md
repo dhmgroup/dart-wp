@@ -1,6 +1,7 @@
 ## [0.1.1+2]
 
 - Changed getAsync return raw json body
+- Changed example code url
 
 ## [0.1.1+1]
 
