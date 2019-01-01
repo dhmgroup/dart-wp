@@ -1,3 +1,7 @@
+## [0.1.1+2]
+
+- Changed getAsync return raw json body
+
 ## [0.1.1+1]
 
 - Changed getAsync return data to a map.

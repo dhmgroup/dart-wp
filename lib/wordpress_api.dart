@@ -1,6 +1,5 @@
 library wordpress_api;
 
-import 'dart:convert';
 import 'package:http/http.dart' show Client;
 
 class WordPressAPI {
@@ -78,7 +77,7 @@ class WordPressAPI {
 
     if (res.statusCode == 200) {
       final data = {
-        'data': json.decode(res.body).cast<Map<String, dynamic>>(),
+        'data': res.body,
         'meta': {
           'total': int.parse(res.headers['x-wp-total']),
           'totalPages': int.parse(res.headers['x-wp-totalpages'])
