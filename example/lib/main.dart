@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'WPAPI Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List posts = [];
   bool fetching = false;
   bool canFetch = true;
-  WordPressAPI api = WordPressAPI('domain.com');
+  WordPressAPI api = WordPressAPI('site.com');
 
   @override
   void initState() {
@@ -43,9 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0.0,
         title: Text(widget.title),
-        centerTitle: true,
       ),
       body: ListView.builder(
         itemBuilder: (BuildContext context, int index) {
@@ -68,10 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
         },
         itemCount: posts.length,
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: _fetchPosts,
         tooltip: 'Fetch Posts',
-        child: Icon(Icons.arrow_downward),
+        icon: Icon(Icons.arrow_downward), label: Text('fetch more'),
       ),
     );
   }
