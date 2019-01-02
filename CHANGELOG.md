@@ -1,3 +1,7 @@
+## [0.1.2]
+
+- Fixed the error in JSON endpoint retrieval
+
 ## [0.1.1+2]
 
 - Changed getAsync return raw json body

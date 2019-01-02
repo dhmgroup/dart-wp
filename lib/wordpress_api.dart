@@ -100,10 +100,15 @@ class WordPressAPI {
   Future<String> _getLink() async {
     final res = await _client.head(site);
     if (res.statusCode == 200) {
-      final links = res.headers['link'].split(';')[0];
+      if (res.headers['link'] != null) {
+        final links = res.headers['link'].split(';')[0];
       return links.substring(1, links.length - 1);
+      } else {
+        return '$site/wp-json/';
+      }
+      
     } else {
-      throw Exception(json.decode(res.body));
+      throw Exception('Failed to get site json endpoint');
     }
   }
 }
