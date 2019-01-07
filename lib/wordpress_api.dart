@@ -1,7 +1,5 @@
 library wordpress_api;
 
-import 'dart:convert';
-
 import 'package:http/http.dart' show Client;
 
 class WordPressAPI {
@@ -31,7 +29,24 @@ class WordPressAPI {
     }
   }
 
+  // DISCOVER API LINK FROM HEADER
+  Future<String> _getLink() async {
+    final res = await _client.head(site);
+    if (res.statusCode == 200) {
+      if (res.headers['link'] != null) {
+        final links = res.headers['link'].split(';')[0];
+        return links.substring(1, links.length - 1);
+      } else {
+        return '$site/wp-json/';
+      }
+    } else {
+      throw Exception('Failed to get $site json endpoint');
+    }
+  }
+
   /// Retrieves data from a given endpoint
+  /// The 'data' key contains the raw json data returned
+  /// The 'meta' key is map with two key, total and totalPages
   Future<Map<String, dynamic>> getAsync(
     String endpoint, {
     String namespace,
@@ -78,34 +93,16 @@ class WordPressAPI {
     try {
       final res = await _client.get(_link);
 
-    if (res.statusCode == 200) {
-      final data = {
+      return {
         'data': res.body,
         'meta': {
           'total': int.parse(res.headers['x-wp-total']),
           'totalPages': int.parse(res.headers['x-wp-totalpages'])
         },
-        'statusCode': 200
+        'statusCode': res.statusCode
       };
-      return data;
     } catch (e) {
       throw Exception(e);
-    }
-  }
-
-  // DISCOVER API LINK FROM HEADER
-  Future<String> _getLink() async {
-    final res = await _client.head(site);
-    if (res.statusCode == 200) {
-      if (res.headers['link'] != null) {
-        final links = res.headers['link'].split(';')[0];
-      return links.substring(1, links.length - 1);
-      } else {
-        return '$site/wp-json/';
-      }
-      
-    } else {
-      throw Exception('Failed to get $site json endpoint');
     }
   }
 }
