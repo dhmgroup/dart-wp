@@ -36,12 +36,11 @@ import 'package:wordpress_api/wordpress_api';
 ```dart
   void fetchPosts() async {
 
-    final res = await api.get('posts');
-
-    if(res['data'] != null) {
-      print(res['data']);
-    } else {
-      print(res['error']);
+    try {
+          final res = await api.get('posts');
+          print(res['data']);
+    } catch (e) {
+      throw Exception(e);
     }
   }
 ```

@@ -1,3 +1,7 @@
+## [0.1.2+1]
+
+- Added getAsyc exception
+
 ## [0.1.2]
 
 - Fixed the error in JSON endpoint retrieval
