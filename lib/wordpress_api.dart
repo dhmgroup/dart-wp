@@ -75,7 +75,8 @@ class WordPressAPI {
       // print('GET LINK: $_link');
     }
 
-    final res = await _client.get(_link);
+    try {
+      final res = await _client.get(_link);
 
     if (res.statusCode == 200) {
       final data = {
@@ -87,12 +88,8 @@ class WordPressAPI {
         'statusCode': 200
       };
       return data;
-    } else {
-      return {
-        'data': null,
-        'error': json.decode(res.body),
-        'statusCode': res.statusCode,
-      };
+    } catch (e) {
+      throw Exception(e);
     }
   }
 
@@ -108,7 +105,7 @@ class WordPressAPI {
       }
       
     } else {
-      throw Exception('Failed to get site json endpoint');
+      throw Exception('Failed to get $site json endpoint');
     }
   }
 }
