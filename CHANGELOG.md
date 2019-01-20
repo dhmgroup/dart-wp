@@ -1,3 +1,7 @@
+## [0.1.2+2]
+
+- Added endpoint query handler
+
 ## [0.1.2+1]
 
 - Added getAsyc exception

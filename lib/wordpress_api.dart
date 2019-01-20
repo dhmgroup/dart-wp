@@ -53,9 +53,12 @@ class WordPressAPI {
   }) async {
     final url = await _getLink();
     // print('DISCOVERED URL: $url');
-
     if (endpoint.startsWith('/')) {
       endpoint = endpoint.substring(1);
+    }
+
+    if (url.contains('?') && endpoint.contains('?')) {
+      endpoint = endpoint.replaceAll('?', '&');
     }
 
     if (namespace != null) {
