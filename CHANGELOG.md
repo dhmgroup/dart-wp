@@ -1,3 +1,7 @@
+## [0.1.2+3]
+
+- Minor fixes
+
 ## [0.1.2+2]
 
 - Added endpoint query handler

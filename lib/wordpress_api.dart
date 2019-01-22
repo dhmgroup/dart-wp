@@ -1,5 +1,6 @@
 library wordpress_api;
 
+import 'dart:async';
 import 'package:http/http.dart' show Client;
 
 class WordPressAPI {
