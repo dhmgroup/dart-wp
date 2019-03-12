@@ -1,18 +1,19 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:wordpress_api/wordpress_api.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'WPAPI Demo',
+      title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'WP API Demo'),
+      home: MyHomePage(title: 'WPAPI Demo'),
     );
   }
 }
@@ -27,82 +28,49 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int page = 0;
-  List posts = [];
-  bool fetching = false;
-  bool canFetch = true;
-  WordPressAPI api = WordPressAPI('site.com');
+  final wp = WordPressAPI('260blog.com');
+  List<Map<String, dynamic>> posts;
 
   @override
   void initState() {
-    _fetchPosts();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          Map<String, dynamic> post = posts[index];
-          return Container(
-            color: Colors.white,
-            margin: EdgeInsets.all(8.0),
-            child: ListTile(
-              title: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Text(
-                  post['title']['rendered'],
-                ),
-              ),
-              subtitle: Text(
-                post['excerpt']['rendered'],
-              ),
-            ),
-          );
-        },
-        itemCount: posts.length,
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _fetchPosts,
-        tooltip: 'Fetch Posts',
-        icon: Icon(Icons.arrow_downward), label: Text('fetch more'),
-      ),
-    );
-  }
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(widget.title),
+        ),
+        body: FutureBuilder(
+          builder: (BuildContext context,
+              AsyncSnapshot<Map<String, dynamic>> snapshot) {
+            switch (snapshot.connectionState) {
+              case ConnectionState.waiting:
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
 
-  void _fetchPosts() async {
-    // print('FETCH POSTS CALLED');
-    if (canFetch && !fetching) {
-      // print('BEGINING FETCH');
-      setState(() {
-        fetching = true;
-        page++;
-      });
-      // print('FETCH POSTS CALLED');
-      final res = await api.getAsync('posts?page=$page');
-      final data = res['data'];
-      final total = res['meta']['total'];
-      // print(res);
-      // print('DATA: $data');
-      if (data != null) {
-        setState(() {
-          posts.addAll(data);
-          page++;
-          fetching = false;
-        });
-      }
+                break;
+              default:
+                final posts = json.decode(snapshot.data['data']);
+                return ListView.separated(
+                  itemBuilder: (BuildContext context, int index) {
+                    return ListTile(
+                      title: Text(posts[index]['title']['rendered']),
+                    );
+                  },
 
-      if (posts.length == total) {
-        setState(() {
-          canFetch = false;
-        });
-        // print('FETCHING DISABLED');
-      }
-      // print('DONE FETCHING');
-    }
+                  itemCount: posts.length,
+                  separatorBuilder: (BuildContext context, int index) {
+                    return Divider(height: 16.0);
+                  },
+                );
+            }
+          },
+          future: wp.getAsync('posts'),
+        ));
   }
 }

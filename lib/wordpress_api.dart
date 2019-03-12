@@ -1,6 +1,7 @@
 library wordpress_api;
 
 import 'dart:async';
+import 'dart:convert';
 import 'package:http/http.dart' show Client;
 
 class WordPressAPI {
@@ -12,7 +13,7 @@ class WordPressAPI {
 
   // Initialization
   WordPressAPI(
-    ///
+    /// [String] WP powered website
     this.site, {
 
     /// [String] WooCommerce consumer key.
@@ -23,15 +24,14 @@ class WordPressAPI {
 
     /// [bool] determine whether if the site is a woocommerce site.
     this.isWooCommerce = false,
-  }) {
-    if (!site.startsWith('http')) {
-      site = 'http://$site'.toLowerCase();
-      // print('SITE: $site');
-    }
-  }
+  });
 
   // DISCOVER API LINK FROM HEADER
   Future<String> _getLink() async {
+    if (!site.startsWith('http')) {
+      site = 'http://$site'.toLowerCase();
+      print('SITE: $site');
+    }
     final res = await _client.head(site);
     if (res.statusCode == 200) {
       if (res.headers['link'] != null) {
@@ -46,14 +46,14 @@ class WordPressAPI {
   }
 
   /// Retrieves data from a given endpoint
-  /// The 'data' key contains the raw json data returned
-  /// The 'meta' key is map with two key, total and totalPages
+  /// The 'data' key contains the raw json data
+  /// The 'meta' key is map with two keys, total and totalPages
   Future<Map<String, dynamic>> getAsync(
     String endpoint, {
     String namespace,
   }) async {
     final url = await _getLink();
-    // print('DISCOVERED URL: $url');
+
     if (endpoint.startsWith('/')) {
       endpoint = endpoint.substring(1);
     }
@@ -76,6 +76,7 @@ class WordPressAPI {
       }
     }
 
+    // WOOCOMMERCE SETTINGS
     if (isWooCommerce) {
       String credentials =
           'consumer_key=$consumerKey&consumer_secret=$consumerSecret';
@@ -98,7 +99,7 @@ class WordPressAPI {
       final res = await _client.get(_link);
 
       return {
-        'data': res.body,
+        'data': json.decode(res.body),
         'meta': {
           'total': int.parse(res.headers['x-wp-total']),
           'totalPages': int.parse(res.headers['x-wp-totalpages'])
