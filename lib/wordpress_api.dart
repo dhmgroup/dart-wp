@@ -30,7 +30,7 @@ class WordPressAPI {
   Future<String> _getLink() async {
     if (!site.startsWith('http')) {
       site = 'http://$site'.toLowerCase();
-      print('SITE: $site');
+      // print('SITE: $site');
     }
     final res = await _client.head(site);
     if (res.statusCode == 200) {
