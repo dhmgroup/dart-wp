@@ -11,7 +11,7 @@ class WordPressAPI {
   final String consumerKey, consumerSecret;
   final Client _client = Client();
 
-  // Initialization
+  // INITIALIZATION
   WordPressAPI(
     /// [String] WP powered website
     this.site, {
@@ -22,11 +22,11 @@ class WordPressAPI {
     /// [String] WooCommerce consumer secret.
     this.consumerSecret = '',
 
-    /// [bool] determine whether if the site is a woocommerce site.
+    /// [bool] Is woocommerce installed?
     this.isWooCommerce = false,
   });
 
-  // DISCOVER API LINK FROM HEADER
+  // DISCOVER API LINK FROM HEADER //
   Future<String> _getLink() async {
     if (!site.startsWith('http')) {
       site = 'http://$site'.toLowerCase();
@@ -45,6 +45,7 @@ class WordPressAPI {
     }
   }
 
+  // GET DATA FROM CUSTOM ENDPOINT //
   /// Retrieves data from a given endpoint
   /// The 'data' key contains the raw json data
   /// The 'meta' key is map with two keys, total and totalPages
@@ -110,4 +111,29 @@ class WordPressAPI {
       throw Exception(e);
     }
   }
+
+  // **************** WP STANDARD ENDPOINTS ************** //
+  // GET CATEGORIES //
+  Future<Map<String, dynamic>> getCategories() async {
+    return await getAsync('categories');
+  }
+  // GET COMMENTS //
+  Future<Map<String, dynamic>> getComments() async {
+    return await getAsync('comments');
+  }
+  // GET POSTS //
+  Future<Map<String, dynamic>> getPosts() async {
+    return await getAsync('posts');
+  }
+  // WP SEARCH //
+  // GET TAGS //
+  Future<Map<String, dynamic>> getTags() async {
+    return await getAsync('tags');
+  }
+  // GET USERS //
+  Future<Map<String, dynamic>> getUsers() async {
+    return await getAsync('users');
+  }
+
+  // **************** WOOCOMMERCE ENDPOINTS | TO DO *************** //
 }

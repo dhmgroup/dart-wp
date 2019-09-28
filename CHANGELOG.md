@@ -1,3 +1,8 @@
+## [0.1.3]
+
+- Removed all flutter references because the package also works standalone for dart. Thanks [jld3103](https://github.com/jld3103)
+- Added Wordpress Standard endpoints as requested in [issue #3](https://github.com/dhmgroup/dart-wp/issues/3). These include getPosts(), getCategories(), getTags(), getComments(), and getUsers() functions.
+
 ## [0.1.2+3]
 
 - Minor fixes

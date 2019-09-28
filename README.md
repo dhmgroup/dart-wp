@@ -31,14 +31,30 @@ import 'package:wordpress_api/wordpress_api';
   WordPressAPI api = WordPressAPI('site.com');
 ```
 
-- Retrieve data from an endpoint
+- Retrieve data from a custom endpoint
 
 ```dart
-  void fetchPosts() async {
-      final res = await api.getAsync('posts');
-      print(res['data']);
+  void main() async {
+    final wp = WordPressAPI('260blog.com');
+    final posts = (await wp.getAsync('posts'))['data'];
+    for (final post in posts) {
+      print(post['title']['rendered']);
+    }
   }
 ```
+
+- Retrieve WP users
+
+```dart
+  void main() async {
+    final wp = WordPressAPI('260blog.com');
+    final users = (await wp.getUsers())['data'];
+    for (final user in users) {
+      print(user['name']);
+    }
+  }
+```
+  
 
 ## To Do
 
