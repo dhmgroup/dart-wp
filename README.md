@@ -2,12 +2,12 @@
 
 ## Description
 
-A WordPress API client for flutter with support for WooCommerce and custom namespaces.
+A WordPress API client for dart with support for WooCommerce and custom namespaces.
 
 ## Features
 
-- Retrieve data from any endpoint.
-- Retrieve data from any namespace.
+- Retrieve data from standard WordPress endpoints.
+- Retrieve data from any custom endpoint and namespace
 
 ## Installation
 
