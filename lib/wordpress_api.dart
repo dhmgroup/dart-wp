@@ -57,10 +57,12 @@ class WordPressAPI {
 
     if (endpoint.startsWith('/')) {
       endpoint = endpoint.substring(1);
+      // print("ENDPOINT: $endpoint");
     }
 
     if (url.contains('?') && endpoint.contains('?')) {
       endpoint = endpoint.replaceAll('?', '&');
+      // print("ENDPOINT: $endpoint");
     }
 
     if (namespace != null) {
@@ -98,12 +100,25 @@ class WordPressAPI {
 
     try {
       final res = await _client.get(_link);
+      int total = null;
+      int totalPages = null;
+
+      // Check if total is in header
+      if (res.headers['x-wp-total'] != null) {
+        total = int.parse(res.headers['x-wp-total']);
+      }
+
+      // check if total pages is in header
+      if (res.headers['x-wp-totalpages'] != null) {
+        totalPages = int.parse(res.headers['x-wp-totalpages']);
+      }
+
 
       return {
         'data': json.decode(res.body),
         'meta': {
-          'total': int.parse(res.headers['x-wp-total']),
-          'totalPages': int.parse(res.headers['x-wp-totalpages'])
+          'total': total,
+          'totalPages': totalPages
         },
         'statusCode': res.statusCode
       };
