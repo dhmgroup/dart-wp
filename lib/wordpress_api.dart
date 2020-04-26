@@ -1,5 +1,3 @@
-library wordpress_api;
-
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' show Client;
@@ -113,13 +111,9 @@ class WordPressAPI {
         totalPages = int.parse(res.headers['x-wp-totalpages']);
       }
 
-
       return {
         'data': json.decode(res.body),
-        'meta': {
-          'total': total,
-          'totalPages': totalPages
-        },
+        'meta': {'total': total, 'totalPages': totalPages},
         'statusCode': res.statusCode
       };
     } catch (e) {
@@ -132,19 +126,23 @@ class WordPressAPI {
   Future<Map<String, dynamic>> getCategories() async {
     return await getAsync('categories');
   }
+
   // GET COMMENTS //
   Future<Map<String, dynamic>> getComments() async {
     return await getAsync('comments');
   }
+
   // GET POSTS //
   Future<Map<String, dynamic>> getPosts() async {
     return await getAsync('posts');
   }
+
   // WP SEARCH //
   // GET TAGS //
   Future<Map<String, dynamic>> getTags() async {
     return await getAsync('tags');
   }
+
   // GET USERS //
   Future<Map<String, dynamic>> getUsers() async {
     return await getAsync('users');
