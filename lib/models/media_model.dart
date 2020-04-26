@@ -1,4 +1,4 @@
-import 'package:wordpress_api/src/models/post_model.dart';
+import 'post_model.dart';
 
 /// Wordpress Standard Media Endpoint Model
 class BaseMediaModel {

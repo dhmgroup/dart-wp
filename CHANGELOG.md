@@ -1,3 +1,7 @@
+## [0.1.4]
+
+- Add models for Category, Comment, Media, Post, Tag and User.
+- Each model has a 'BASE' prefix and 'MODEL' suffix with all the default response params, e.g BaseUserModel
 
 ## [0.1.3+2]
 
