@@ -3,14 +3,14 @@ enum Taxonomy { category, post_tag, nav_menu, link_category, post_format }
 
 /// Wordpress Standard Tag Endpoint Model
 class BaseTagModel {
-  int id;
-  int count;
-  String description;
-  String link;
-  String name;
-  String slug;
-  Taxonomy taxonomy;
-  Map<String, dynamic> meta;
+  final int id;
+  final int count;
+  final String description;
+  final String link;
+  final String name;
+  final String slug;
+  final Taxonomy taxonomy;
+  final Map<String, dynamic> meta;
 
   BaseTagModel({
     this.id,
@@ -23,14 +23,16 @@ class BaseTagModel {
     this.meta,
   });
 
-  BaseTagModel.fromJson(Map<String, dynamic> data) {
-    id = data['id'];
-    count = data['count'];
-    description = data['description'];
-    link = data['link'];
-    name = data['name'];
-    slug = data['slug'];
-    taxonomy = data['taxonomy'];
-    meta = data['meta'];
+  factory BaseTagModel.fromJson(Map<String, dynamic> data) {
+    return BaseTagModel(
+      id: data['id'],
+      count: data['count'],
+      description: data['description'],
+      link: data['link'],
+      name: data['name'],
+      slug: data['slug'],
+      taxonomy: data['taxonomy'],
+      meta: data['meta'],
+    );
   }
 }

@@ -1,14 +1,14 @@
 /// Wordpress Standard Category Endpoint Model
 class BaseCategoryModel {
-  int id;
-  int count;
-  String description;
-  String link;
-  String name;
-  String slug;
-  String taxonomy;
-  int parent;
-  Map<String, dynamic> meta;
+  final int id;
+  final int count;
+  final String description;
+  final String link;
+  final String name;
+  final String slug;
+  final String taxonomy;
+  final int parent;
+  final Map<String, dynamic> meta;
 
   BaseCategoryModel({
     this.id,
@@ -22,15 +22,17 @@ class BaseCategoryModel {
     this.meta,
   });
 
-  BaseCategoryModel.fromJson(Map<String, dynamic> data) {
-    id = data['id'];
-    count = data['count'];
-    description = data['description'];
-    link = data['link'];
-    name = data['name'];
-    slug = data['slug'];
-    taxonomy = data['taxonomy'];
-    parent = data['parent'];
-    meta = data['meta'];
+  factory BaseCategoryModel.fromJson(Map<String, dynamic> data) {
+    return BaseCategoryModel(
+      id: data['id'],
+      count: data['count'],
+      description: data['description'],
+      link: data['link'],
+      name: data['name'],
+      slug: data['slug'],
+      taxonomy: data['taxonomy'],
+      parent: data['parent'],
+      meta: data['meta'],
+    );
   }
 }
