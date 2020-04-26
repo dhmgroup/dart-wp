@@ -1,3 +1,8 @@
+
+## [0.1.3+2]
+
+- Removed explicit `null` variable initializations as suggested by dart analyzer
+  
 ## [0.1.3+1]
 
 - Fixed issue when retireving single post in [issue #4](https://github.com/dhmgroup/dart-wp/issues/4)
