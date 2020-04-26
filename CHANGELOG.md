@@ -1,3 +1,7 @@
+## [0.1.3+1]
+
+- Fixed issue when retireving single post in [issue #4](https://github.com/dhmgroup/dart-wp/issues/4)
+
 ## [0.1.3]
 
 - Removed all flutter references because the package also works standalone for dart. Thanks [jld3103](https://github.com/jld3103)
