@@ -100,8 +100,8 @@ class WordPressAPI {
 
     try {
       final res = await _client.get(_link);
-      int total = null;
-      int totalPages = null;
+      int total;
+      int totalPages;
 
       // Check if total is in header
       if (res.headers['x-wp-total'] != null) {
