@@ -1,61 +1,190 @@
 import 'dart:async';
-import 'dart:convert';
-import 'package:http/http.dart' show Client;
+import 'package:dio/dio.dart';
+import 'package:meta/meta.dart';
+import 'package:wordpress_api/constants.dart';
+import 'package:wordpress_api/utils.dart';
+
+// WordPress Respoonse
+class WPResponse {
+  /// List of
+  final dynamic data;
+  final Map<String, dynamic> meta;
+  final int statusCode;
+
+  WPResponse({
+    @required this.data,
+    @required this.meta,
+    @required this.statusCode,
+  });
+}
+
+/// WordPress arguments
+class WPArgs {
+  ///Scope under which the request is made; determines fields present in response.
+  ///
+  ///One of: view, embed, edit
+  final String context;
+
+  /// Current page of the collection.
+  final String page;
+
+  ///Maximum number of items to be returned in result set.
+  final String perPage;
+
+  ///Limit results to those matching a string.
+  final String search;
+
+  ///Limit response to posts published after a given ISO8601 compliant date.
+  final String after;
+
+  ///Limit result set to posts assigned to specific authors.
+  final String author;
+
+  ///Ensure result set excludes posts assigned to specific authors.
+  final String authorExclude;
+
+  ///Limit response to posts published before a given ISO8601 compliant date.
+  final String before;
+
+  ///Ensure result set excludes specific IDs.
+  final String exclude;
+
+  ///Limit result set to specific IDs.
+  final String include;
+
+  ///Offset the result set by a specific number of items.
+  final String offset;
+
+  ///Order sort attribute ascending or descending.
+  ///
+  ///One of: asc, desc
+  final String order;
+
+  ///Sort collection by object attribute.
+  ///
+  ///One of: author, date, id, include, modified, parent, relevance, slug, include_slugs, title
+  final String orderBy;
+
+  ///Limit result set to posts with one or more specific slugs.
+  final String slug;
+
+  ///Limit result set to posts assigned one or more statuses.
+  final String status;
+
+  ///Limit result set based on relationship between multiple taxonomies.
+  ///
+  ///One of: AND, OR
+  final String taxRelation;
+
+  ///Limit result set to all items that have the specified term assigned in the categories taxonomy.
+  final String categories;
+
+  ///Limit result set to all items except those that have the specified term assigned in the categories taxonomy.
+  final String categoriesExclude;
+
+  ///Limit result set to all items that have the specified term assigned in the tags taxonomy.
+  final String tags;
+
+  ///Limit result set to all items except those that have the specified term assigned in the tags taxonomy.
+  final String tagsExclude;
+
+  ///Limit result set to items that are sticky.
+  final String sticky;
+
+  /// Whether to hide terms not assigned to any posts.
+  final bool hideEmpty;
+
+  WPArgs({
+    this.context,
+    this.page,
+    this.perPage,
+    this.search,
+    this.after,
+    this.author,
+    this.authorExclude,
+    this.before,
+    this.exclude,
+    this.include,
+    this.offset,
+    this.order,
+    this.orderBy,
+    this.slug,
+    this.status,
+    this.taxRelation,
+    this.categories,
+    this.categoriesExclude,
+    this.tags,
+    this.tagsExclude,
+    this.sticky,
+    this.hideEmpty,
+  });
+}
+
+class WooCredentials {
+  /// WooCommerce consumer key generate in the WooCommerce dashboard
+  final String consumerKey;
+
+  /// WooCommerce consumer secret generate in the WooCommerce dashboard
+  final String consumerSecret;
+
+  WooCredentials(this.consumerKey, this.consumerSecret);
+}
 
 class WordPressAPI {
-  String site, _link;
-  String _apiNamespace = 'wp/v2';
-  final bool isWooCommerce;
-  final String consumerKey, consumerSecret;
-  final Client _client = Client();
+  /// WordPress website
+  String site;
+  String _namespace = WP_NAMESPACE;
 
+  /// WooCommerce API credentials
+  final WooCredentials wooCredentials;
+  final Dio _dio = Dio();
+
+  // **********************************************
   // INITIALIZATION
+  // **********************************************
   WordPressAPI(
-    /// [String] WP powered website
     this.site, {
-
-    /// [String] WooCommerce consumer key.
-    this.consumerKey = '',
-
-    /// [String] WooCommerce consumer secret.
-    this.consumerSecret = '',
-
-    /// [bool] Is woocommerce installed?
-    this.isWooCommerce = false,
+    this.wooCredentials,
   });
 
-  // DISCOVER API LINK FROM HEADER //
-  Future<String> _getLink() async {
+  // **********************************************
+  // DISCOVER API LINK FROM HEADERS //
+  // **********************************************
+  Future<String> _discoverUrl() async {
     if (!site.startsWith('http')) {
       site = 'http://$site'.toLowerCase();
-      // print('SITE: $site');
     }
-    final res = await _client.head(site);
-    if (res.statusCode == 200) {
+    try {
+      final res = await _dio.head(site);
+
       if (res.headers['link'] != null) {
-        final links = res.headers['link'].split(';')[0];
-        return links.substring(1, links.length - 1);
+        final links = res.headers['link'][0].split(';')[0];
+        final link = links.substring(1, links.length - 1);
+        return link;
       } else {
-        return '$site/wp-json/';
+        return "$site/wp-json/";
       }
-    } else {
-      throw Exception('Failed to get $site json endpoint');
+    } catch (e) {
+      Utils.logger.e(e);
+      throw Exception(e);
     }
   }
 
+  // ***********************************************************
   // GET DATA FROM CUSTOM ENDPOINT //
-  /// Retrieves data from a given endpoint
-  /// The 'data' key contains the raw json data
-  /// The 'meta' key is map with two keys, total and totalPages
-  Future<Map<String, dynamic>> getAsync(
-    String endpoint, {
+  /// Retrieves data from a given endpoint and resturns a [WPResponse]
+  // ***********************************************************
+  Future<WPResponse> getAsyc({
+    @required String endpoint,
     String namespace,
+    Map<String, dynamic> args,
   }) async {
-    final url = await _getLink();
+    final url = await _discoverUrl();
 
     if (endpoint.startsWith('/')) {
+      // Remove starting '/' if any
       endpoint = endpoint.substring(1);
-      // print("ENDPOINT: $endpoint");
+      Utils.logger.i("ENDPOINT: $endpoint");
     }
 
     if (url.contains('?') && endpoint.contains('?')) {
@@ -63,89 +192,104 @@ class WordPressAPI {
       // print("ENDPOINT: $endpoint");
     }
 
+    // NAMESPACE DISCOVERY
     if (namespace != null) {
       // CHECK IF NAMESPACE HAS A TRAILING SLASH
       if (namespace.endsWith('/')) {
-        _apiNamespace =
-            namespace.substring(0, namespace.length - 1).toLowerCase();
-        _link = '$url$_apiNamespace/$endpoint';
+        _namespace = namespace.substring(0, namespace.length - 1).toLowerCase();
         // print('NAMESPACED LINK: $_link');
       } else {
-        _apiNamespace = namespace;
-        _link = '$url$_apiNamespace/$endpoint';
+        _namespace = namespace;
         // print('NAMESPACED LINK: $_link');
       }
     }
 
+    // **********************************************
     // WOOCOMMERCE SETTINGS
-    if (isWooCommerce) {
-      String credentials =
-          'consumer_key=$consumerKey&consumer_secret=$consumerSecret';
-      // SET WOOCOMMERCE NAMESPACE
-      _apiNamespace = 'wc/v3/';
-      // CHECK IF ENDPOINT HAS A QUERY
-      if (endpoint.contains('?')) {
-        _link = '$url$_apiNamespace$endpoint&$credentials';
-        // print('WC /?: $_link');
-      } else {
-        _link = '$url$_apiNamespace$endpoint?$credentials';
-        // print('WC URL: $_link');
-      }
-    } else {
-      _link = '$url$_apiNamespace/$endpoint';
-      // print('GET LINK: $_link');
-    }
+    // **********************************************
+    // if (isWooCommerce) {
+    //   String credentials =
+    //       'consumer_key=$consumerKey&consumerSecret=$consumerSecret';
+    //   // SET WOOCOMMERCE NAMESPACE
+    //   _namespace = WOO_NAMESPACE;
+    //   // CHECK IF ENDPOINT HAS A QUERY
+    //   if (endpoint.contains('?')) {
+    //     _link = '$url$_namespace$endpoint&$credentials';
+    //     // print('WC /?: $_link');
+    //   } else {
+    //     _link = '$url$_namespace$endpoint?$credentials';
+    //     // print('WC URL: $_link');
+    //   }
+    // } else {
+    //   _link = '$url$_namespace/$endpoint';
+    //   // print('GET LINK: $_link');
+    // }
 
+    // _link = '$url$_namespace$endpoint';
+    // Utils.logger.i(_link);
+    //************ SET BASE URL */
+    _dio.options.baseUrl = url;
     try {
-      final res = await _client.get(_link);
-      int total;
-      int totalPages;
+      final res = await _dio.get('$_namespace$endpoint', queryParameters: args);
+      int total = int.parse(res.headers?.value('x-wp-total'));
+      int totalPages = int.parse(res.headers?.value('x-wp-totalpages'));
 
-      // Check if total is in header
-      if (res.headers['x-wp-total'] != null) {
-        total = int.parse(res.headers['x-wp-total']);
-      }
-
-      // check if total pages is in header
-      if (res.headers['x-wp-totalpages'] != null) {
-        totalPages = int.parse(res.headers['x-wp-totalpages']);
-      }
-
-      return {
-        'data': json.decode(res.body),
-        'meta': {'total': total, 'totalPages': totalPages},
-        'statusCode': res.statusCode
-      };
+      return WPResponse(
+        data: res.data,
+        meta: {
+          'total': total,
+          'totalPages': totalPages,
+        },
+        statusCode: res.statusCode,
+      );
     } catch (e) {
+      Utils.logger.e(e);
       throw Exception(e);
     }
   }
 
   // **************** WP STANDARD ENDPOINTS ************** //
   // GET CATEGORIES //
-  Future<Map<String, dynamic>> getCategories() async {
-    return await getAsync('categories');
+  Future<WPResponse> getCategories({Map<String, dynamic> args}) async {
+    return await getAsyc(endpoint: 'categories', args: args);
   }
 
+  // **********************************************
   // GET COMMENTS //
-  Future<Map<String, dynamic>> getComments() async {
-    return await getAsync('comments');
+  // **********************************************
+  Future<WPResponse> getComments({Map<String, dynamic> args}) async {
+    return await getAsyc(endpoint: 'comments', args: args);
   }
 
+  // **********************************************
   // GET POSTS //
-  Future<Map<String, dynamic>> getPosts() async {
-    return await getAsync('posts');
+  // **********************************************
+  Future<WPResponse> getPosts({Map<String, dynamic> args}) async {
+    return await getAsyc(endpoint: 'posts', args: args);
   }
 
-  // WP SEARCH //
+  //********************* */
+  // WP SEARCH
+  //********************* */
+  Future<WPResponse> search(
+    String query, {
+    Map<String, dynamic> args,
+  }) async {
+    return await getAsyc(endpoint: 'search', args: {"search": query});
+  }
+
+  // **********************************************
   // GET TAGS //
-  Future<Map<String, dynamic>> getTags() async {
-    return await getAsync('tags');
+  // **********************************************
+  Future<WPResponse> getTags({Map<String, dynamic> args}) async {
+    return await getAsyc(endpoint: 'tags', args: args);
   }
 
-  // GET USERS //
-  Future<Map<String, dynamic>> getUsers() async {
-    return await getAsync('users');
+  // ********************************************
+  // GET USERS
+  // **********************************************
+  Future<WPResponse> getUsers({Map<String, dynamic> args}) async {
+    return await getAsyc(endpoint: 'users', args: args);
   }
 
   // **************** WOOCOMMERCE ENDPOINTS | TO DO *************** //

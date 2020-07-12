@@ -1,4 +1,6 @@
-# WordPress API client for Dart ([Flutter](http://flutter.io))
+# WordPress API client for [Dart](https://dart.dev/) | [Flutter](https://flutter.dev)
+
+[![Pub](https://img.shields.io/pub/v/wordpress_api.svg?style=flat-square)](https://pub.dartlang.org/packages/wordpress_api) [![Build Status](https://travis-ci.org/dhmgroup/dart-wp.svg?branch=master)](https://travis-ci.org/dhmgroup/dart-wp) [![codecov](https://codecov.io/gh/dhmgroup/dart-wp/branch/master/graph/badge.svg)](https://codecov.io/gh/dhmgroup/dart-wp)
 
 ## Description
 
@@ -7,7 +9,7 @@ A WordPress API client for dart with support for WooCommerce and custom namespac
 ## Features
 
 - Retrieve data from standard WordPress endpoints.
-- Retrieve data from any custom endpoint and namespace
+- Retrieve data from any custom namespace
 
 ## Installation
 
@@ -35,7 +37,7 @@ import 'package:wordpress_api/wordpress_api';
 
 ```dart
   void main() async {
-    final wp = WordPressAPI('260blog.com');
+    final wp = WordPressAPI('site.com');
     final posts = (await wp.getAsync('posts'))['data'];
     for (final post in posts) {
       print(post['title']['rendered']);
@@ -54,11 +56,9 @@ import 'package:wordpress_api/wordpress_api';
     }
   }
 ```
-  
-
-## To Do
-
-- Add authentication function
-- Add postAsync function
 
 Contributions are welcome, report any issues [here](https://github.com/dhmgroup/dart-wp/issues)
+
+## Special Thanks
+
+- [WordPress REST API Handbook](https://developer.wordpress.org/rest-api/reference/)

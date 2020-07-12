@@ -1,9 +1,9 @@
 import 'package:wordpress_api/wordpress_api.dart';
 
 void main() async {
-  final wp = WordPressAPI('260blog.com');
-  final posts = (await wp.getAsync('posts'))['data'];
+  final wp = WordPressAPI('mwebantu.com');
+  final posts = (await wp.search("lungu")).data;
   for (final post in posts) {
-    print(post['title']['rendered']);
+    print(post);
   }
 }

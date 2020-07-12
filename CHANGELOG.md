@@ -1,3 +1,17 @@
+# Changelog
+
+## [0.2.0]
+
+### Breaking Changes
+
+- Renamed `Base*Model` to `*Schema`, e.g `BaseCategoryModel` is now `CategorySchema`
+
+### What's New
+
+- Added search, taxonomy, settings, and page endpoints.
+- `WPReponse` class was added to handle all responses.
+- Additional WordPress schemas that can be extended.
+
 ## [0.1.4]
 
 - Add models for Category, Comment, Media, Post, Tag and User.
