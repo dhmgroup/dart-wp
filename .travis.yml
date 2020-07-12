@@ -10,8 +10,6 @@ dart:
 dart_task:
   - dartfmt: true
 
-install: pub get
-
 cache:
   directories:
     - $HOME/.pub-cache
