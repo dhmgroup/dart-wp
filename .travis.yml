@@ -1,6 +1,9 @@
 os:
   - linux
-sudo: false
+
+dist: focal
+
+language: dart
 
 addons:
   apt:
@@ -8,7 +11,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - libstdc++6
-      - fonts-droid
 
 cache:
   directories:
@@ -17,9 +19,9 @@ cache:
 env:
   - FLUTTER_VERSION=dev
 
-matrix:
-  allow_failures:
-    - env: FLUTTER_VERSION=dev
+branches:
+  only:
+    - master
 
 before_script:
   - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
