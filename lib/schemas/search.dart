@@ -33,7 +33,8 @@ class SearchSchema {
   });
 
   /// Generate SearchSchema Model from JSON
-  factory SearchSchema.fromJson(Map<String, dynamic> data) => _$SearchSchemaFromJson(data);
+  factory SearchSchema.fromJson(Map<String, dynamic> data) =>
+      _$SearchSchemaFromJson(data);
 
   /// Convert SearchSchema Model to JSON
   Map<String, dynamic> toJson() => _$SearchSchemaToJson(this);

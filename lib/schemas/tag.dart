@@ -44,7 +44,8 @@ class TagSchema {
   });
 
   /// Generate Tag Model from JSON
-  factory TagSchema.fromJson(Map<String, dynamic> data) => _$TagSchemaFromJson(data);
+  factory TagSchema.fromJson(Map<String, dynamic> data) =>
+      _$TagSchemaFromJson(data);
 
   /// Convert Tag Model to JSON
   Map<String, dynamic> toJson() => _$TagSchemaToJson(this);

@@ -87,7 +87,8 @@ class UserSchema {
   });
 
   /// Generate User Model from JSON
-  factory UserSchema.fromJson(Map<String, dynamic> data) => _$UserSchemaFromJson(data);
+  factory UserSchema.fromJson(Map<String, dynamic> data) =>
+      _$UserSchemaFromJson(data);
 
   /// Convert User Model to JSON
   Map<String, dynamic> toJson() => _$UserSchemaToJson(this);
