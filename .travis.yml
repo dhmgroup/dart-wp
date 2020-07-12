@@ -7,9 +7,8 @@ language: dart
 dart:
   - dev
 
-dart_tasks:
-  - dartanalyzer: --fatal-warnings lib
-  - dartfmt
+dart_task:
+  - dartfmt: true
 
 install: pub get
 
