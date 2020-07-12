@@ -1,32 +1,25 @@
-os:
-  - linux
+os: linux
 
 dist: focal
 
 language: dart
 
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - libstdc++6
+dart:
+  - dev
+
+dart_tasks:
+  - dartanalyzer: --fatal-warnings lib
+  - dartfmt
+
+install: pub get
 
 cache:
   directories:
     - $HOME/.pub-cache
 
-env:
-  - FLUTTER_VERSION=dev
-
 branches:
   only:
     - master
 
-before_script:
-  - git clone https://github.com/flutter/flutter.git -b $FLUTTER_VERSION
-  - $TRAVIS_BUILD_DIR/flutter/bin/flutter doctor
-script:
-  - sudo ./tools/travis.sh
 after_success:
   - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
