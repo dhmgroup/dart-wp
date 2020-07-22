@@ -8,8 +8,10 @@ part 'embedded.g.dart';
 class EmbeddedSchema {
   /// Embedded author
   final List<UserSchema> author;
+
   /// Embedded Comments/Replies
   final List<List<CommentSchema>> replies;
+
   /// Embedded Featured Media
   @JsonKey(name: "wp:featuredmedia")
   final List<MediaSchema> media;

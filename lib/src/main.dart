@@ -256,9 +256,10 @@ class WordPressAPI {
 
   //***************** GET CATEGORIES *******************/
   /// Retrieve WordPress Categories
-  Future<List<CategorySchema>> getCategories({Map<String, dynamic> args}) async {
+  Future<List<CategorySchema>> getCategories(
+      {Map<String, dynamic> args}) async {
     final res = await getAsyc(endpoint: 'categories', args: args);
-     return (res.data as List)
+    return (res.data as List)
         .cast<Map<String, dynamic>>()
         .map((e) => CategorySchema.fromJson(e))
         .toList();
@@ -268,7 +269,7 @@ class WordPressAPI {
   /// Retrieve WordPress Commments
   Future<List<CommentSchema>> getComments({Map<String, dynamic> args}) async {
     final res = await getAsyc(endpoint: 'comments', args: args);
-     return (res.data as List)
+    return (res.data as List)
         .cast<Map<String, dynamic>>()
         .map((e) => CommentSchema.fromJson(e))
         .toList();
@@ -300,7 +301,7 @@ class WordPressAPI {
   /// Retrieve WordPress Tags
   Future<List<TagSchema>> getTags({Map<String, dynamic> args}) async {
     final res = await getAsyc(endpoint: 'tags', args: args);
-     return (res.data as List)
+    return (res.data as List)
         .cast<Map<String, dynamic>>()
         .map((e) => TagSchema.fromJson(e))
         .toList();
@@ -308,9 +309,10 @@ class WordPressAPI {
 
   // ************************* TAXONOMIES ************************** /
   /// Retrieve WordPress Taxonomies
-  Future<List<TaxonomySchema>> getTaxonomies({Map<String, dynamic> args}) async {
+  Future<List<TaxonomySchema>> getTaxonomies(
+      {Map<String, dynamic> args}) async {
     final res = await getAsyc(endpoint: 'taxonomies', args: args);
-     return (res.data as List)
+    return (res.data as List)
         .cast<Map<String, dynamic>>()
         .map((e) => TaxonomySchema.fromJson(e))
         .toList();
@@ -320,7 +322,7 @@ class WordPressAPI {
   /// Retrieve WordPress Users
   Future<List<UserSchema>> getUsers({Map<String, dynamic> args}) async {
     final res = await getAsyc(endpoint: 'users', args: args);
-     return (res.data as List)
+    return (res.data as List)
         .cast<Map<String, dynamic>>()
         .map((e) => UserSchema.fromJson(e))
         .toList();
