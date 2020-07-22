@@ -4,9 +4,6 @@ dist: focal
 
 language: dart
 
-dart:
-  - dev
-
 cache:
   directories:
     - $HOME/.pub-cache
@@ -16,4 +13,4 @@ branches:
     - master
 
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+  - codecov

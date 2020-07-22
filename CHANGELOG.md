@@ -8,7 +8,7 @@
 
 ### What's New
 
-- Added search, taxonomy, settings, and page endpoints.
+- Added Search, Taxonomy, Settings, and Pages endpoints.
 - `WPReponse` class was added to handle all responses.
 - Additional WordPress schemas that can be extended.
 

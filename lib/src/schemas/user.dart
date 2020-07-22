@@ -62,7 +62,7 @@ class UserSchema {
   final Map<String, dynamic> avatarUrls;
 
   ///Meta fields.
-  final Map<String, dynamic> meta;
+  final List meta;
 
   UserSchema({
     this.id,

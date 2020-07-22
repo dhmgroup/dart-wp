@@ -1,5 +1,5 @@
 name: wordpress_api
-description: A WordPress API client for dart with support for WooCommerce and custom namespaces.
+description: A WordPress REST API client for dart with support for WooCommerce and custom namespaces.
 version: 0.2.0
 homepage: https://github.com/dhmgroup/dart-wp
 
@@ -7,11 +7,12 @@ environment:
     sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
-    dio: ^3.0.9
-    json_annotation: ^3.0.1
-    logger: ^0.9.1
-    meta: ^1.1.8
+    dio: "<=3.0.9<4.0.0"
+    json_annotation: "<=3.0.1<4.0.0"
+    logger: "<=0.9.1<1.0.0"
+    meta: "<=1.1.8<2.0.0"
 
 dev_dependencies:
     build_runner: ^1.10.0
     json_serializable: ^3.3.0
+    lint: ^1.2.0

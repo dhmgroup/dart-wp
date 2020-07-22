@@ -29,8 +29,7 @@ class TagSchema {
   final String taxonomy;
 
   ///Meta fields.
-
-  final Map<String, dynamic> meta;
+  final List meta;
 
   TagSchema({
     this.id,
@@ -43,10 +42,8 @@ class TagSchema {
     this.meta,
   });
 
-  /// Generate Tag Model from JSON
-  factory TagSchema.fromJson(Map<String, dynamic> data) =>
-      _$TagSchemaFromJson(data);
+  factory TagSchema.fromJson(Map<String, dynamic> json) =>
+      _$TagSchemaFromJson(json);
 
-  /// Convert Tag Model to JSON
   Map<String, dynamic> toJson() => _$TagSchemaToJson(this);
 }

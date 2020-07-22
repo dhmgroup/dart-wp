@@ -15,7 +15,7 @@ TagSchema _$TagSchemaFromJson(Map<String, dynamic> json) {
     name: json['name'] as String,
     slug: json['slug'] as String,
     taxonomy: json['taxonomy'] as String,
-    meta: json['meta'] as Map<String, dynamic>,
+    meta: json['meta'] as List,
   );
 }
 

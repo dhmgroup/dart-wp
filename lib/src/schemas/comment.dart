@@ -54,7 +54,7 @@ class CommentSchema {
   final Map<String, dynamic> authorAvatarUrls;
 
   ///Meta fields.
-  final Map<String, dynamic> meta;
+  final List meta;
 
   CommentSchema({
     this.id,

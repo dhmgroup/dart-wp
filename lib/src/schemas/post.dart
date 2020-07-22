@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:wordpress_api/src/schemas/embedded.dart';
 
 part 'post.g.dart';
 
@@ -91,6 +92,10 @@ class PostSchema {
   ///The terms assigned to the object in the post_tag taxonomy.
   final List tags;
 
+  /// Embedded
+  @JsonKey(name: '_embedded')
+  final EmbeddedSchema embedded;
+
   PostSchema({
     this.date,
     this.dateGmt,
@@ -118,6 +123,7 @@ class PostSchema {
     this.template,
     this.categories,
     this.tags,
+    this.embedded,
   });
 
   /// Generate PostSchema Model from JSON

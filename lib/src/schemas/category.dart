@@ -32,7 +32,7 @@ class CategorySchema {
   final int parent;
 
   ///Meta fields.
-  final Map<String, dynamic> meta;
+  final List meta;
 
   CategorySchema({
     this.id,

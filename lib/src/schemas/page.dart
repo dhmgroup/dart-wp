@@ -1,15 +1,15 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'media.g.dart';
+part 'page.g.dart';
 
-/// WordPress Media Endpoint Model /wp/v2/media
+/// WordPress Page Endpoint Model /wp/v2/pages
 @JsonSerializable()
-class MediaSchema {
+class PageSchema {
   ///The date the object was published, in the site's timezone.
-  final String date;
+  final List date;
 
   ///The date the object was published, as GMT.
-  final String dateGmt;
+  final List dateGmt;
 
   ///The globally unique identifier for the object.
   final Map<String, dynamic> guid;
@@ -24,7 +24,7 @@ class MediaSchema {
   final String modified;
 
   ///The date the object was last modified, as GMT.
-  final String modifiedGmt;
+  final String modifitedGmt;
 
   ///An alphanumeric identifier for the object unique to its type.
   final String slug;
@@ -37,17 +37,32 @@ class MediaSchema {
   ///Type of Post for the object.
   final String type;
 
+  ///A password to protect access to the content and excerpt.
+  final String password;
+
   ///Permalink template for the object.
   final String permalinkTemplate;
 
   ///Slug automatically generated from the object title.
   final String generatedSlug;
 
+  ///The ID for the parent of the object.
+  final int parent;
+
   ///The title for the object.
   final Map<String, dynamic> title;
 
+  ///The content for the object.
+  final Map<String, dynamic> content;
+
   ///The ID for the author of the object.
   final int author;
+
+  ///The excerpt for the object.
+  final Map<String, dynamic> excerpt;
+
+  ///The ID of the featured media for the object.
+  final int featuredMedia;
 
   ///Whether or not comments are open on the object.
   ///
@@ -59,75 +74,46 @@ class MediaSchema {
   /// One of: "open", "closed"
   final String pingStatus;
 
+  ///The order of the object in relation to other object of its type.
+  final int menuOrder;
+
   ///Meta fields.
-  final Map<String, dynamic> meta;
+  final List meta;
 
   ///The theme file to use to display the object.
   final String template;
 
-  ///Alternative text to display when attachment is not displayed.
-  final String altText;
-
-  ///The attachment caption.
-  final Map<String, dynamic> caption;
-
-  ///The attachment description.
-  final Map<String, dynamic> description;
-
-  ///Attachment type.
-  ///
-  /// One of: "image", "file"
-  final String mediaType;
-
-  ///The attachment MIME type.
-  final String mimeType;
-
-  ///Details about the media file, specific to its type.
-  final Map<String, dynamic> mediaDetails;
-
-  ///The ID for the associated post of the attachment.
-  final int post;
-
-  ///URL to the original attachment file.
-  final String sourceUrl;
-
-  ///List of the missing image sizes of the attachment.
-  final List missingImageSizes;
-
-  MediaSchema({
-    this.permalinkTemplate,
-    this.generatedSlug,
-    this.missingImageSizes,
-    this.id,
+  PageSchema({
     this.date,
     this.dateGmt,
     this.guid,
+    this.id,
+    this.link,
     this.modified,
-    this.modifiedGmt,
+    this.modifitedGmt,
     this.slug,
     this.status,
     this.type,
-    this.link,
+    this.password,
+    this.permalinkTemplate,
+    this.generatedSlug,
+    this.parent,
     this.title,
+    this.content,
     this.author,
+    this.excerpt,
+    this.featuredMedia,
     this.commentStatus,
     this.pingStatus,
-    this.template,
+    this.menuOrder,
     this.meta,
-    this.description,
-    this.caption,
-    this.altText,
-    this.mediaType,
-    this.mimeType,
-    this.mediaDetails,
-    this.post,
-    this.sourceUrl,
+    this.template,
   });
 
-  /// Generate MediaSchema Model from JSON
-  factory MediaSchema.fromJson(Map<String, dynamic> data) =>
-      _$MediaSchemaFromJson(data);
+  /// Generate PageSchema Model from JSON
+  factory PageSchema.fromJson(Map<String, dynamic> data) =>
+      _$PageSchemaFromJson(data);
 
-  /// Convert MediaSchema Model to JSON
-  Map<String, dynamic> toJson() => _$MediaSchemaToJson(this);
+  /// Convert PageSchema Model to JSON
+  Map<String, dynamic> toJson() => _$PageSchemaToJson(this);
 }

@@ -16,7 +16,7 @@ CategorySchema _$CategorySchemaFromJson(Map<String, dynamic> json) {
     slug: json['slug'] as String,
     taxonomy: json['taxonomy'] as String,
     parent: json['parent'] as int,
-    meta: json['meta'] as Map<String, dynamic>,
+    meta: json['meta'] as List,
   );
 }
 

@@ -30,7 +30,7 @@ PageSchema _$PageSchemaFromJson(Map<String, dynamic> json) {
     commentStatus: json['comment_status'] as String,
     pingStatus: json['ping_status'] as String,
     menuOrder: json['menu_order'] as int,
-    meta: json['meta'] as Map<String, dynamic>,
+    meta: json['meta'] as List,
     template: json['template'] as String,
   );
 }
