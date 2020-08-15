@@ -29,7 +29,8 @@ PostSchema _$PostSchemaFromJson(Map<String, dynamic> json) {
     commentStatus: json['comment_status'] as String,
     pingStatus: json['ping_status'] as String,
     format: json['format'] as String,
-    meta: json['meta'] as Map<String, dynamic>,
+    meta:
+        json['meta'].length == 0 ? null : json['meta'] as Map<String, dynamic>,
     sticky: json['sticky'] as bool,
     template: json['template'] as String,
     categories: json['categories'] as List,
