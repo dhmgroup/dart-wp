@@ -6,30 +6,29 @@ part of 'media.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-MediaSchema _$MediaSchemaFromJson(Map<String, dynamic> json) {
-  return MediaSchema(
-    permalinkTemplate: json['permalink_template'] as String,
-    generatedSlug: json['generated_slug'] as String,
-    missingImageSizes: json['missing_image_sizes'] as List,
-    id: json['id'] as int,
+_$_MediaSchema _$_$_MediaSchemaFromJson(Map<String, dynamic> json) {
+  return _$_MediaSchema(
     date: json['date'] as String,
     dateGmt: json['date_gmt'] as String,
     guid: json['guid'] as Map<String, dynamic>,
+    id: json['id'] as int,
+    link: json['link'] as String,
     modified: json['modified'] as String,
     modifiedGmt: json['modified_gmt'] as String,
     slug: json['slug'] as String,
     status: json['status'] as String,
     type: json['type'] as String,
-    link: json['link'] as String,
+    permalinkTemplate: json['permalink_template'] as String,
+    generatedSlug: json['generated_slug'] as String,
     title: json['title'] as Map<String, dynamic>,
     author: json['author'] as int,
     commentStatus: json['comment_status'] as String,
     pingStatus: json['ping_status'] as String,
-    template: json['template'] as String,
     meta: json['meta'] as List,
-    description: json['description'] as Map<String, dynamic>,
-    caption: json['caption'] as Map<String, dynamic>,
+    template: json['template'] as String,
     altText: json['alt_text'] as String,
+    caption: json['caption'] as Map<String, dynamic>,
+    description: json['description'] as Map<String, dynamic>,
     mediaType: json['media_type'] as String,
     mimeType: json['mime_type'] as String,
     mediaDetails: json['media_details'] == null
@@ -38,10 +37,11 @@ MediaSchema _$MediaSchemaFromJson(Map<String, dynamic> json) {
             json['media_details'] as Map<String, dynamic>),
     post: json['post'] as int,
     sourceUrl: json['source_url'] as String,
+    missingImageSizes: json['missing_image_sizes'] as List,
   );
 }
 
-Map<String, dynamic> _$MediaSchemaToJson(MediaSchema instance) =>
+Map<String, dynamic> _$_$_MediaSchemaToJson(_$_MediaSchema instance) =>
     <String, dynamic>{
       'date': instance.date,
       'date_gmt': instance.dateGmt,

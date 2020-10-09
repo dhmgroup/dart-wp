@@ -6,8 +6,8 @@ part of 'settings.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SettingsSchema _$SettingsSchemaFromJson(Map<String, dynamic> json) {
-  return SettingsSchema(
+_$_SettingsSchema _$_$_SettingsSchemaFromJson(Map<String, dynamic> json) {
+  return _$_SettingsSchema(
     title: json['title'] as String,
     description: json['description'] as String,
     url: json['url'] as String,
@@ -26,7 +26,7 @@ SettingsSchema _$SettingsSchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SettingsSchemaToJson(SettingsSchema instance) =>
+Map<String, dynamic> _$_$_SettingsSchemaToJson(_$_SettingsSchema instance) =>
     <String, dynamic>{
       'title': instance.title,
       'description': instance.description,

@@ -1,49 +1,38 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'tag.freezed.dart';
 part 'tag.g.dart';
 
-/// WordPress Tag Endpoint Model /wp/v2/tags
-@JsonSerializable()
-class TagSchema {
-  ///Unique identifier for the term.
-  final int id;
+@freezed
+abstract class TagSchema with _$TagSchema {
+  factory TagSchema({
+    ///Unique identifier for the term.
+    int id,
 
-  ///Number of published posts for the term.
-  final int count;
+    ///Number of published posts for the term.
+    int count,
 
-  ///HTML description of the term.
-  final String description;
+    ///HTML description of the term.
+    String description,
 
-  ///URL of the term.
-  final String link;
+    ///URL of the term.
+    String link,
 
-  ///HTML title for the term.
-  final String name;
+    ///HTML title for the term.
+    String name,
 
-  ///An alphanumeric identifier for the term unique to its type.
-  final String slug;
+    ///An alphanumeric identifier for the term unique to its type.
+    String slug,
 
-  ///Type attribution for the term.
-  ///
-  /// One of: "category", "post_tag", "nav_menu", "linkCategory", "postFormat"
-  final String taxonomy;
+    ///Type attribution for the term.
+    ///
+    /// One of: "category", "post_tag", "nav_menu", "linkCategory", "postFormat"
+    String taxonomy,
 
-  ///Meta fields.
-  final List meta;
-
-  TagSchema({
-    this.id,
-    this.count,
-    this.description,
-    this.link,
-    this.name,
-    this.slug,
-    this.taxonomy,
-    this.meta,
-  });
+    ///Meta fields.
+    List meta,
+  }) = _TagSchema;
 
   factory TagSchema.fromJson(Map<String, dynamic> json) =>
       _$TagSchemaFromJson(json);
-
-  Map<String, dynamic> toJson() => _$TagSchemaToJson(this);
 }

@@ -1,55 +1,42 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'category.freezed.dart';
 part 'category.g.dart';
 
 /// Wordpress Categories Endpoint /wp/v2/categories
-@JsonSerializable()
-class CategorySchema {
-  ///Unique identifier for the term.
-  final int id;
+@freezed
+abstract class CategorySchema with _$CategorySchema {
+  factory CategorySchema({
+    ///Unique identifier for the term.
+    int id,
 
-  ///Number of published posts for the term.
-  final int count;
+    ///Number of published posts for the term.
+    int count,
 
-  ///HTML description of the term.
-  final String description;
+    ///HTML description of the term.
+    String description,
 
-  ///URL of the term.
-  final String link;
+    ///URL of the term.
+    String link,
 
-  ///HTML title for the term.
-  final String name;
+    ///HTML title for the term.
+    String name,
 
-  ///An alphanumeric identifier for the term unique to its type.
-  final String slug;
+    ///An alphanumeric identifier for the term unique to its type.
+    String slug,
 
-  ///Type attribution for the term.
-  ///
-  ///One of: "category", "post_tag", "nav_menu", "linkCategory", "postFormat"
-  final String taxonomy;
+    ///Type attribution for the term.
+    ///
+    ///One of: "category", "post_tag", "nav_menu", "linkCategory", "postFormat"
+    String taxonomy,
 
-  ///The parent term ID.
-  final int parent;
+    ///The parent term ID.
+    int parent,
 
-  ///Meta fields.
-  final List meta;
+    ///Meta fields.
+    List meta,
+  }) = _CategorySchema;
 
-  CategorySchema({
-    this.id,
-    this.count,
-    this.description,
-    this.link,
-    this.name,
-    this.slug,
-    this.taxonomy,
-    this.parent,
-    this.meta,
-  });
-
-  /// Generate CategorySchema Model from JSON
-  factory CategorySchema.fromJson(Map<String, dynamic> data) =>
-      _$CategorySchemaFromJson(data);
-
-  /// Convert CategorySchema Model to JSON
-  Map<String, dynamic> toJson() => _$CategorySchemaToJson(this);
+  factory CategorySchema.fromJson(Map<String, dynamic> json) =>
+      _$CategorySchemaFromJson(json);
 }

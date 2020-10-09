@@ -1,57 +1,42 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'taxonomy.freezed.dart';
 part 'taxonomy.g.dart';
 
-/// WordPress Taxonomies Endpoint Model /wp/v2/taxonomies
-@JsonSerializable()
-class TaxonomySchema {
-  ///All capabilities used by the taxonomy.
-  final Map<String, dynamic> capabilities;
+@freezed
+abstract class TaxonomySchema with _$TaxonomySchema {
+  factory TaxonomySchema({
+    ///All capabilities used by the taxonomy.
+    Map<String, dynamic> capabilities,
 
-  ///A human-readable description of the taxonomy.
-  final String description;
+    ///A human-readable description of the taxonomy.
+    String description,
 
-  ///Whether or not the taxonomy should have children.
-  final bool hierarchical;
+    ///Whether or not the taxonomy should have children.
+    bool hierarchical,
 
-  ///Human-readable labels for the taxonomy for various contexts.
-  final Map<String, dynamic> labels;
+    ///Human-readable labels for the taxonomy for various contexts.
+    Map<String, dynamic> labels,
 
-  ///The title for the taxonomy.
-  final String name;
+    ///The title for the taxonomy.
+    String name,
 
-  ///An alphanumeric identifier for the taxonomy.
-  final String slug;
+    ///An alphanumeric identifier for the taxonomy.
+    String slug,
 
-  ///Whether or not the term cloud should be displayed.
-  final bool showCloud;
+    ///Whether or not the term cloud should be displayed.
+    bool showCloud,
 
-  ///Types associated with the taxonomy.
-  final List types;
+    ///Types associated with the taxonomy.
+    List types,
 
-  ///REST base route for the taxonomy.
-  final String restBase;
+    ///REST base route for the taxonomy.
+    String restBase,
 
-  ///The visibility settings for the taxonomy.
-  final Map<String, dynamic> visibility;
+    ///The visibility settings for the taxonomy.
+    Map<String, dynamic> visibility,
+  }) = _TaxonomySchema;
 
-  TaxonomySchema({
-    this.capabilities,
-    this.description,
-    this.hierarchical,
-    this.labels,
-    this.name,
-    this.slug,
-    this.showCloud,
-    this.types,
-    this.restBase,
-    this.visibility,
-  });
-
-  /// Generate Taxonomy from JSON
-  factory TaxonomySchema.fromJson(Map<String, dynamic> data) =>
-      _$TaxonomySchemaFromJson(data);
-
-  /// Convert Taxonomy to JSON
-  Map<String, dynamic> toJson() => _$TaxonomySchemaToJson(this);
+  factory TaxonomySchema.fromJson(Map<String, dynamic> json) =>
+      _$TaxonomySchemaFromJson(json);
 }

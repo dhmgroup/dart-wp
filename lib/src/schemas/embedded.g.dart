@@ -6,15 +6,11 @@ part of 'embedded.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-EmbeddedSchema _$EmbeddedSchemaFromJson(Map<String, dynamic> json) {
-  return EmbeddedSchema(
+_$_EmbeddedSchema _$_$_EmbeddedSchemaFromJson(Map<String, dynamic> json) {
+  return _$_EmbeddedSchema(
     author: (json['author'] as List)
         ?.map((e) =>
             e == null ? null : UserSchema.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    media: (json['wp:featuredmedia'] as List)
-        ?.map((e) =>
-            e == null ? null : MediaSchema.fromJson(e as Map<String, dynamic>))
         ?.toList(),
     replies: (json['replies'] as List)
         ?.map((e) => (e as List)
@@ -23,11 +19,15 @@ EmbeddedSchema _$EmbeddedSchemaFromJson(Map<String, dynamic> json) {
                 : CommentSchema.fromJson(e as Map<String, dynamic>))
             ?.toList())
         ?.toList(),
+    media: (json['wp:featuredmedia'] as List)
+        ?.map((e) =>
+            e == null ? null : MediaSchema.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
     terms: (json['wp:terms'] as List)?.map((e) => e as List)?.toList(),
   );
 }
 
-Map<String, dynamic> _$EmbeddedSchemaToJson(EmbeddedSchema instance) =>
+Map<String, dynamic> _$_$_EmbeddedSchemaToJson(_$_EmbeddedSchema instance) =>
     <String, dynamic>{
       'author': instance.author,
       'replies': instance.replies,

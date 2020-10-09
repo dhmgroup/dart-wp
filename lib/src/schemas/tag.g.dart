@@ -6,8 +6,8 @@ part of 'tag.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TagSchema _$TagSchemaFromJson(Map<String, dynamic> json) {
-  return TagSchema(
+_$_TagSchema _$_$_TagSchemaFromJson(Map<String, dynamic> json) {
+  return _$_TagSchema(
     id: json['id'] as int,
     count: json['count'] as int,
     description: json['description'] as String,
@@ -19,7 +19,8 @@ TagSchema _$TagSchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TagSchemaToJson(TagSchema instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_TagSchemaToJson(_$_TagSchema instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'count': instance.count,
       'description': instance.description,

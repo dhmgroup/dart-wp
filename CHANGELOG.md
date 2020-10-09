@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.1]
+
+- Fixed meta data return type in [issue #8](https://github.com/dhmgroup/dart-wp/issues/8)
+- Updated package dependencies
+
 ## [0.2.0]
 
 ### Breaking Changes

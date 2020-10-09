@@ -1,139 +1,103 @@
-import 'package:json_annotation/json_annotation.dart';
-import 'package:wordpress_api/src/schemas/media_details.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'media_details.dart';
+
+part 'media.freezed.dart';
 part 'media.g.dart';
 
-/// WordPress Media Endpoint Model /wp/v2/media
-@JsonSerializable()
-class MediaSchema {
-  ///The date the object was published, in the site's timezone.
-  final String date;
+@freezed
+abstract class MediaSchema with _$MediaSchema {
+  factory MediaSchema({
+    ///The date the object was published, in the site's timezone.
+    String date,
 
-  ///The date the object was published, as GMT.
-  final String dateGmt;
+    ///The date the object was published, as GMT.
+    String dateGmt,
 
-  ///The globally unique identifier for the object.
-  final Map<String, dynamic> guid;
+    ///The globally unique identifier for the object.
+    Map<String, dynamic> guid,
 
-  ///Unique identifier for the object.
-  final int id;
+    ///Unique identifier for the object.
+    int id,
 
-  ///URL to the object.
-  final String link;
+    ///URL to the object.
+    String link,
 
-  ///The date the object was last modified, in the site's timezone.
-  final String modified;
+    ///The date the object was last modified, in the site's timezone.
+    String modified,
 
-  ///The date the object was last modified, as GMT.
-  final String modifiedGmt;
+    ///The date the object was last modified, as GMT.
+    String modifiedGmt,
 
-  ///An alphanumeric identifier for the object unique to its type.
-  final String slug;
+    ///An alphanumeric identifier for the object unique to its type.
+    String slug,
 
-  ///A named status for the object.
-  ///
-  /// One of: "publish", "future", "draft", "pending", "private"
-  final String status;
+    ///A named status for the object.
+    ///
+    /// One of: "publish", "future", "draft", "pending", "private"
+    String status,
 
-  ///Type of Post for the object.
-  final String type;
+    ///Type of Post for the object.
+    String type,
 
-  ///Permalink template for the object.
-  final String permalinkTemplate;
+    ///Permalink template for the object.
+    String permalinkTemplate,
 
-  ///Slug automatically generated from the object title.
-  final String generatedSlug;
+    ///Slug automatically generated from the object title.
+    String generatedSlug,
 
-  ///The title for the object.
-  final Map<String, dynamic> title;
+    ///The title for the object.
+    Map<String, dynamic> title,
 
-  ///The ID for the author of the object.
-  final int author;
+    ///The ID for the author of the object.
+    int author,
 
-  ///Whether or not comments are open on the object.
-  ///
-  /// One of: "open", "closed"
-  final String commentStatus;
+    ///Whether or not comments are open on the object.
+    ///
+    /// One of: "open", "closed"
+    String commentStatus,
 
-  ///Whether or not the object can be pinged.
-  ///
-  /// One of: "open", "closed"
-  final String pingStatus;
+    ///Whether or not the object can be pinged.
+    ///
+    /// One of: "open", "closed"
+    String pingStatus,
 
-  ///Meta fields.
-  final List meta;
+    ///Meta fields.
+    List meta,
 
-  ///The theme file to use to display the object.
-  final String template;
+    ///The theme file to use to display the object.
+    String template,
 
-  ///Alternative text to display when attachment is not displayed.
-  final String altText;
+    ///Alternative text to display when attachment is not displayed.
+    String altText,
 
-  ///The attachment caption.
-  final Map<String, dynamic> caption;
+    ///The attachment caption.
+    Map<String, dynamic> caption,
 
-  ///The attachment description.
-  final Map<String, dynamic> description;
+    ///The attachment description.
+    Map<String, dynamic> description,
 
-  ///Attachment type.
-  ///
-  /// One of: "image", "file"
-  final String mediaType;
+    ///Attachment type.
+    ///
+    /// One of: "image", "file"
+    String mediaType,
 
-  ///The attachment MIME type.
-  final String mimeType;
+    ///The attachment MIME type.
+    String mimeType,
 
-  ///Details about the media file, specific to its type.
-  final MediaDetailsSchema mediaDetails;
+    ///Details about the media file, specific to its type.
+    MediaDetailsSchema mediaDetails,
 
-  ///The ID for the associated post of the attachment.
-  final int post;
+    ///The ID for the associated post of the attachment.
+    int post,
 
-  ///URL to the original attachment file.
-  final String sourceUrl;
+    ///URL to the original attachment file.
+    String sourceUrl,
 
-  ///List of the missing image sizes of the attachment.
-  final List missingImageSizes;
+    ///List of the missing image sizes of the attachment.
+    List missingImageSizes,
+  }) = _MediaSchema;
 
-  MediaSchema({
-    this.permalinkTemplate,
-    this.generatedSlug,
-    this.missingImageSizes,
-    this.id,
-    this.date,
-    this.dateGmt,
-    this.guid,
-    this.modified,
-    this.modifiedGmt,
-    this.slug,
-    this.status,
-    this.type,
-    this.link,
-    this.title,
-    this.author,
-    this.commentStatus,
-    this.pingStatus,
-    this.template,
-    this.meta,
-    this.description,
-    this.caption,
-    this.altText,
-    this.mediaType,
-    this.mimeType,
-    this.mediaDetails,
-    this.post,
-    this.sourceUrl,
-  });
-
-  @override
-  String toString() {
-    return sourceUrl;
-  }
-
-  /// Generate MediaSchema Model from JSON
-  factory MediaSchema.fromJson(Map<String, dynamic> data) =>
-      _$MediaSchemaFromJson(data);
-
-  /// Convert MediaSchema Model to JSON
-  Map<String, dynamic> toJson() => _$MediaSchemaToJson(this);
+  factory MediaSchema.fromJson(Map<String, dynamic> json) =>
+      _$MediaSchemaFromJson(json);
 }

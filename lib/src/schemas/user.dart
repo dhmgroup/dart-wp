@@ -1,95 +1,71 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'user.freezed.dart';
 part 'user.g.dart';
 
-///  WordPress User Endpoint Model /wp/v2/users
-@JsonSerializable()
-class UserSchema {
-  ///Unique identifier for the user.
-  final int id;
+@freezed
+abstract class UserSchema with _$UserSchema {
+  factory UserSchema({
+    ///Unique identifier for the user.
+    int id,
 
-  ///Login name for the user.
-  final String username;
+    ///Login name for the user.
+    String username,
 
-  /// Display name for the user.
-  final String name;
+    /// Display name for the user.
+    String name,
 
-  ///First name for the user.
-  final String firstName;
+    ///First name for the user.
+    String firstName,
 
-  ///Last name for the user.
-  final String lastName;
+    ///Last name for the user.
+    String lastName,
 
-  ///The email address for the user.
-  final String email;
+    ///The email address for the user.
+    String email,
 
-  ///URL of the user.
-  final String url;
+    ///URL of the user.
+    String url,
 
-  ///Description of the user.
-  final String description;
+    ///Description of the user.
+    String description,
 
-  ///Author URL of the user.
-  final String link;
+    ///Author URL of the user.
+    String link,
 
-  ///Locale for the user.
-  ///
-  ///One of: , enUS
-  final String locale;
+    ///Locale for the user.
+    ///
+    ///One of: , enUS
+    String locale,
 
-  ///The nickname for the user.
-  final String nickname;
+    ///The nickname for the user.
+    String nickname,
 
-  ///An alphanumeric identifier for the user.
-  final String slug;
+    ///An alphanumeric identifier for the user.
+    String slug,
 
-  ///Registration date for the user.
-  final String registeredDate;
+    ///Registration date for the user.
+    String registeredDate,
 
-  ///Roles assigned to the user.
-  final List roles;
+    ///Roles assigned to the user.
+    List roles,
 
-  ///Password for the user (never included).
-  final String password;
+    ///Password for the user (never included).
+    String password,
 
-  ///All capabilities assigned to the user.
-  final Map<String, dynamic> capabilities;
+    ///All capabilities assigned to the user.
+    Map<String, dynamic> capabilities,
 
-  ///Any extra capabilities assigned to the user.
-  final Map<String, dynamic> extraCapabilities;
+    ///Any extra capabilities assigned to the user.
+    Map<String, dynamic> extraCapabilities,
 
-  ///Avatar URLs for the user.
-  final Map<String, dynamic> avatarUrls;
+    ///Avatar URLs for the user.
+    Map<String, dynamic> avatarUrls,
 
-  ///Meta fields.
-  final List meta;
+    ///Meta fields.
+    List meta,
+  }) = _UserSchema;
 
-  UserSchema({
-    this.id,
-    this.username,
-    this.name,
-    this.firstName,
-    this.lastName,
-    this.email,
-    this.url,
-    this.description,
-    this.link,
-    this.locale,
-    this.nickname,
-    this.slug,
-    this.registeredDate,
-    this.roles,
-    this.password,
-    this.capabilities,
-    this.extraCapabilities,
-    this.avatarUrls,
-    this.meta,
-  });
-
-  /// Generate User Model from JSON
-  factory UserSchema.fromJson(Map<String, dynamic> data) =>
-      _$UserSchemaFromJson(data);
-
-  /// Convert User Model to JSON
-  Map<String, dynamic> toJson() => _$UserSchemaToJson(this);
+  factory UserSchema.fromJson(Map<String, dynamic> json) =>
+      _$UserSchemaFromJson(json);
 }

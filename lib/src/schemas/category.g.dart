@@ -6,8 +6,8 @@ part of 'category.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CategorySchema _$CategorySchemaFromJson(Map<String, dynamic> json) {
-  return CategorySchema(
+_$_CategorySchema _$_$_CategorySchemaFromJson(Map<String, dynamic> json) {
+  return _$_CategorySchema(
     id: json['id'] as int,
     count: json['count'] as int,
     description: json['description'] as String,
@@ -20,7 +20,7 @@ CategorySchema _$CategorySchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CategorySchemaToJson(CategorySchema instance) =>
+Map<String, dynamic> _$_$_CategorySchemaToJson(_$_CategorySchema instance) =>
     <String, dynamic>{
       'id': instance.id,
       'count': instance.count,
