@@ -6,8 +6,8 @@ part of 'user.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserSchema _$UserSchemaFromJson(Map<String, dynamic> json) {
-  return UserSchema(
+_$_UserSchema _$_$_UserSchemaFromJson(Map<String, dynamic> json) {
+  return _$_UserSchema(
     id: json['id'] as int,
     username: json['username'] as String,
     name: json['name'] as String,
@@ -30,7 +30,7 @@ UserSchema _$UserSchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$UserSchemaToJson(UserSchema instance) =>
+Map<String, dynamic> _$_$_UserSchemaToJson(_$_UserSchema instance) =>
     <String, dynamic>{
       'id': instance.id,
       'username': instance.username,

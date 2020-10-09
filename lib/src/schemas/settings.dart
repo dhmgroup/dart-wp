@@ -1,81 +1,61 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
+part 'settings.freezed.dart';
 part 'settings.g.dart';
 
-/// WordPress Site Settings Endpoint Model /wp/v2/settings
-@JsonSerializable()
-class SettingsSchema {
-  ///Site title.
-  final String title;
+@freezed
+abstract class SettingsSchema with _$SettingsSchema {
+  factory SettingsSchema({
+    ///Site title.
+    String title,
 
-  ///Site tagline.
-  final String description;
+    ///Site tagline.
+    String description,
 
-  ///Site URL.
-  final String url;
+    ///Site URL.
+    String url,
 
-  /// This address is used for admin purposes, like new user notification.
-  final String email;
+    /// This address is used for admin purposes, like new user notification.
+    String email,
 
-  /// A city in the same timezone as you.
-  final String timezone;
+    /// A city in the same timezone as you.
+    String timezone,
 
-  /// A date format for all date strings.
-  final String dateFormat;
+    /// A date format for all date strings.
+    String dateFormat,
 
-  /// A time format for all time strings.
-  final String timeFormat;
+    /// A time format for all time strings.
+    String timeFormat,
 
-  /// A day number of the week that the week should start on.
-  final int startOfWeek;
+    /// A day number of the week that the week should start on.
+    int startOfWeek,
 
-  ///WordPress locale code.
-  final String language;
+    ///WordPress locale code.
+    String language,
 
-  ///Convert emoticons like :-) and :-P to graphics on display.
-  final bool useSmilies;
+    ///Convert emoticons to graphics on display.
+    bool useSmilies,
 
-  ///Default post category.
-  final int defaultCategory;
+    ///Default post category.
+    int defaultCategory,
 
-  ///Default post format.
-  final String defaultPostFormat;
+    ///Default post format.
+    String defaultPostFormat,
 
-  ///Blog pages show at most.
-  final int postsPerPage;
+    ///Blog pages show at most.
+    int postsPerPage,
 
-  ///Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.
-  ///
-  ///One of: "open", "closed"
-  final String defaultPingStatus;
+    ///Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.
+    ///
+    ///One of: "open", "closed"
+    String defaultPingStatus,
 
-  ///Allow people to submit comments on new posts.
-  ///
-  ///One of: "open", "closed"
-  final String defaultCommentStatus;
+    ///Allow people to submit comments on new posts.
+    ///
+    ///One of: "open", "closed"
+    String defaultCommentStatus,
+  }) = _SettingsSchema;
 
-  SettingsSchema({
-    this.title,
-    this.description,
-    this.url,
-    this.email,
-    this.timezone,
-    this.dateFormat,
-    this.timeFormat,
-    this.startOfWeek,
-    this.language,
-    this.useSmilies,
-    this.defaultCategory,
-    this.defaultPostFormat,
-    this.postsPerPage,
-    this.defaultPingStatus,
-    this.defaultCommentStatus,
-  });
-
-  /// Generate SettingsSchema Model from JSON
-  factory SettingsSchema.fromJson(Map<String, dynamic> data) =>
-      _$SettingsSchemaFromJson(data);
-
-  /// Convert SettingsSchema to JSON
-  Map<String, dynamic> toJson() => _$SettingsSchemaToJson(this);
+  factory SettingsSchema.fromJson(Map<String, dynamic> json) =>
+      _$SettingsSchemaFromJson(json);
 }

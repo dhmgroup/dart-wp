@@ -5,6 +5,6 @@ Future<void> main() async {
   final posts = await wp.getPosts();
   for (final post in posts) {
     // ignore: avoid_print
-    print(post.title['rendered']);
+    print(post.meta);
   }
 }

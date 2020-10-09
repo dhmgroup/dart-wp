@@ -6,8 +6,8 @@ part of 'taxonomy.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-TaxonomySchema _$TaxonomySchemaFromJson(Map<String, dynamic> json) {
-  return TaxonomySchema(
+_$_TaxonomySchema _$_$_TaxonomySchemaFromJson(Map<String, dynamic> json) {
+  return _$_TaxonomySchema(
     capabilities: json['capabilities'] as Map<String, dynamic>,
     description: json['description'] as String,
     hierarchical: json['hierarchical'] as bool,
@@ -21,7 +21,7 @@ TaxonomySchema _$TaxonomySchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TaxonomySchemaToJson(TaxonomySchema instance) =>
+Map<String, dynamic> _$_$_TaxonomySchemaToJson(_$_TaxonomySchema instance) =>
     <String, dynamic>{
       'capabilities': instance.capabilities,
       'description': instance.description,

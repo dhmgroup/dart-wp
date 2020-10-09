@@ -6,8 +6,9 @@ part of 'media_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-MediaDetailsSchema _$MediaDetailsSchemaFromJson(Map<String, dynamic> json) {
-  return MediaDetailsSchema(
+_$_MediaDetailsSchema _$_$_MediaDetailsSchemaFromJson(
+    Map<String, dynamic> json) {
+  return _$_MediaDetailsSchema(
     width: json['width'] as int,
     height: json['height'] as int,
     file: json['file'] as String,
@@ -16,7 +17,8 @@ MediaDetailsSchema _$MediaDetailsSchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MediaDetailsSchemaToJson(MediaDetailsSchema instance) =>
+Map<String, dynamic> _$_$_MediaDetailsSchemaToJson(
+        _$_MediaDetailsSchema instance) =>
     <String, dynamic>{
       'width': instance.width,
       'height': instance.height,

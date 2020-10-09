@@ -6,8 +6,8 @@ part of 'page.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PageSchema _$PageSchemaFromJson(Map<String, dynamic> json) {
-  return PageSchema(
+_$_PageSchema _$_$_PageSchemaFromJson(Map<String, dynamic> json) {
+  return _$_PageSchema(
     date: json['date'] as List,
     dateGmt: json['date_gmt'] as List,
     guid: json['guid'] as Map<String, dynamic>,
@@ -35,7 +35,7 @@ PageSchema _$PageSchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PageSchemaToJson(PageSchema instance) =>
+Map<String, dynamic> _$_$_PageSchemaToJson(_$_PageSchema instance) =>
     <String, dynamic>{
       'date': instance.date,
       'date_gmt': instance.dateGmt,

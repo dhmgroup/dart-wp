@@ -6,8 +6,8 @@ part of 'search.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SearchSchema _$SearchSchemaFromJson(Map<String, dynamic> json) {
-  return SearchSchema(
+_$_SearchSchema _$_$_SearchSchemaFromJson(Map<String, dynamic> json) {
+  return _$_SearchSchema(
     id: json['id'] as int,
     title: json['title'] as String,
     url: json['url'] as String,
@@ -16,7 +16,7 @@ SearchSchema _$SearchSchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SearchSchemaToJson(SearchSchema instance) =>
+Map<String, dynamic> _$_$_SearchSchemaToJson(_$_SearchSchema instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

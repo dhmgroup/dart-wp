@@ -6,8 +6,8 @@ part of 'comment.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-CommentSchema _$CommentSchemaFromJson(Map<String, dynamic> json) {
-  return CommentSchema(
+_$_CommentSchema _$_$_CommentSchemaFromJson(Map<String, dynamic> json) {
+  return _$_CommentSchema(
     id: json['id'] as int,
     author: json['author'] as int,
     authorEmail: json['author_email'] as String,
@@ -28,7 +28,7 @@ CommentSchema _$CommentSchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$CommentSchemaToJson(CommentSchema instance) =>
+Map<String, dynamic> _$_$_CommentSchemaToJson(_$_CommentSchema instance) =>
     <String, dynamic>{
       'id': instance.id,
       'author': instance.author,

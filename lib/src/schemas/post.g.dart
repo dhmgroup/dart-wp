@@ -6,8 +6,8 @@ part of 'post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-PostSchema _$PostSchemaFromJson(Map<String, dynamic> json) {
-  return PostSchema(
+_$_PostSchema _$_$_PostSchemaFromJson(Map<String, dynamic> json) {
+  return _$_PostSchema(
     date: json['date'] as String,
     dateGmt: json['date_gmt'] as String,
     guid: json['guid'] as Map<String, dynamic>,
@@ -29,7 +29,7 @@ PostSchema _$PostSchemaFromJson(Map<String, dynamic> json) {
     commentStatus: json['comment_status'] as String,
     pingStatus: json['ping_status'] as String,
     format: json['format'] as String,
-    meta: json['meta'] as Map<String, dynamic>,
+    meta: json['meta'] as List,
     sticky: json['sticky'] as bool,
     template: json['template'] as String,
     categories: json['categories'] as List,
@@ -40,7 +40,7 @@ PostSchema _$PostSchemaFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$PostSchemaToJson(PostSchema instance) =>
+Map<String, dynamic> _$_$_PostSchemaToJson(_$_PostSchema instance) =>
     <String, dynamic>{
       'date': instance.date,
       'date_gmt': instance.dateGmt,
