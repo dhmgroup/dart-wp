@@ -221,6 +221,9 @@ class WordPressAPI {
     //  SET WOOCOMMERCE CREDENTIALS
     // **********************************************
     if (wooCredentials != null) {
+      if (_dio.options.queryParameters == null){
+        _dio.options.queryParameters = {};
+      }
       _dio.options.queryParameters.addAll({
         "consumer_key": wooCredentials.consumerKey,
         "consumer_secret": wooCredentials.consumerSecret
