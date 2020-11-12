@@ -24,7 +24,7 @@ _$_MediaSchema _$_$_MediaSchemaFromJson(Map<String, dynamic> json) {
     author: json['author'] as int,
     commentStatus: json['comment_status'] as String,
     pingStatus: json['ping_status'] as String,
-    meta: json['meta'] as List,
+    meta: json['meta'],
     template: json['template'] as String,
     altText: json['alt_text'] as String,
     caption: json['caption'] as Map<String, dynamic>,

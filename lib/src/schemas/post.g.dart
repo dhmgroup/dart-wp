@@ -29,7 +29,7 @@ _$_PostSchema _$_$_PostSchemaFromJson(Map<String, dynamic> json) {
     commentStatus: json['comment_status'] as String,
     pingStatus: json['ping_status'] as String,
     format: json['format'] as String,
-    meta: json['meta'] as List,
+    meta: json['meta'],
     sticky: json['sticky'] as bool,
     template: json['template'] as String,
     categories: json['categories'] as List,

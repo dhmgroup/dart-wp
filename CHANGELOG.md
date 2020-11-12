@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.2.1+1]
+
+- Fixed missing model exports in [issue #14](https://github.com/dhmgroup/dart-wp/issues/14)
+- Fixed `meta field` data type casting error in [issue 15](https://github.com/dhmgroup/dart-wp/issues/15)
+- Added a working flutter example
+
+### Noteable Changes
+
+- `meta` field now returns `dynamic` data type instead of `List`
+
 ## [0.2.1]
 
 - Fixed meta data return type in [issue #8](https://github.com/dhmgroup/dart-wp/issues/8)

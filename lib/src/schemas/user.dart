@@ -63,7 +63,7 @@ abstract class UserSchema with _$UserSchema {
     Map<String, dynamic> avatarUrls,
 
     ///Meta fields.
-    List meta,
+    dynamic meta,
   }) = _UserSchema;
 
   factory UserSchema.fromJson(Map<String, dynamic> json) =>

@@ -24,7 +24,7 @@ _$_CommentSchema _$_$_CommentSchemaFromJson(Map<String, dynamic> json) {
     status: json['status'] as String,
     type: json['type'] as String,
     authorAvatarUrls: json['author_avatar_urls'] as Map<String, dynamic>,
-    meta: json['meta'] as List,
+    meta: json['meta'],
   );
 }
 

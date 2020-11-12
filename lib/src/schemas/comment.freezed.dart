@@ -34,7 +34,7 @@ class _$CommentSchemaTearOff {
       String status,
       String type,
       Map<String, dynamic> authorAvatarUrls,
-      List<dynamic> meta}) {
+      dynamic meta}) {
     return _CommentSchema(
       id: id,
       author: author,
@@ -117,7 +117,7 @@ mixin _$CommentSchema {
   Map<String, dynamic> get authorAvatarUrls;
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
 
   Map<String, dynamic> toJson();
   $CommentSchemaCopyWith<CommentSchema> get copyWith;
@@ -145,7 +145,7 @@ abstract class $CommentSchemaCopyWith<$Res> {
       String status,
       String type,
       Map<String, dynamic> authorAvatarUrls,
-      List<dynamic> meta});
+      dynamic meta});
 }
 
 /// @nodoc
@@ -201,7 +201,7 @@ class _$CommentSchemaCopyWithImpl<$Res>
       authorAvatarUrls: authorAvatarUrls == freezed
           ? _value.authorAvatarUrls
           : authorAvatarUrls as Map<String, dynamic>,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
     ));
   }
 }
@@ -230,7 +230,7 @@ abstract class _$CommentSchemaCopyWith<$Res>
       String status,
       String type,
       Map<String, dynamic> authorAvatarUrls,
-      List<dynamic> meta});
+      dynamic meta});
 }
 
 /// @nodoc
@@ -288,7 +288,7 @@ class __$CommentSchemaCopyWithImpl<$Res>
       authorAvatarUrls: authorAvatarUrls == freezed
           ? _value.authorAvatarUrls
           : authorAvatarUrls as Map<String, dynamic>,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
     ));
   }
 }
@@ -386,7 +386,7 @@ class _$_CommentSchema implements _CommentSchema {
   @override
 
   ///Meta fields.
-  final List<dynamic> meta;
+  final dynamic meta;
 
   @override
   String toString() {
@@ -490,7 +490,7 @@ abstract class _CommentSchema implements CommentSchema {
       String status,
       String type,
       Map<String, dynamic> authorAvatarUrls,
-      List<dynamic> meta}) = _$_CommentSchema;
+      dynamic meta}) = _$_CommentSchema;
 
   factory _CommentSchema.fromJson(Map<String, dynamic> json) =
       _$_CommentSchema.fromJson;
@@ -562,7 +562,7 @@ abstract class _CommentSchema implements CommentSchema {
   @override
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
   @override
   _$CommentSchemaCopyWith<_CommentSchema> get copyWith;
 }

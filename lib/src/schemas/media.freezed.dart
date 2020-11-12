@@ -34,7 +34,7 @@ class _$MediaSchemaTearOff {
       int author,
       String commentStatus,
       String pingStatus,
-      List<dynamic> meta,
+      dynamic meta,
       String template,
       String altText,
       Map<String, dynamic> caption,
@@ -143,7 +143,7 @@ mixin _$MediaSchema {
   String get pingStatus;
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
 
   ///The theme file to use to display the object.
   String get template;
@@ -203,7 +203,7 @@ abstract class $MediaSchemaCopyWith<$Res> {
       int author,
       String commentStatus,
       String pingStatus,
-      List<dynamic> meta,
+      dynamic meta,
       String template,
       String altText,
       Map<String, dynamic> caption,
@@ -281,7 +281,7 @@ class _$MediaSchemaCopyWithImpl<$Res> implements $MediaSchemaCopyWith<$Res> {
           : commentStatus as String,
       pingStatus:
           pingStatus == freezed ? _value.pingStatus : pingStatus as String,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
       template: template == freezed ? _value.template : template as String,
       altText: altText == freezed ? _value.altText : altText as String,
       caption:
@@ -337,7 +337,7 @@ abstract class _$MediaSchemaCopyWith<$Res>
       int author,
       String commentStatus,
       String pingStatus,
-      List<dynamic> meta,
+      dynamic meta,
       String template,
       String altText,
       Map<String, dynamic> caption,
@@ -418,7 +418,7 @@ class __$MediaSchemaCopyWithImpl<$Res> extends _$MediaSchemaCopyWithImpl<$Res>
           : commentStatus as String,
       pingStatus:
           pingStatus == freezed ? _value.pingStatus : pingStatus as String,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
       template: template == freezed ? _value.template : template as String,
       altText: altText == freezed ? _value.altText : altText as String,
       caption:
@@ -549,7 +549,7 @@ class _$_MediaSchema implements _MediaSchema {
   @override
 
   ///Meta fields.
-  final List<dynamic> meta;
+  final dynamic meta;
   @override
 
   ///The theme file to use to display the object.
@@ -733,7 +733,7 @@ abstract class _MediaSchema implements MediaSchema {
       int author,
       String commentStatus,
       String pingStatus,
-      List<dynamic> meta,
+      dynamic meta,
       String template,
       String altText,
       Map<String, dynamic> caption,
@@ -821,7 +821,7 @@ abstract class _MediaSchema implements MediaSchema {
   @override
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
   @override
 
   ///The theme file to use to display the object.

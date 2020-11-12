@@ -63,7 +63,7 @@ abstract class MediaSchema with _$MediaSchema {
     String pingStatus,
 
     ///Meta fields.
-    List meta,
+    dynamic meta,
 
     ///The theme file to use to display the object.
     String template,

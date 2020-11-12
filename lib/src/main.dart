@@ -12,7 +12,7 @@ import 'package:wordpress_api/src/utils.dart';
 // WordPress Respoonse
 class WPResponse {
   /// Responses from server which is either List<T> or T
-  final dynamic data;
+  final Object data;
 
   /// Meta contains meta from responses header. This inludes total number of item ["total"] and the total pages ["totalPages"]
   final Map<String, dynamic> meta;
@@ -166,7 +166,7 @@ class WordPressAPI {
       final res = await _dio.head(site);
 
       if (res.headers['link'] != null) {
-        final links = res.headers['link'][0].split(';')[0];
+        final links = res.headers['link'][0].split(';').first;
         final link = links.substring(1, links.length - 1);
         return link;
       } else {
@@ -184,7 +184,7 @@ class WordPressAPI {
   // ***********************************************************
   Future<WPResponse> getAsyc({
     @required String endpoint,
-    String namespace,
+    String namespace = wpNamespace,
     Map<String, dynamic> args,
   }) async {
     final url = await _discoverUrl();
@@ -221,9 +221,7 @@ class WordPressAPI {
     //  SET WOOCOMMERCE CREDENTIALS
     // **********************************************
     if (wooCredentials != null) {
-      if (_dio.options.queryParameters == null){
-        _dio.options.queryParameters = {};
-      }
+      _dio.options.queryParameters ??= {};
       _dio.options.queryParameters.addAll({
         "consumer_key": wooCredentials.consumerKey,
         "consumer_secret": wooCredentials.consumerSecret
@@ -234,10 +232,16 @@ class WordPressAPI {
     // FETCH REQUESTED DATA AND RETURN WP A RESPONSE
     //******************************************* */
     try {
-      final res =
-          await _dio.get('$_namespace$_endpoint', queryParameters: args);
-      final int total = int.parse(res.headers?.value('x-wp-total'));
-      final int totalPages = int.parse(res.headers?.value('x-wp-totalpages'));
+      int total, totalPages;
+      final res = await _dio.get(
+        '$_namespace/$_endpoint',
+        queryParameters: args,
+      );
+
+      if (res.headers.value('x-wp-total') != null) {
+        total = int.parse(res.headers?.value('x-wp-total'));
+        totalPages = int.parse(res.headers?.value('x-wp-totalpages'));
+      }
 
       return WPResponse(
         data: res.data,
@@ -247,8 +251,8 @@ class WordPressAPI {
         },
         statusCode: res.statusCode,
       );
-    } catch (e) {
-      logger.e(e);
+    } on DioError catch (e) {
+      logger.e(e.message);
       throw Exception(e);
     }
   }

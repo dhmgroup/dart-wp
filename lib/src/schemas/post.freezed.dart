@@ -39,7 +39,7 @@ class _$PostSchemaTearOff {
       String commentStatus,
       String pingStatus,
       String format,
-      @JsonKey(nullable: true) List<dynamic> meta,
+      @JsonKey(nullable: true) dynamic meta,
       bool sticky,
       String template,
       List<dynamic> categories,
@@ -161,7 +161,7 @@ mixin _$PostSchema {
 
   ///Meta fields.
   @JsonKey(nullable: true)
-  List<dynamic> get meta;
+  dynamic get meta;
 
   ///Whether or not the object should be treated as sticky.
   bool get sticky;
@@ -210,7 +210,7 @@ abstract class $PostSchemaCopyWith<$Res> {
       String commentStatus,
       String pingStatus,
       String format,
-      @JsonKey(nullable: true) List<dynamic> meta,
+      @JsonKey(nullable: true) dynamic meta,
       bool sticky,
       String template,
       List<dynamic> categories,
@@ -292,7 +292,7 @@ class _$PostSchemaCopyWithImpl<$Res> implements $PostSchemaCopyWith<$Res> {
       pingStatus:
           pingStatus == freezed ? _value.pingStatus : pingStatus as String,
       format: format == freezed ? _value.format : format as String,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
       sticky: sticky == freezed ? _value.sticky : sticky as bool,
       template: template == freezed ? _value.template : template as String,
       categories: categories == freezed
@@ -343,7 +343,7 @@ abstract class _$PostSchemaCopyWith<$Res> implements $PostSchemaCopyWith<$Res> {
       String commentStatus,
       String pingStatus,
       String format,
-      @JsonKey(nullable: true) List<dynamic> meta,
+      @JsonKey(nullable: true) dynamic meta,
       bool sticky,
       String template,
       List<dynamic> categories,
@@ -428,7 +428,7 @@ class __$PostSchemaCopyWithImpl<$Res> extends _$PostSchemaCopyWithImpl<$Res>
       pingStatus:
           pingStatus == freezed ? _value.pingStatus : pingStatus as String,
       format: format == freezed ? _value.format : format as String,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
       sticky: sticky == freezed ? _value.sticky : sticky as bool,
       template: template == freezed ? _value.template : template as String,
       categories: categories == freezed
@@ -573,7 +573,7 @@ class _$_PostSchema implements _PostSchema {
 
   ///Meta fields.
   @JsonKey(nullable: true)
-  final List<dynamic> meta;
+  final dynamic meta;
   @override
 
   ///Whether or not the object should be treated as sticky.
@@ -739,7 +739,7 @@ abstract class _PostSchema implements PostSchema {
       String commentStatus,
       String pingStatus,
       String format,
-      @JsonKey(nullable: true) List<dynamic> meta,
+      @JsonKey(nullable: true) dynamic meta,
       bool sticky,
       String template,
       List<dynamic> categories,
@@ -845,7 +845,7 @@ abstract class _PostSchema implements PostSchema {
 
   ///Meta fields.
   @JsonKey(nullable: true)
-  List<dynamic> get meta;
+  dynamic get meta;
   @override
 
   ///Whether or not the object should be treated as sticky.

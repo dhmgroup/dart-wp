@@ -34,7 +34,7 @@ abstract class CategorySchema with _$CategorySchema {
     int parent,
 
     ///Meta fields.
-    List meta,
+    dynamic meta,
   }) = _CategorySchema;
 
   factory CategorySchema.fromJson(Map<String, dynamic> json) =>

@@ -26,7 +26,7 @@ class _$CategorySchemaTearOff {
       String slug,
       String taxonomy,
       int parent,
-      List<dynamic> meta}) {
+      dynamic meta}) {
     return _CategorySchema(
       id: id,
       count: count,
@@ -79,7 +79,7 @@ mixin _$CategorySchema {
   int get parent;
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
 
   Map<String, dynamic> toJson();
   $CategorySchemaCopyWith<CategorySchema> get copyWith;
@@ -99,7 +99,7 @@ abstract class $CategorySchemaCopyWith<$Res> {
       String slug,
       String taxonomy,
       int parent,
-      List<dynamic> meta});
+      dynamic meta});
 }
 
 /// @nodoc
@@ -133,7 +133,7 @@ class _$CategorySchemaCopyWithImpl<$Res>
       slug: slug == freezed ? _value.slug : slug as String,
       taxonomy: taxonomy == freezed ? _value.taxonomy : taxonomy as String,
       parent: parent == freezed ? _value.parent : parent as int,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
     ));
   }
 }
@@ -154,7 +154,7 @@ abstract class _$CategorySchemaCopyWith<$Res>
       String slug,
       String taxonomy,
       int parent,
-      List<dynamic> meta});
+      dynamic meta});
 }
 
 /// @nodoc
@@ -190,7 +190,7 @@ class __$CategorySchemaCopyWithImpl<$Res>
       slug: slug == freezed ? _value.slug : slug as String,
       taxonomy: taxonomy == freezed ? _value.taxonomy : taxonomy as String,
       parent: parent == freezed ? _value.parent : parent as int,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
     ));
   }
 }
@@ -250,7 +250,7 @@ class _$_CategorySchema implements _CategorySchema {
   @override
 
   ///Meta fields.
-  final List<dynamic> meta;
+  final dynamic meta;
 
   @override
   String toString() {
@@ -316,7 +316,7 @@ abstract class _CategorySchema implements CategorySchema {
       String slug,
       String taxonomy,
       int parent,
-      List<dynamic> meta}) = _$_CategorySchema;
+      dynamic meta}) = _$_CategorySchema;
 
   factory _CategorySchema.fromJson(Map<String, dynamic> json) =
       _$_CategorySchema.fromJson;
@@ -358,7 +358,7 @@ abstract class _CategorySchema implements CategorySchema {
   @override
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
   @override
   _$CategorySchemaCopyWith<_CategorySchema> get copyWith;
 }

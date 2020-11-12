@@ -56,7 +56,7 @@ abstract class CommentSchema with _$CommentSchema {
     Map<String, dynamic> authorAvatarUrls,
 
     ///Meta fields.
-    List meta,
+    dynamic meta,
   }) = _CommentSchema;
 
   factory CommentSchema.fromJson(Map<String, dynamic> json) =>

@@ -40,7 +40,7 @@ class _$PageSchemaTearOff {
       String commentStatus,
       String pingStatus,
       int menuOrder,
-      List<dynamic> meta,
+      dynamic meta,
       String template}) {
     return _PageSchema(
       date: date,
@@ -155,7 +155,7 @@ mixin _$PageSchema {
   int get menuOrder;
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
 
   ///The theme file to use to display the object.
   String get template;
@@ -192,7 +192,7 @@ abstract class $PageSchemaCopyWith<$Res> {
       String commentStatus,
       String pingStatus,
       int menuOrder,
-      List<dynamic> meta,
+      dynamic meta,
       String template});
 }
 
@@ -267,7 +267,7 @@ class _$PageSchemaCopyWithImpl<$Res> implements $PageSchemaCopyWith<$Res> {
       pingStatus:
           pingStatus == freezed ? _value.pingStatus : pingStatus as String,
       menuOrder: menuOrder == freezed ? _value.menuOrder : menuOrder as int,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
       template: template == freezed ? _value.template : template as String,
     ));
   }
@@ -302,7 +302,7 @@ abstract class _$PageSchemaCopyWith<$Res> implements $PageSchemaCopyWith<$Res> {
       String commentStatus,
       String pingStatus,
       int menuOrder,
-      List<dynamic> meta,
+      dynamic meta,
       String template});
 }
 
@@ -379,7 +379,7 @@ class __$PageSchemaCopyWithImpl<$Res> extends _$PageSchemaCopyWithImpl<$Res>
       pingStatus:
           pingStatus == freezed ? _value.pingStatus : pingStatus as String,
       menuOrder: menuOrder == freezed ? _value.menuOrder : menuOrder as int,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
       template: template == freezed ? _value.template : template as String,
     ));
   }
@@ -515,7 +515,7 @@ class _$_PageSchema implements _PageSchema {
   @override
 
   ///Meta fields.
-  final List<dynamic> meta;
+  final dynamic meta;
   @override
 
   ///The theme file to use to display the object.
@@ -655,7 +655,7 @@ abstract class _PageSchema implements PageSchema {
       String commentStatus,
       String pingStatus,
       int menuOrder,
-      List<dynamic> meta,
+      dynamic meta,
       String template}) = _$_PageSchema;
 
   factory _PageSchema.fromJson(Map<String, dynamic> json) =
@@ -758,7 +758,7 @@ abstract class _PageSchema implements PageSchema {
   @override
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
   @override
 
   ///The theme file to use to display the object.

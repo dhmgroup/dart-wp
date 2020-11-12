@@ -26,7 +26,7 @@ _$_UserSchema _$_$_UserSchemaFromJson(Map<String, dynamic> json) {
     capabilities: json['capabilities'] as Map<String, dynamic>,
     extraCapabilities: json['extra_capabilities'] as Map<String, dynamic>,
     avatarUrls: json['avatar_urls'] as Map<String, dynamic>,
-    meta: json['meta'] as List,
+    meta: json['meta'],
   );
 }
 

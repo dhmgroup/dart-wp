@@ -79,7 +79,7 @@ abstract class PageSchema with _$PageSchema {
     int menuOrder,
 
     ///Meta fields.
-    List meta,
+    dynamic meta,
 
     ///The theme file to use to display the object.
     String template,

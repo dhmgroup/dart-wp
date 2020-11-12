@@ -36,7 +36,7 @@ class _$UserSchemaTearOff {
       Map<String, dynamic> capabilities,
       Map<String, dynamic> extraCapabilities,
       Map<String, dynamic> avatarUrls,
-      List<dynamic> meta}) {
+      dynamic meta}) {
     return _UserSchema(
       id: id,
       username: username,
@@ -129,7 +129,7 @@ mixin _$UserSchema {
   Map<String, dynamic> get avatarUrls;
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
 
   Map<String, dynamic> toJson();
   $UserSchemaCopyWith<UserSchema> get copyWith;
@@ -159,7 +159,7 @@ abstract class $UserSchemaCopyWith<$Res> {
       Map<String, dynamic> capabilities,
       Map<String, dynamic> extraCapabilities,
       Map<String, dynamic> avatarUrls,
-      List<dynamic> meta});
+      dynamic meta});
 }
 
 /// @nodoc
@@ -220,7 +220,7 @@ class _$UserSchemaCopyWithImpl<$Res> implements $UserSchemaCopyWith<$Res> {
       avatarUrls: avatarUrls == freezed
           ? _value.avatarUrls
           : avatarUrls as Map<String, dynamic>,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
     ));
   }
 }
@@ -250,7 +250,7 @@ abstract class _$UserSchemaCopyWith<$Res> implements $UserSchemaCopyWith<$Res> {
       Map<String, dynamic> capabilities,
       Map<String, dynamic> extraCapabilities,
       Map<String, dynamic> avatarUrls,
-      List<dynamic> meta});
+      dynamic meta});
 }
 
 /// @nodoc
@@ -313,7 +313,7 @@ class __$UserSchemaCopyWithImpl<$Res> extends _$UserSchemaCopyWithImpl<$Res>
       avatarUrls: avatarUrls == freezed
           ? _value.avatarUrls
           : avatarUrls as Map<String, dynamic>,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
     ));
   }
 }
@@ -423,7 +423,7 @@ class _$_UserSchema implements _UserSchema {
   @override
 
   ///Meta fields.
-  final List<dynamic> meta;
+  final dynamic meta;
 
   @override
   String toString() {
@@ -537,7 +537,7 @@ abstract class _UserSchema implements UserSchema {
       Map<String, dynamic> capabilities,
       Map<String, dynamic> extraCapabilities,
       Map<String, dynamic> avatarUrls,
-      List<dynamic> meta}) = _$_UserSchema;
+      dynamic meta}) = _$_UserSchema;
 
   factory _UserSchema.fromJson(Map<String, dynamic> json) =
       _$_UserSchema.fromJson;
@@ -619,7 +619,7 @@ abstract class _UserSchema implements UserSchema {
   @override
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
   @override
   _$UserSchemaCopyWith<_UserSchema> get copyWith;
 }

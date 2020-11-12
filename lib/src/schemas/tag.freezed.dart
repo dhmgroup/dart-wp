@@ -25,7 +25,7 @@ class _$TagSchemaTearOff {
       String name,
       String slug,
       String taxonomy,
-      List<dynamic> meta}) {
+      dynamic meta}) {
     return _TagSchema(
       id: id,
       count: count,
@@ -74,7 +74,7 @@ mixin _$TagSchema {
   String get taxonomy;
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
 
   Map<String, dynamic> toJson();
   $TagSchemaCopyWith<TagSchema> get copyWith;
@@ -92,7 +92,7 @@ abstract class $TagSchemaCopyWith<$Res> {
       String name,
       String slug,
       String taxonomy,
-      List<dynamic> meta});
+      dynamic meta});
 }
 
 /// @nodoc
@@ -123,7 +123,7 @@ class _$TagSchemaCopyWithImpl<$Res> implements $TagSchemaCopyWith<$Res> {
       name: name == freezed ? _value.name : name as String,
       slug: slug == freezed ? _value.slug : slug as String,
       taxonomy: taxonomy == freezed ? _value.taxonomy : taxonomy as String,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
     ));
   }
 }
@@ -142,7 +142,7 @@ abstract class _$TagSchemaCopyWith<$Res> implements $TagSchemaCopyWith<$Res> {
       String name,
       String slug,
       String taxonomy,
-      List<dynamic> meta});
+      dynamic meta});
 }
 
 /// @nodoc
@@ -174,7 +174,7 @@ class __$TagSchemaCopyWithImpl<$Res> extends _$TagSchemaCopyWithImpl<$Res>
       name: name == freezed ? _value.name : name as String,
       slug: slug == freezed ? _value.slug : slug as String,
       taxonomy: taxonomy == freezed ? _value.taxonomy : taxonomy as String,
-      meta: meta == freezed ? _value.meta : meta as List<dynamic>,
+      meta: meta == freezed ? _value.meta : meta as dynamic,
     ));
   }
 }
@@ -229,7 +229,7 @@ class _$_TagSchema implements _TagSchema {
   @override
 
   ///Meta fields.
-  final List<dynamic> meta;
+  final dynamic meta;
 
   @override
   String toString() {
@@ -291,7 +291,7 @@ abstract class _TagSchema implements TagSchema {
       String name,
       String slug,
       String taxonomy,
-      List<dynamic> meta}) = _$_TagSchema;
+      dynamic meta}) = _$_TagSchema;
 
   factory _TagSchema.fromJson(Map<String, dynamic> json) =
       _$_TagSchema.fromJson;
@@ -329,7 +329,7 @@ abstract class _TagSchema implements TagSchema {
   @override
 
   ///Meta fields.
-  List<dynamic> get meta;
+  dynamic get meta;
   @override
   _$TagSchemaCopyWith<_TagSchema> get copyWith;
 }

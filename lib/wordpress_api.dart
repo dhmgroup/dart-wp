@@ -2,3 +2,4 @@
 library wordpress_api;
 
 export 'src/main.dart';
+export 'src/schemas.dart';

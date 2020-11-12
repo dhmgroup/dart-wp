@@ -30,7 +30,7 @@ abstract class TagSchema with _$TagSchema {
     String taxonomy,
 
     ///Meta fields.
-    List meta,
+    dynamic meta,
   }) = _TagSchema;
 
   factory TagSchema.fromJson(Map<String, dynamic> json) =>

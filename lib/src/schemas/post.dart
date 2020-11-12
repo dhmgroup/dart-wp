@@ -80,7 +80,7 @@ abstract class PostSchema with _$PostSchema {
     String format,
 
     ///Meta fields.
-    @JsonKey(nullable: true) List meta,
+    @JsonKey(nullable: true) dynamic meta,
 
     ///Whether or not the object should be treated as sticky.
     bool sticky,
