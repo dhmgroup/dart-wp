@@ -142,7 +142,7 @@ class WordPressAPI {
   /// WordPress website
   String site;
   String _namespace = wpNamespace;
-  final Dio _dio = Dio();
+  final Dio _dio;
 
   /// WooCommerce API credentials
   final WooCredentials wooCredentials;
@@ -150,10 +150,7 @@ class WordPressAPI {
   // **********************************************
   // INITIALIZATION
   // **********************************************
-  WordPressAPI(
-    this.site, {
-    this.wooCredentials,
-  });
+  WordPressAPI(this.site, {this.wooCredentials, Dio dio}) : _dio = dio ?? Dio();
 
   // **********************************************
   // DISCOVER API LINK FROM HEADERS //
