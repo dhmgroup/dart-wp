@@ -1,10 +1,13 @@
 import 'package:wordpress_api/wordpress_api.dart';
 
 Future<void> main() async {
-  final wp = WordPressAPI('dart-wp.dhmgroup.dev');
-  final posts = await wp.getPosts();
+  final wp = WordPressAPI('dartwp.local');
+  // Get multiple posts
+  final List<Post> posts = await wp.getJobs();
   for (final post in posts) {
-    // ignore: avoid_print
-    print(post.meta);
+    print(post.id);
   }
+  // Single Post example
+  // final Post post = await wp.getJobs(id: 1);
+  // print(post.content);
 }

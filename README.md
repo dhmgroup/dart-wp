@@ -1,4 +1,4 @@
-# WordPress API client for [Dart](https://dart.dev/) | [Flutter](https://flutter.dev)
+# WordPress REST API client for [Dart](https://dart.dev/) | [Flutter](https://flutter.dev)
 
 [![GitHub stars](https://img.shields.io/github/stars/dhmgroup/dart-wp.svg?style=social&label=Star&maxAge=2592000)](https://github.com/dhmgroup/dart-wp/stargazers/)
 [![Pub](https://img.shields.io/pub/v/wordpress_api.svg?style=flat-square)](https://pub.dartlang.org/packages/wordpress_api)
@@ -7,7 +7,7 @@
 
 ## Description
 
-A WordPress API client for dart with support for WooCommerce and custom namespaces/endpoints.
+A WordPress REST API client for dart with support for WooCommerce and custom namespaces/endpoints.
 
 ## Features
 
@@ -34,53 +34,55 @@ import 'package:wordpress_api/wordpress_api';
 - Initialize WPAPI
 
 ```dart
-  WordPressAPI api = WordPressAPI('site.com');
+  WordPressAPI api = WordPressAPI('wp-site.com');
 ```
 
-- Retrieve posts
+- Retrieve posts from `getPosts`
 
-```dart
-  void main() async {
-    final wp = WordPressAPI('site.com');
-    final posts = await wp.getPosts();
-    for (final post in posts) {
-      print(post.title['rendered']);
+  - You can fetch a list of posts by simply calling `.getPosts`. More arguments can be passed to further filter the data returned
+
+  ```dart
+    void main() async {
+      final api = WordPressAPI('wp-site.com');
+      final List<Post> posts = await api.getPosts();
+      for (final post in posts) {
+        print(post.title);
+      }
     }
-  }
-```
+  ```
 
-- Retrieve Posts with Embedded Media (Get media's source url)
+  - As of `v3.0`, you can query a single post from the same endpoint by passing an `id`
 
-```dart
-  final wp = WordPressAPI('site.com');
-  final posts = await wp.getPosts(args: {"_embed": true});
-  for (final post in posts) {
-    print(post.embedded.media[0]);
-  }
-```
-
-- Retrieve WP users
-
-```dart
-  final wp = WordPressAPI('site.com');
-  final users = (await wp.getUsers())['data'];
-  for (final user in users) {
-    print(user.username);
-  }
-```
+    ```dart
+    void main() async {
+      final api = WordPressAPI('wp-site.com');
+      final Post posts = await api.getPosts(id: 1);
+      print(post.title);
+    }
+  ```
 
 - Retrieve data from a custom endpoint
 
 ```dart
-  final wp = WordPressAPI('site.com');
-  final res = await wp.getAsyc(endpoint: 'your-cutom-endpoint');
-  for (final doc in res.data as List) {
-    print(doc["title"]["rendered"]);
+  void main() async {
+    final api = WordPressAPI('wp-site.com');
+    final WPResponse res = await api.getAsyc(endpoint: 'your-custom-endpoint');
+    print(res.data);
   }
 ```
+
+## ToDo
+
+- Support for `WP Job Manager`.
+- Authentication using `Application Passwords`. *WordPress 5.6+ only*
+- Fully integrated WooCommerce support.
+- Full CRUD operations.
+- Support for other popular WordPress Plugins.
 
 Contributions are welcome, report any issues [here](https://github.com/dhmgroup/dart-wp/issues)
 
 ## Special Thanks
 
 - [WordPress REST API Handbook](https://developer.wordpress.org/rest-api/reference/) - Read the Handbank for additional arguments/query parameter.
+
+

@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.0]
+
+### What's new?
+
+- An option to intiailize a custom `Dio` instance. Thanks [kellvembarbosa](https://github.com/kellvembarbosa)
+- Added support for a `Job` model to render [WP Job Manager](https://wpjobmanager.com/)
+- Added support for `Application Passwords` model introduced in [WordPress 5.6](https://make.wordpress.org/core/2020/11/05/application-passwords-integration-guide/)
+- Added [WooCommerce Models](https://woocommerce.github.io/woocommerce-rest-api-docs/) for `Product`, `Orders` and others.
+
+### What's changed?
+
+- Refactored codebase in preparation for the stable version 1.0
+- Renamed all schemas to match endpoint, e.g `PostSchema` is now `Post`
+
 ## [0.2.1+1]
 
 - Fixed missing model exports in [issue #14](https://github.com/dhmgroup/dart-wp/issues/14)
@@ -19,7 +33,7 @@
 
 ### Breaking Changes
 
-- Renamed `Base*Model` to `*Schema`, e.g `BaseCategoryModel` is now `CategorySchema`
+- Renamed `Base*Model` to `*`, e.g `BaseCategoryModel` is now `Category`
 
 ### What's New
 
@@ -35,7 +49,7 @@
 ## [0.1.3+2]
 
 - Removed explicit `null` variable initializations as suggested by dart analyzer
-  
+
 ## [0.1.3+1]
 
 - Fixed issue when retireving single post in [issue #4](https://github.com/dhmgroup/dart-wp/issues/4)

@@ -2,4 +2,5 @@
 library wordpress_api;
 
 export 'src/main.dart';
-export 'src/schemas.dart';
+export 'src/models.dart';
+export 'src/helpers.dart';

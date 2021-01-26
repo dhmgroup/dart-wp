@@ -1,6 +1,0 @@
-include: package:lint/analysis_options.yaml
-
-analyzer:
-  exclude:
-    - "**/*.g.dart"
-    - "**/*.freezed.dart"
