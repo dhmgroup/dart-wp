@@ -12,7 +12,7 @@ class WordPressAPI {
   /// Initialize a custom dio instance.
   ///
   /// Useful if you want to customize `Dio`
-  Dio dio;
+  final Dio _dio;
 
   /// WooCommerce API credentials
   final WooCredentials wooCredentials;
@@ -20,16 +20,9 @@ class WordPressAPI {
   WordPressAPI(
     this.site, {
     this.wooCredentials,
-    this.dio,
-  }) : assert(site != null) {
-    if (dio == null) {
-      dio = Dio(
-        BaseOptions(
-          followRedirects: false,
-        ),
-      );
-    }
-  }
+    Dio dio,
+  })  : assert(site != null),
+        _dio = dio ?? Dio();
 
 // ***********************************************************
   // GET DATA FROM CUSTOM ENDPOINT //
@@ -71,14 +64,14 @@ class WordPressAPI {
     //************************
     // SET BASE URL
     //********************** */
-    dio.options.baseUrl = url;
+    _dio.options.baseUrl = url;
 
     // **********************************************
     //  SET WOOCOMMERCE CREDENTIALS
     // **********************************************
     if (wooCredentials != null) {
-      dio.options.queryParameters ??= {};
-      dio.options.queryParameters.addAll({
+      _dio.options.queryParameters ??= {};
+      _dio.options.queryParameters.addAll({
         "consumer_key": wooCredentials.consumerKey,
         "consumer_secret": wooCredentials.consumerSecret
       });
@@ -89,7 +82,7 @@ class WordPressAPI {
     //******************************************* */
     try {
       int total, totalPages;
-      final res = await dio.get(
+      final res = await _dio.get(
         '$namespace/$endpoint',
         queryParameters: args,
       );
