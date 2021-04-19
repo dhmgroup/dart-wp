@@ -1,4 +1,4 @@
-library Product;
+library product;
 
 export 'attributes.dart';
 export 'category.dart';

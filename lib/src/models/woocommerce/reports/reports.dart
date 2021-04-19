@@ -1,4 +1,4 @@
-library Reports;
+library reports;
 
 export 'sales.dart';
 export 'top_seller.dart';
