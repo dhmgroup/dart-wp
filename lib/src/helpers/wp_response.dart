@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'package:wordpress_api/src/helpers/wp_meta.dart';
 
 /// WordPress Repsonse that returns the data, meta and a statusCode
@@ -16,5 +15,5 @@ class WPResponse {
     this.data,
     this.meta,
     required this.statusCode,
-  }) : assert(statusCode != null);
+  });
 }

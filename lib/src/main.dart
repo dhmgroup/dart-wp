@@ -53,11 +53,9 @@ class WordPressAPI {
     //********************* */
     // NAMESPACE DISCOVERY
     //******************** */
-    if (namespace != null) {
-      // CHECK IF NAMESPACE HAS A TRAILING SLASH
-      if (namespace.endsWith('/')) {
-        namespace = namespace.substring(0, namespace.length - 1).toLowerCase();
-      }
+    // CHECK IF NAMESPACE HAS A TRAILING SLASH
+    if (namespace.endsWith('/')) {
+      namespace = namespace.substring(0, namespace.length - 1).toLowerCase();
     }
 
     //************************
@@ -69,7 +67,7 @@ class WordPressAPI {
     //  SET WOOCOMMERCE CREDENTIALS
     // **********************************************
     if (wooCredentials != null) {
-      _dio.options.queryParameters ??= {};
+      // _dio.options.queryParameters ??= {};
       _dio.options.queryParameters.addAll({
         "consumer_key": wooCredentials!.consumerKey,
         "consumer_secret": wooCredentials!.consumerSecret
@@ -82,7 +80,7 @@ class WordPressAPI {
     try {
       int? total, totalPages;
       final res = await _dio.get(
-        '$namespace/$endpoint',
+        '/$namespace/$endpoint',
         queryParameters: args,
       );
 
@@ -217,7 +215,7 @@ class WordPressAPI {
     return parseUsers(res.data);
   }
 
-  /// [GET] jobs from WP Job Manager endpoint
+  /// [GET] job listings from `WP Job Manager` endpoint
   ///
   /// `/wp/v2/job-listings`
   Future getJobs({int? id, Map<String, dynamic>? args}) async {

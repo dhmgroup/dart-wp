@@ -115,7 +115,6 @@ class Job {
   }
 
   factory Job.fromMap(Map<String, dynamic> map) {
-
     return Job(
       id: map['id'],
       date: map['date'],

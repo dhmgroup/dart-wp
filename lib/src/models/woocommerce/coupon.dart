@@ -151,7 +151,7 @@ class Coupon {
       'maximum_amount': maximumAmount,
       'email_restrictions': emailRestrictions,
       'used_by': usedBy,
-      'meta_data': metaData?.map((x) => x?.toMap())?.toList(),
+      'meta_data': metaData?.map((x) => x.toMap()).toList(),
     };
   }
 

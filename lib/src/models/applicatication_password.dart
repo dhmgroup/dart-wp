@@ -64,7 +64,6 @@ class ApplicationPassword {
   }
 
   factory ApplicationPassword.fromMap(Map<String, dynamic> map) {
-
     return ApplicationPassword(
       uuid: map['uuid'],
       appId: map['app_id'],

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 
-import 'package:wordpress_api/src/models/embedded.dart';
 import 'package:wordpress_api/src/utils.dart';
 
 class Post {
@@ -91,9 +90,6 @@ class Post {
 
   ///The terms assigned to the object in the post_tag taxonomy.
   final List<int>? tags;
-
-  /// Embedded data
-  final Embedded? embedded;
   Post({
     this.date,
     this.dateGmt,
@@ -121,7 +117,6 @@ class Post {
     this.template,
     this.categories,
     this.tags,
-    this.embedded,
   });
 
   Post copyWith({
@@ -151,7 +146,6 @@ class Post {
     String? template,
     List<int>? categories,
     List<int>? tags,
-    Embedded? embedded,
   }) {
     return Post(
       date: date ?? this.date,
@@ -180,7 +174,6 @@ class Post {
       template: template ?? this.template,
       categories: categories ?? this.categories,
       tags: tags ?? this.tags,
-      embedded: embedded ?? this.embedded,
     );
   }
 
@@ -212,7 +205,6 @@ class Post {
       'template': template,
       'categories': categories,
       'tags': tags,
-      'embedded': embedded?.toMap(),
     };
   }
 
@@ -244,7 +236,7 @@ class Post {
       template: map['template'],
       categories: List<int>.from(map['categories']),
       tags: List<int>.from(map['tags']),
-      embedded: Embedded.fromMap(map['embedded']),
+      // embedded: Embedded?.fromMap(map['_embedded']),
     );
   }
 
@@ -254,7 +246,7 @@ class Post {
 
   @override
   String toString() {
-    return 'Post(date: $date, dateGmt: $dateGmt, guid: $guid, id: $id, link: $link, modified: $modified, modifiedGmt: $modifiedGmt, slug: $slug, status: $status, type: $type, password: $password, permalinkTemplate: $permalinkTemplate, generatedSlug: $generatedSlug, title: $title, content: $content, author: $author, excerpt: $excerpt, featuredMedia: $featuredMedia, commentStatus: $commentStatus, pingStatus: $pingStatus, format: $format, meta: $meta, sticky: $sticky, template: $template, categories: $categories, tags: $tags, embedded: $embedded)';
+    return 'Post(date: $date, dateGmt: $dateGmt, guid: $guid, id: $id, link: $link, modified: $modified, modifiedGmt: $modifiedGmt, slug: $slug, status: $status, type: $type, password: $password, permalinkTemplate: $permalinkTemplate, generatedSlug: $generatedSlug, title: $title, content: $content, author: $author, excerpt: $excerpt, featuredMedia: $featuredMedia, commentStatus: $commentStatus, pingStatus: $pingStatus, format: $format, meta: $meta, sticky: $sticky, template: $template, categories: $categories, tags: $tags)';
   }
 
   @override
@@ -288,8 +280,7 @@ class Post {
         o.sticky == sticky &&
         o.template == template &&
         listEquals(o.categories, categories) &&
-        listEquals(o.tags, tags) &&
-        o.embedded == embedded;
+        listEquals(o.tags, tags);
   }
 
   @override
@@ -319,8 +310,7 @@ class Post {
         sticky.hashCode ^
         template.hashCode ^
         categories.hashCode ^
-        tags.hashCode ^
-        embedded.hashCode;
+        tags.hashCode;
   }
 }
 

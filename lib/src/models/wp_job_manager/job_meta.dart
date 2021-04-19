@@ -61,7 +61,6 @@ class JobMeta {
   }
 
   factory JobMeta.fromMap(Map<String, dynamic> map) {
-
     return JobMeta(
       jobLocation: map['_job_location'],
       application: map['_application'],
