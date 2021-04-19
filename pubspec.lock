@@ -9,7 +9,7 @@ packages:
     source: hosted
     version: "1.2.0"
   collection:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: collection
       url: "https://pub.dartlang.org"
@@ -50,13 +50,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  meta:
-    dependency: "direct main"
-    description:
-      name: meta
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.3.0"
   path:
     dependency: transitive
     description:
