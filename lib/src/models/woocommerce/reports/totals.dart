@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 class Totals {
-  final String sales;
-  final int orders;
-  final int items;
-  final String tax;
-  final String shipping;
-  final String discount;
-  final int customers;
+  final String? sales;
+  final int? orders;
+  final int? items;
+  final String? tax;
+  final String? shipping;
+  final String? discount;
+  final int? customers;
   Totals({
     this.sales,
     this.orders,
@@ -19,13 +19,13 @@ class Totals {
   });
 
   Totals copyWith({
-    String sales,
-    int orders,
-    int items,
-    String tax,
-    String shipping,
-    String discount,
-    int customers,
+    String? sales,
+    int? orders,
+    int? items,
+    String? tax,
+    String? shipping,
+    String? discount,
+    int? customers,
   }) {
     return Totals(
       sales: sales ?? this.sales,
@@ -51,8 +51,6 @@ class Totals {
   }
 
   factory Totals.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Totals(
       sales: map['sales'],
       orders: map['orders']?.toInt(),

@@ -4,34 +4,34 @@ import 'package:collection/collection.dart';
 
 class Taxonomy {
   ///All capabilities used by the taxonomy.
-  final Map<String, dynamic> capabilities;
+  final Map<String, dynamic>? capabilities;
 
   ///A human-readable description of the taxonomy.
-  final String description;
+  final String? description;
 
   ///Whether or not the taxonomy should have children.
-  final bool hierarchical;
+  final bool? hierarchical;
 
   ///Human-readable labels for the taxonomy for various contexts.
-  final Map<String, dynamic> labels;
+  final Map<String, dynamic>? labels;
 
   ///The title for the taxonomy.
-  final String name;
+  final String? name;
 
   ///An alphanumeric identifier for the taxonomy.
-  final String slug;
+  final String? slug;
 
   ///Whether or not the term cloud should be displayed.
-  final bool showCloud;
+  final bool? showCloud;
 
   ///Types associated with the taxonomy.
-  final List types;
+  final List? types;
 
   ///REST base route for the taxonomy.
-  final String restBase;
+  final String? restBase;
 
   ///The visibility settings for the taxonomy.
-  final Map<String, dynamic> visibility;
+  final Map<String, dynamic>? visibility;
   Taxonomy({
     this.capabilities,
     this.description,
@@ -46,16 +46,16 @@ class Taxonomy {
   });
 
   Taxonomy copyWith({
-    Map<String, dynamic> capabilities,
-    String description,
-    bool hierarchical,
-    Map<String, dynamic> labels,
-    String name,
-    String slug,
-    bool showCloud,
-    List types,
-    String restBase,
-    Map<String, dynamic> visibility,
+    Map<String, dynamic>? capabilities,
+    String? description,
+    bool? hierarchical,
+    Map<String, dynamic>? labels,
+    String? name,
+    String? slug,
+    bool? showCloud,
+    List? types,
+    String? restBase,
+    Map<String, dynamic>? visibility,
   }) {
     return Taxonomy(
       capabilities: capabilities ?? this.capabilities,
@@ -87,8 +87,6 @@ class Taxonomy {
   }
 
   factory Taxonomy.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Taxonomy(
       capabilities: Map<String, dynamic>.from(map['capabilities']),
       description: map['description'],
@@ -146,7 +144,7 @@ class Taxonomy {
   }
 }
 
-List<Taxonomy> parseTaxonomies(dynamic data) {
+List<Taxonomy>? parseTaxonomies(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

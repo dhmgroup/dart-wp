@@ -5,17 +5,17 @@ import 'package:wordpress_api/src/models.dart' show User, Comment, Media;
 
 class Embedded {
   /// Embedded author
-  final List<User> author;
+  final List<User>? author;
 
   /// Embedded Comments/Replies
-  final List<Comment> replies;
+  final List<Comment>? replies;
 
   /// Embedded Featured Media
-  final List<Media> media;
+  final List<Media>? media;
 
   /// Embedded WP Terms
   /// The embedded terms may include categories, tags and more.
-  final List<List> terms;
+  final List<List>? terms;
   Embedded({
     this.author,
     this.replies,
@@ -24,14 +24,14 @@ class Embedded {
   });
 
   Embedded copyWith({
-    List<User> author,
-    List<List<Comment>> replies,
-    List<Media> media,
-    List<List> terms,
+    List<User>? author,
+    List<List<Comment>>? replies,
+    List<Media>? media,
+    List<List>? terms,
   }) {
     return Embedded(
       author: author ?? this.author,
-      replies: replies ?? this.replies,
+      replies: replies as List<Comment>? ?? this.replies,
       media: media ?? this.media,
       terms: terms ?? this.terms,
     );
@@ -47,8 +47,6 @@ class Embedded {
   }
 
   factory Embedded.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Embedded(
       author: List<User>.from(map['author']?.map((x) => User.fromMap(x))),
       replies:

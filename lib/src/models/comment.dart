@@ -5,52 +5,52 @@ import 'package:wordpress_api/src/utils.dart';
 
 class Comment {
   ///Unique identifier for the object.
-  final int id;
+  final int? id;
 
   ///The ID of the user object, if author was a user.
-  final int author;
+  final int? author;
 
   ///Email address for the object author.
-  final String authorEmail;
+  final String? authorEmail;
 
   ///IP address for the object author.
-  final String authorIp;
+  final String? authorIp;
 
   ///Display name for the object author.
-  final String authorName;
+  final String? authorName;
 
   ///URL for the object author.
-  final String authorUrl;
+  final String? authorUrl;
 
   ///User agent for the object author.
-  final String authorUserAgent;
+  final String? authorUserAgent;
 
   ///The content for the object.
-  final String content;
+  final String? content;
 
   ///The date the object was published, in the site's timezone.
-  final String date;
+  final String? date;
 
   ///The date the object was published, as GMT.
-  final String dateGmt;
+  final String? dateGmt;
 
   ///URL to the object.
-  final String link;
+  final String? link;
 
   ///The ID for the parent of the object.
-  final int parent;
+  final int? parent;
 
   /// The ID of the associated post object.
-  final int post;
+  final int? post;
 
   ///State of the object.
-  final String status;
+  final String? status;
 
   ///Type of Comment for the object.
-  final String type;
+  final String? type;
 
   ///Avatar URLs for the object author.
-  final Map<String, dynamic> authorAvatarUrls;
+  final Map<String, dynamic>? authorAvatarUrls;
 
   ///Meta fields.
   final dynamic meta;
@@ -75,22 +75,22 @@ class Comment {
   });
 
   Comment copyWith({
-    int id,
-    int author,
-    String authorEmail,
-    String authorIp,
-    String authorName,
-    String authorUrl,
-    String authorUserAgent,
-    String content,
-    String date,
-    String dateGmt,
-    String link,
-    int parent,
-    int post,
-    String status,
-    String type,
-    Map<String, dynamic> authorAvatarUrls,
+    int? id,
+    int? author,
+    String? authorEmail,
+    String? authorIp,
+    String? authorName,
+    String? authorUrl,
+    String? authorUserAgent,
+    String? content,
+    String? date,
+    String? dateGmt,
+    String? link,
+    int? parent,
+    int? post,
+    String? status,
+    String? type,
+    Map<String, dynamic>? authorAvatarUrls,
     dynamic meta,
   }) {
     return Comment(
@@ -137,8 +137,6 @@ class Comment {
   }
 
   factory Comment.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Comment(
       id: map['id'],
       author: map['author'],
@@ -217,7 +215,7 @@ class Comment {
   }
 }
 
-List<Comment> parseComments(dynamic data) {
+List<Comment>? parseComments(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

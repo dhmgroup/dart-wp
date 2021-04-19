@@ -1,17 +1,17 @@
 import 'dart:convert';
 
 class Billing {
-  final String firstName;
-  final String lastName;
-  final String company;
-  final String address1;
-  final String address2;
-  final String city;
-  final String state;
-  final String postcode;
-  final String country;
-  final String email;
-  final String phone;
+  final String? firstName;
+  final String? lastName;
+  final String? company;
+  final String? address1;
+  final String? address2;
+  final String? city;
+  final String? state;
+  final String? postcode;
+  final String? country;
+  final String? email;
+  final String? phone;
   Billing({
     this.firstName,
     this.lastName,
@@ -27,17 +27,17 @@ class Billing {
   });
 
   Billing copyWith({
-    String firstName,
-    String lastName,
-    String company,
-    String address1,
-    String address2,
-    String city,
-    String state,
-    String postcode,
-    String country,
-    String email,
-    String phone,
+    String? firstName,
+    String? lastName,
+    String? company,
+    String? address1,
+    String? address2,
+    String? city,
+    String? state,
+    String? postcode,
+    String? country,
+    String? email,
+    String? phone,
   }) {
     return Billing(
       firstName: firstName ?? this.firstName,
@@ -71,8 +71,6 @@ class Billing {
   }
 
   factory Billing.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Billing(
       firstName: map['first_name'],
       lastName: map['last_name'],

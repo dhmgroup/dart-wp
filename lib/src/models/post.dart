@@ -7,93 +7,93 @@ import 'package:wordpress_api/src/utils.dart';
 
 class Post {
   ///The date the object was published, in the site's timezone.
-  final String date;
+  final String? date;
 
   ///The date the object was published, as GMT.
-  final String dateGmt;
+  final String? dateGmt;
 
   ///The globally unique identifier for the object.
-  final String guid;
+  final String? guid;
 
   ///Unique identifier for the object.
-  final int id;
+  final int? id;
 
   ///URL to the object.
-  final String link;
+  final String? link;
 
   ///The date the object was last modified, in the site's timezone
-  final String modified;
+  final String? modified;
 
   ///The date the object was last modified, as GMT.
-  final String modifiedGmt;
+  final String? modifiedGmt;
 
   ///An alphanumeric identifier for the object unique to its type.
-  final String slug;
+  final String? slug;
 
   ///A named status for the object.
   ///
   /// One of: "publish", "future", "draft", "pending", "private"
-  final String status;
+  final String? status;
 
   ///Type of Post for the object.
-  final String type;
+  final String? type;
 
   ///A password to protect access to the content and excerpt.
-  final String password;
+  final String? password;
 
   ///Permalink template for the object.
-  final String permalinkTemplate;
+  final String? permalinkTemplate;
 
   ///Slug automatically generated from the object title.
-  final String generatedSlug;
+  final String? generatedSlug;
 
   ///The title for the object.
-  final String title;
+  final String? title;
 
   ///The content for the object.
-  final String content;
+  final String? content;
 
   ///The ID for the author of the object.
-  final int author;
+  final int? author;
 
   ///The excerpt for the object.
-  final String excerpt;
+  final String? excerpt;
 
   ///The ID of the featured media for the object.
-  final int featuredMedia;
+  final int? featuredMedia;
 
   ///Whether or not comments are open on the object.
   ///
   /// One of: "open", "closed"
-  final String commentStatus;
+  final String? commentStatus;
 
   ///Whether or not the object can be pinged.
   ///
   /// One of: "open", "closed"
-  final String pingStatus;
+  final String? pingStatus;
 
   ///The format for the object.
   ///
   /// One of: "standard", "aside", "chat", "gallery", "link", "image", "quote", "status", "video", "audio"
-  final String format;
+  final String? format;
 
   ///Meta fields.
   final dynamic meta;
 
   ///Whether or not the object should be treated as sticky.
-  final bool sticky;
+  final bool? sticky;
 
   ///The theme file to use to display the object.
-  final String template;
+  final String? template;
 
   ///The terms assigned to the object in the category taxonomy.
-  final List<int> categories;
+  final List<int>? categories;
 
   ///The terms assigned to the object in the post_tag taxonomy.
-  final List<int> tags;
+  final List<int>? tags;
 
   /// Embedded data
-  final Embedded embedded;
+  final Embedded? embedded;
   Post({
     this.date,
     this.dateGmt,
@@ -125,33 +125,33 @@ class Post {
   });
 
   Post copyWith({
-    String date,
-    String dateGmt,
-    String guid,
-    int id,
-    String link,
-    String modified,
-    String modifiedGmt,
-    String slug,
-    String status,
-    String type,
-    String password,
-    String permalinkTemplate,
-    String generatedSlug,
-    String title,
-    String content,
-    int author,
-    String excerpt,
-    int featuredMedia,
-    String commentStatus,
-    String pingStatus,
-    String format,
+    String? date,
+    String? dateGmt,
+    String? guid,
+    int? id,
+    String? link,
+    String? modified,
+    String? modifiedGmt,
+    String? slug,
+    String? status,
+    String? type,
+    String? password,
+    String? permalinkTemplate,
+    String? generatedSlug,
+    String? title,
+    String? content,
+    int? author,
+    String? excerpt,
+    int? featuredMedia,
+    String? commentStatus,
+    String? pingStatus,
+    String? format,
     dynamic meta,
-    bool sticky,
-    String template,
-    List<int> categories,
-    List<int> tags,
-    Embedded embedded,
+    bool? sticky,
+    String? template,
+    List<int>? categories,
+    List<int>? tags,
+    Embedded? embedded,
   }) {
     return Post(
       date: date ?? this.date,
@@ -217,8 +217,6 @@ class Post {
   }
 
   factory Post.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Post(
       date: map['date'],
       dateGmt: map['date_gmt'],
@@ -326,7 +324,7 @@ class Post {
   }
 }
 
-List<Post> parsePosts(dynamic data) {
+List<Post>? parsePosts(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

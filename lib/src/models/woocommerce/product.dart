@@ -4,108 +4,108 @@ import 'package:collection/collection.dart';
 import 'package:wordpress_api/src/models/woocommerce/product/product.dart';
 
 class Product {
-  final int id;
-  final String name;
-  final String slug;
-  final String permalink;
+  final int? id;
+  final String? name;
+  final String? slug;
+  final String? permalink;
 
-  final String dateCreated;
-  final String dateCreatedGmt;
-  final String dateModified;
-  final String dateModifiedGmt;
-  final String type;
+  final String? dateCreated;
+  final String? dateCreatedGmt;
+  final String? dateModified;
+  final String? dateModifiedGmt;
+  final String? type;
 
   /// [String] Variation status.
   ///
   /// Options: `draft`, `pending`, `private` and `publish`.
   ///
   /// Default is `publish`
-  final String status;
-  final bool featured;
-  final String catalogVisibility;
-  final String description;
-  final String shortDescription;
-  final String sku;
-  final String price;
-  final String regularPrice;
-  final String salePrice;
-  final String dateOnSaleFrom;
-  final String dateOnSaleFromGmt;
-  final String dateOnSaleTo;
-  final String dateOnSaleToGmt;
-  final String priceHtml;
-  final bool onSale;
-  final bool purchasable;
-  final int totalSales;
+  final String? status;
+  final bool? featured;
+  final String? catalogVisibility;
+  final String? description;
+  final String? shortDescription;
+  final String? sku;
+  final String? price;
+  final String? regularPrice;
+  final String? salePrice;
+  final String? dateOnSaleFrom;
+  final String? dateOnSaleFromGmt;
+  final String? dateOnSaleTo;
+  final String? dateOnSaleToGmt;
+  final String? priceHtml;
+  final bool? onSale;
+  final bool? purchasable;
+  final int? totalSales;
 
   ///[bool] If the variation is virtual.
   ///
   ///Default is `false`
-  final bool virtual;
+  final bool? virtual;
 
   /// [bool] If the variation is downloadable.
   ///
   /// Default is `false`
-  final bool downloadable;
-  final List<ProductDownloads> downloads;
-  final int downloadLimit;
-  final int downloadExpiry;
-  final String externalUrl;
-  final String buttondText;
+  final bool? downloadable;
+  final List<ProductDownloads>? downloads;
+  final int? downloadLimit;
+  final int? downloadExpiry;
+  final String? externalUrl;
+  final String? buttondText;
 
   /// [String] Tax status.
   ///
   /// Options: `taxable`, `shipping` and `none`.
   ///
   /// Default is taxable.
-  final String taxStatus;
-  final String taxClass;
+  final String? taxStatus;
+  final String? taxClass;
 
   ///[bool] Stock management at variation level.
   ///
   ///Default is `false`.
-  final bool manageStock;
-  final int stockQuantity;
+  final bool? manageStock;
+  final int? stockQuantity;
 
   ///[String] Controls the stock status of the product.
   ///
   ///Options: `instock`, `outofstock`, `onbackorder`.
   ///
   ///Default is instock
-  final String stockStatus;
+  final String? stockStatus;
 
   ///[String] If managing stock, this controls if backorders are allowed.
   ///
   ///Options: `no`, `notify` and `yes`.
   ///
   ///Default is no.
-  final String backorders;
-  final bool backordersAllowed;
-  final bool backordered;
-  final bool soldIndividually;
-  final String weight;
-  final ProductDimensions dimensions;
-  final bool shippingdRequired;
-  final bool shippingdTaxable;
-  final String shippingClass;
-  final int shippingClassId;
-  final bool reviewsAllowed;
-  final String averagedRating;
-  final int ratingCount;
-  final List<int> relatedIds;
-  final List<int> upsellIds;
-  final List<int> crossSellIds;
-  final int parentId;
-  final String purchaseNote;
-  final List<ProductCategory> categories;
-  final List<ProductTag> tags;
-  final List<ProductImage> images;
-  final List<ProductAttributes> attributes;
-  final List<ProductDefaultAttributes> defaultAttributes;
-  final List<int> variations;
-  final List<Product> groupedProducts;
-  final int menuOrder;
-  final List<ProductMeta> metaData;
+  final String? backorders;
+  final bool? backordersAllowed;
+  final bool? backordered;
+  final bool? soldIndividually;
+  final String? weight;
+  final ProductDimensions? dimensions;
+  final bool? shippingdRequired;
+  final bool? shippingdTaxable;
+  final String? shippingClass;
+  final int? shippingClassId;
+  final bool? reviewsAllowed;
+  final String? averagedRating;
+  final int? ratingCount;
+  final List<int>? relatedIds;
+  final List<int>? upsellIds;
+  final List<int>? crossSellIds;
+  final int? parentId;
+  final String? purchaseNote;
+  final List<ProductCategory>? categories;
+  final List<ProductTag>? tags;
+  final List<ProductImage>? images;
+  final List<ProductAttributes>? attributes;
+  final List<ProductDefaultAttributes>? defaultAttributes;
+  final List<int>? variations;
+  final List<Product>? groupedProducts;
+  final int? menuOrder;
+  final List<ProductMeta>? metaData;
   Product({
     this.id,
     this.name,
@@ -175,71 +175,71 @@ class Product {
   });
 
   Product copyWith({
-    int id,
-    String name,
-    String slug,
-    String permalink,
-    String dateCreated,
-    String dateCreatedGmt,
-    String dateModified,
-    String dateModifiedGmt,
-    String type,
-    String status,
-    bool featured,
-    String catalogVisibility,
-    String description,
-    String shortDescription,
-    String sku,
-    String price,
-    String regularPrice,
-    String salePrice,
-    String dateOnSaleFrom,
-    String dateOnSaleFromGmt,
-    String dateOnSaleTo,
-    String dateOnSaleToGmt,
-    String priceHtml,
-    bool onSale,
-    bool purchasable,
-    int totalSales,
-    bool virtual,
-    bool downloadable,
-    List<ProductDownloads> downloads,
-    int downloadLimit,
-    int downloadExpiry,
-    String externalUrl,
-    String buttondText,
-    String taxStatus,
-    String taxClass,
-    bool manageStock,
-    int stockQuantity,
-    String stockStatus,
-    String backorders,
-    bool backordersAllowed,
-    bool backordered,
-    bool soldIndividually,
-    String weight,
-    ProductDimensions dimensions,
-    bool shippingdRequired,
-    bool shippingdTaxable,
-    String shippingClass,
-    int shippingClassId,
-    bool reviewsAllowed,
-    String averagedRating,
-    int ratingCount,
-    List<int> relatedIds,
-    List<int> upsellIds,
-    List<int> crossSellIds,
-    int parentId,
-    String purchaseNote,
-    List<ProductCategory> categories,
-    List<ProductTag> tags,
-    List<ProductImage> images,
-    List<ProductAttributes> attributes,
-    List<ProductDefaultAttributes> defaultAttributes,
-    List<int> variations,
-    List<Product> groupedProducts,
-    int menuOrder,
-    List<ProductMeta> metaData,
+    int? id,
+    String? name,
+    String? slug,
+    String? permalink,
+    String? dateCreated,
+    String? dateCreatedGmt,
+    String? dateModified,
+    String? dateModifiedGmt,
+    String? type,
+    String? status,
+    bool? featured,
+    String? catalogVisibility,
+    String? description,
+    String? shortDescription,
+    String? sku,
+    String? price,
+    String? regularPrice,
+    String? salePrice,
+    String? dateOnSaleFrom,
+    String? dateOnSaleFromGmt,
+    String? dateOnSaleTo,
+    String? dateOnSaleToGmt,
+    String? priceHtml,
+    bool? onSale,
+    bool? purchasable,
+    int? totalSales,
+    bool? virtual,
+    bool? downloadable,
+    List<ProductDownloads>? downloads,
+    int? downloadLimit,
+    int? downloadExpiry,
+    String? externalUrl,
+    String? buttondText,
+    String? taxStatus,
+    String? taxClass,
+    bool? manageStock,
+    int? stockQuantity,
+    String? stockStatus,
+    String? backorders,
+    bool? backordersAllowed,
+    bool? backordered,
+    bool? soldIndividually,
+    String? weight,
+    ProductDimensions? dimensions,
+    bool? shippingdRequired,
+    bool? shippingdTaxable,
+    String? shippingClass,
+    int? shippingClassId,
+    bool? reviewsAllowed,
+    String? averagedRating,
+    int? ratingCount,
+    List<int>? relatedIds,
+    List<int>? upsellIds,
+    List<int>? crossSellIds,
+    int? parentId,
+    String? purchaseNote,
+    List<ProductCategory>? categories,
+    List<ProductTag>? tags,
+    List<ProductImage>? images,
+    List<ProductAttributes>? attributes,
+    List<ProductDefaultAttributes>? defaultAttributes,
+    List<int>? variations,
+    List<Product>? groupedProducts,
+    int? menuOrder,
+    List<ProductMeta>? metaData,
   }) {
     return Product(
       id: id ?? this.id,
@@ -381,8 +381,6 @@ class Product {
   }
 
   factory Product.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Product(
       id: map['id'],
       name: map['name'],

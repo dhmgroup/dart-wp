@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class WooMeta {
-  final int id;
-  final String key;
-  final String value;
+  final int? id;
+  final String? key;
+  final String? value;
   WooMeta({
     this.id,
     this.key,
@@ -11,9 +11,9 @@ class WooMeta {
   });
 
   WooMeta copyWith({
-    int id,
-    String key,
-    String value,
+    int? id,
+    String? key,
+    String? value,
   }) {
     return WooMeta(
       id: id ?? this.id,
@@ -31,8 +31,6 @@ class WooMeta {
   }
 
   factory WooMeta.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return WooMeta(
       id: map['id']?.toInt(),
       key: map['key'],

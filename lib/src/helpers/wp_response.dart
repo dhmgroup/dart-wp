@@ -7,7 +7,7 @@ class WPResponse {
   final dynamic data;
 
   /// Meta contains meta from responses header. This inludes total number of item ["total"] and the total pages ["totalPages"]
-  final WPMeta meta;
+  final WPMeta? meta;
 
   /// HTTP Status code
   final int statusCode;
@@ -15,6 +15,6 @@ class WPResponse {
   WPResponse({
     this.data,
     this.meta,
-    @required this.statusCode,
+    required this.statusCode,
   }) : assert(statusCode != null);
 }

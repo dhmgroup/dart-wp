@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 
 class ProductAttributes {
-  final String name;
-  final String slug;
-  final int position;
-  final bool visible;
-  final bool variation;
-  final List options;
+  final String? name;
+  final String? slug;
+  final int? position;
+  final bool? visible;
+  final bool? variation;
+  final List? options;
   ProductAttributes({
     this.name,
     this.slug,
@@ -19,12 +19,12 @@ class ProductAttributes {
   });
 
   ProductAttributes copyWith({
-    String name,
-    String slug,
-    int position,
-    bool visible,
-    bool variation,
-    List options,
+    String? name,
+    String? slug,
+    int? position,
+    bool? visible,
+    bool? variation,
+    List? options,
   }) {
     return ProductAttributes(
       name: name ?? this.name,
@@ -48,8 +48,6 @@ class ProductAttributes {
   }
 
   factory ProductAttributes.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return ProductAttributes(
       name: map['name'],
       slug: map['slug'],

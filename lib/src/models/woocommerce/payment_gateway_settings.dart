@@ -1,18 +1,18 @@
 import 'dart:convert';
 
 class PaymentGatewaySettings {
-  final String id;
-  final String label;
-  final String description;
+  final String? id;
+  final String? label;
+  final String? description;
 
   ///[String] Type of setting.
   ///
   ///Options: `text`, `email`, `number`, `color`, `password`, `textarea`, `select`, `multiselect`, `radio`, `image_width` and `checkbox`.
-  final String type;
-  final String value;
-  final String dDefault;
-  final String tip;
-  final String placeholder;
+  final String? type;
+  final String? value;
+  final String? dDefault;
+  final String? tip;
+  final String? placeholder;
   PaymentGatewaySettings({
     this.id,
     this.label,
@@ -25,14 +25,14 @@ class PaymentGatewaySettings {
   });
 
   PaymentGatewaySettings copyWith({
-    String id,
-    String label,
-    String description,
-    String type,
-    String value,
-    String dDefault,
-    String tip,
-    String placeholder,
+    String? id,
+    String? label,
+    String? description,
+    String? type,
+    String? value,
+    String? dDefault,
+    String? tip,
+    String? placeholder,
   }) {
     return PaymentGatewaySettings(
       id: id ?? this.id,
@@ -60,8 +60,6 @@ class PaymentGatewaySettings {
   }
 
   factory PaymentGatewaySettings.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return PaymentGatewaySettings(
       id: map['id'],
       label: map['label'],

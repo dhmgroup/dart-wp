@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 class Shipping {
-  final String firstName;
-  final String lastName;
-  final String company;
-  final String address1;
-  final String address2;
-  final String city;
-  final String state;
-  final String postcode;
-  final String country;
+  final String? firstName;
+  final String? lastName;
+  final String? company;
+  final String? address1;
+  final String? address2;
+  final String? city;
+  final String? state;
+  final String? postcode;
+  final String? country;
   Shipping({
     this.firstName,
     this.lastName,
@@ -23,15 +23,15 @@ class Shipping {
   });
 
   Shipping copyWith({
-    String firstName,
-    String lastName,
-    String company,
-    String address1,
-    String address2,
-    String city,
-    String state,
-    String postcode,
-    String country,
+    String? firstName,
+    String? lastName,
+    String? company,
+    String? address1,
+    String? address2,
+    String? city,
+    String? state,
+    String? postcode,
+    String? country,
   }) {
     return Shipping(
       firstName: firstName ?? this.firstName,
@@ -61,8 +61,6 @@ class Shipping {
   }
 
   factory Shipping.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Shipping(
       firstName: map['first_name'],
       lastName: map['last_name'],

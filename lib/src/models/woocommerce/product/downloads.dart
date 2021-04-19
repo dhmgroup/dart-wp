@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class ProductDownloads {
-  final int id;
-  final String name;
-  final String file;
+  final int? id;
+  final String? name;
+  final String? file;
   ProductDownloads({
     this.id,
     this.name,
@@ -11,9 +11,9 @@ class ProductDownloads {
   });
 
   ProductDownloads copyWith({
-    int id,
-    String name,
-    String file,
+    int? id,
+    String? name,
+    String? file,
   }) {
     return ProductDownloads(
       id: id ?? this.id,
@@ -31,8 +31,6 @@ class ProductDownloads {
   }
 
   factory ProductDownloads.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return ProductDownloads(
       id: map['id'],
       name: map['name'],

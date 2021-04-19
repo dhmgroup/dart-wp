@@ -4,33 +4,33 @@ import 'package:collection/collection.dart';
 import 'package:wordpress_api/src/models/woocommerce/meta.dart';
 
 class Coupon {
-  final int id;
-  final String code;
-  final String amount;
-  final String dateCreated;
-  final String dateCreatedGmt;
-  final String dateModified;
-  final String dateModifiedGmt;
-  final String discountType;
-  final String description;
-  final String dateExpires;
-  final String dateExpiresGmt;
-  final int usageCount;
-  final bool individualUse;
-  final List<int> productIds;
-  final List<int> excludedProductIds;
-  final int usageLimit;
-  final int usageLimitPerUser;
-  final int limitUsageToXItems;
-  final bool freeShipping;
-  final List<int> productCategories;
-  final List<int> excludedProductCategories;
-  final bool excludeSaleItems;
-  final String minimumAmount;
-  final String maximumAmount;
-  final List<String> emailRestrictions;
-  final List<int> usedBy;
-  final List<WooMeta> metaData;
+  final int? id;
+  final String? code;
+  final String? amount;
+  final String? dateCreated;
+  final String? dateCreatedGmt;
+  final String? dateModified;
+  final String? dateModifiedGmt;
+  final String? discountType;
+  final String? description;
+  final String? dateExpires;
+  final String? dateExpiresGmt;
+  final int? usageCount;
+  final bool? individualUse;
+  final List<int>? productIds;
+  final List<int>? excludedProductIds;
+  final int? usageLimit;
+  final int? usageLimitPerUser;
+  final int? limitUsageToXItems;
+  final bool? freeShipping;
+  final List<int>? productCategories;
+  final List<int>? excludedProductCategories;
+  final bool? excludeSaleItems;
+  final String? minimumAmount;
+  final String? maximumAmount;
+  final List<String>? emailRestrictions;
+  final List<int>? usedBy;
+  final List<WooMeta>? metaData;
   Coupon({
     this.id,
     this.code,
@@ -62,33 +62,33 @@ class Coupon {
   });
 
   Coupon copyWith({
-    int id,
-    String code,
-    String amount,
-    String dateCreated,
-    String dateCreatedGmt,
-    String dateModified,
-    String dateModifiedGmt,
-    String discountType,
-    String description,
-    String dateExpires,
-    String dateExpiresGmt,
-    int usageCount,
-    bool individualUse,
-    List<dynamic> productIds,
-    List<dynamic> excludedProductIds,
-    int usageLimit,
-    int usageLimitPerUser,
-    int limitUsageToXItems,
-    bool freeShipping,
-    List<int> productCategories,
-    List<int> excludedProductCategories,
-    bool excludeSaleItems,
-    String minimumAmount,
-    String maximumAmount,
-    List<String> emailRestrictions,
-    List<int> usedBy,
-    List<WooMeta> metaData,
+    int? id,
+    String? code,
+    String? amount,
+    String? dateCreated,
+    String? dateCreatedGmt,
+    String? dateModified,
+    String? dateModifiedGmt,
+    String? discountType,
+    String? description,
+    String? dateExpires,
+    String? dateExpiresGmt,
+    int? usageCount,
+    bool? individualUse,
+    List<dynamic>? productIds,
+    List<dynamic>? excludedProductIds,
+    int? usageLimit,
+    int? usageLimitPerUser,
+    int? limitUsageToXItems,
+    bool? freeShipping,
+    List<int>? productCategories,
+    List<int>? excludedProductCategories,
+    bool? excludeSaleItems,
+    String? minimumAmount,
+    String? maximumAmount,
+    List<String>? emailRestrictions,
+    List<int>? usedBy,
+    List<WooMeta>? metaData,
   }) {
     return Coupon(
       id: id ?? this.id,
@@ -104,8 +104,9 @@ class Coupon {
       dateExpiresGmt: dateExpiresGmt ?? this.dateExpiresGmt,
       usageCount: usageCount ?? this.usageCount,
       individualUse: individualUse ?? this.individualUse,
-      productIds: productIds ?? this.productIds,
-      excludedProductIds: excludedProductIds ?? this.excludedProductIds,
+      productIds: productIds as List<int>? ?? this.productIds,
+      excludedProductIds:
+          excludedProductIds as List<int>? ?? this.excludedProductIds,
       usageLimit: usageLimit ?? this.usageLimit,
       usageLimitPerUser: usageLimitPerUser ?? this.usageLimitPerUser,
       limitUsageToXItems: limitUsageToXItems ?? this.limitUsageToXItems,
@@ -155,8 +156,6 @@ class Coupon {
   }
 
   factory Coupon.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Coupon(
       id: map['id']?.toInt(),
       code: map['code'],
@@ -171,8 +170,9 @@ class Coupon {
       dateExpiresGmt: map['date_expires_gmt'],
       usageCount: map['usage_count']?.toInt(),
       individualUse: map['individual_use'],
-      productIds: List<dynamic>.from(map['product_ids']),
-      excludedProductIds: List<dynamic>.from(map['excluded_product_ids']),
+      productIds: List<dynamic>.from(map['product_ids']) as List<int>?,
+      excludedProductIds:
+          List<dynamic>.from(map['excluded_product_ids']) as List<int>?,
       usageLimit: map['usage_limit']?.toInt(),
       usageLimitPerUser: map['usage_limit_per_user']?.toInt(),
       limitUsageToXItems: map['limit_usage_to_x_items']?.toInt(),

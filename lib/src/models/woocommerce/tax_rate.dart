@@ -1,36 +1,36 @@
 import 'dart:convert';
 
 class TaxRate {
-  final int id;
-  final String country;
-  final String state;
-  final String postcode;
-  final String city;
-  final String rate;
-  final String name;
+  final int? id;
+  final String? country;
+  final String? state;
+  final String? postcode;
+  final String? city;
+  final String? rate;
+  final String? name;
 
   ///[int] Tax priority. Only 1 matching rate per priority will be used.
   ///
   ///To define multiple tax rates for a single area you need to specify a different priority per rate.
   ///
   ///Default is `1`.
-  final int priority;
+  final int? priority;
 
   ///[bool] Whether or not this is a compound rate. Compound tax rates are applied on top of other tax rates.
   ///
   ///Default is `false`.
-  final bool compound;
+  final bool? compound;
 
   ///[bool] Whether or not this tax rate also gets applied to shipping.
   ///
   ///Default is `true`.
-  final bool shipping;
-  final int order;
+  final bool? shipping;
+  final int? order;
 
   ///[String] Tax class.
   ///
   ///Default is `standard`.
-  final String taxClass;
+  final String? taxClass;
   TaxRate({
     this.id,
     this.country,
@@ -47,18 +47,18 @@ class TaxRate {
   });
 
   TaxRate copyWith({
-    int id,
-    String country,
-    String state,
-    String postcode,
-    String city,
-    String rate,
-    String name,
-    int priority,
-    bool compound,
-    bool shipping,
-    int order,
-    String taxClass,
+    int? id,
+    String? country,
+    String? state,
+    String? postcode,
+    String? city,
+    String? rate,
+    String? name,
+    int? priority,
+    bool? compound,
+    bool? shipping,
+    int? order,
+    String? taxClass,
   }) {
     return TaxRate(
       id: id ?? this.id,
@@ -94,8 +94,6 @@ class TaxRate {
   }
 
   factory TaxRate.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return TaxRate(
       id: map['id']?.toInt(),
       country: map['country'],

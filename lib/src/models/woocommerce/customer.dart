@@ -4,20 +4,20 @@ import 'package:wordpress_api/src/models/woocommerce/billing.dart';
 import 'package:wordpress_api/src/models/woocommerce/shipping.dart';
 
 class Customer {
-  final int id;
-  final String dateCreated;
-  final String dateCreatedGmt;
-  final String dateModified;
-  final String dateModifiedGmt;
-  final String email;
-  final String firstName;
-  final String lastName;
-  final String role;
-  final String username;
-  final Billing billing;
-  final Shipping shipping;
-  final bool isPayingCustomer;
-  final String avatarUrl;
+  final int? id;
+  final String? dateCreated;
+  final String? dateCreatedGmt;
+  final String? dateModified;
+  final String? dateModifiedGmt;
+  final String? email;
+  final String? firstName;
+  final String? lastName;
+  final String? role;
+  final String? username;
+  final Billing? billing;
+  final Shipping? shipping;
+  final bool? isPayingCustomer;
+  final String? avatarUrl;
   Customer({
     this.id,
     this.dateCreated,
@@ -36,20 +36,20 @@ class Customer {
   });
 
   Customer copyWith({
-    int id,
-    String dateCreated,
-    String dateCreatedGmt,
-    String dateModified,
-    String dateModifiedGmt,
-    String email,
-    String firstName,
-    String lastName,
-    String role,
-    String username,
-    Billing billing,
-    Shipping shipping,
-    bool isPayingCustomer,
-    String avatarUrl,
+    int? id,
+    String? dateCreated,
+    String? dateCreatedGmt,
+    String? dateModified,
+    String? dateModifiedGmt,
+    String? email,
+    String? firstName,
+    String? lastName,
+    String? role,
+    String? username,
+    Billing? billing,
+    Shipping? shipping,
+    bool? isPayingCustomer,
+    String? avatarUrl,
   }) {
     return Customer(
       id: id ?? this.id,
@@ -89,8 +89,6 @@ class Customer {
   }
 
   factory Customer.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Customer(
       id: map['id']?.toInt(),
       dateCreated: map['date_created'],

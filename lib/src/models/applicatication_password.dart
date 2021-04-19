@@ -2,25 +2,25 @@ import 'dart:convert';
 
 class ApplicationPassword {
   ///The unique identifier for the application password.
-  final String uuid;
+  final String? uuid;
 
   /// A uuid provided by the application to uniquely identify it. It is recommended to use an UUID v5 with the URL or DNS namespace.
-  final String appId;
+  final String? appId;
 
   ///The name of the application password.
-  final String name;
+  final String? name;
 
   ///The generated password. Only available after adding an application.
-  final String password;
+  final String? password;
 
   ///The GMT date the application password was created.
-  final String created;
+  final String? created;
 
   ///The GMT date the application password was last used.
-  final String lastUsed;
+  final String? lastUsed;
 
   ///The IP address the application password was last used by.
-  final String lastIp;
+  final String? lastIp;
   ApplicationPassword({
     this.uuid,
     this.appId,
@@ -32,13 +32,13 @@ class ApplicationPassword {
   });
 
   ApplicationPassword copyWith({
-    String uuid,
-    String appId,
-    String name,
-    String password,
-    String created,
-    String lastUsed,
-    String lastIp,
+    String? uuid,
+    String? appId,
+    String? name,
+    String? password,
+    String? created,
+    String? lastUsed,
+    String? lastIp,
   }) {
     return ApplicationPassword(
       uuid: uuid ?? this.uuid,
@@ -64,7 +64,6 @@ class ApplicationPassword {
   }
 
   factory ApplicationPassword.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
 
     return ApplicationPassword(
       uuid: map['uuid'],
@@ -113,7 +112,7 @@ class ApplicationPassword {
   }
 }
 
-List<ApplicationPassword> parseApplicationPasswords(dynamic data) {
+List<ApplicationPassword>? parseApplicationPasswords(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

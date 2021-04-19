@@ -2,27 +2,27 @@ import 'dart:convert';
 
 class Tag {
   ///Unique identifier for the term.
-  final int id;
+  final int? id;
 
   ///Number of published posts for the term.
-  final int count;
+  final int? count;
 
   ///HTML description of the term.
-  final String description;
+  final String? description;
 
   ///URL of the term.
-  final String link;
+  final String? link;
 
   ///HTML title for the term.
-  final String name;
+  final String? name;
 
   ///An alphanumeric identifier for the term unique to its type.
-  final String slug;
+  final String? slug;
 
   ///Type attribution for the term.
   ///
   /// One of: "category", "post_tag", "nav_menu", "linkCategory", "postFormat"
-  final String taxonomy;
+  final String? taxonomy;
 
   ///Meta fields.
   final dynamic meta;
@@ -38,13 +38,13 @@ class Tag {
   });
 
   Tag copyWith({
-    int id,
-    int count,
-    String description,
-    String link,
-    String name,
-    String slug,
-    String taxonomy,
+    int? id,
+    int? count,
+    String? description,
+    String? link,
+    String? name,
+    String? slug,
+    String? taxonomy,
     dynamic meta,
   }) {
     return Tag(
@@ -73,8 +73,6 @@ class Tag {
   }
 
   factory Tag.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Tag(
       id: map['id'],
       count: map['count'],
@@ -124,7 +122,7 @@ class Tag {
   }
 }
 
-List<Tag> parseTags(dynamic data) {
+List<Tag>? parseTags(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

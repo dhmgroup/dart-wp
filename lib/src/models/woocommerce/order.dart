@@ -12,36 +12,36 @@ import 'package:wordpress_api/src/models/woocommerce/shipping.dart';
 import 'order/order.dart';
 
 class Order {
-  final int id;
-  final int orderNumber;
-  final String createdAt;
-  final String updatedAt;
-  final String completedAt;
-  final String status;
-  final String currency;
-  final String total;
-  final String subtotal;
-  final int totalLineItemsQuantity;
-  final String totalTax;
-  final String totalShipping;
-  final String cartTax;
-  final String shippingTax;
-  final String totalDiscount;
-  final String shippingMethods;
-  final PaymentDetail paymentDetails;
-  final Billing billingAddress;
-  final Shipping shippingAddress;
-  final String note;
-  final String customerIp;
-  final String customerUserAgent;
-  final int customerId;
-  final String viewOrderUrl;
-  final List<LineItem> lineItems;
-  final List<ShippingLine> shippingLines;
-  final List<TaxLine> taxLines;
-  final List<FeeLine> feeLines;
-  final List<CouponLine> couponLines;
-  final Customer customer;
+  final int? id;
+  final int? orderNumber;
+  final String? createdAt;
+  final String? updatedAt;
+  final String? completedAt;
+  final String? status;
+  final String? currency;
+  final String? total;
+  final String? subtotal;
+  final int? totalLineItemsQuantity;
+  final String? totalTax;
+  final String? totalShipping;
+  final String? cartTax;
+  final String? shippingTax;
+  final String? totalDiscount;
+  final String? shippingMethods;
+  final PaymentDetail? paymentDetails;
+  final Billing? billingAddress;
+  final Shipping? shippingAddress;
+  final String? note;
+  final String? customerIp;
+  final String? customerUserAgent;
+  final int? customerId;
+  final String? viewOrderUrl;
+  final List<LineItem>? lineItems;
+  final List<ShippingLine>? shippingLines;
+  final List<TaxLine>? taxLines;
+  final List<FeeLine>? feeLines;
+  final List<CouponLine>? couponLines;
+  final Customer? customer;
   Order({
     this.id,
     this.orderNumber,
@@ -76,36 +76,36 @@ class Order {
   });
 
   Order copyWith({
-    int id,
-    int orderNumber,
-    String createdAt,
-    String updatedAt,
-    String completedAt,
-    String status,
-    String currency,
-    String total,
-    String subtotal,
-    int totalLineItemsQuantity,
-    String totalTax,
-    String totalShipping,
-    String cartTax,
-    String shippingTax,
-    String totalDiscount,
-    String shippingMethods,
-    PaymentDetail paymentDetails,
-    Billing billingAddress,
-    Shipping shippingAddress,
-    String note,
-    String customerIp,
-    String customerUserAgent,
-    int customerId,
-    String viewOrderUrl,
-    List<LineItem> lineItems,
-    List<ShippingLine> shippingLines,
-    List<TaxLine> taxLines,
-    List<FeeLine> feeLines,
-    List<CouponLine> couponLines,
-    Customer customer,
+    int? id,
+    int? orderNumber,
+    String? createdAt,
+    String? updatedAt,
+    String? completedAt,
+    String? status,
+    String? currency,
+    String? total,
+    String? subtotal,
+    int? totalLineItemsQuantity,
+    String? totalTax,
+    String? totalShipping,
+    String? cartTax,
+    String? shippingTax,
+    String? totalDiscount,
+    String? shippingMethods,
+    PaymentDetail? paymentDetails,
+    Billing? billingAddress,
+    Shipping? shippingAddress,
+    String? note,
+    String? customerIp,
+    String? customerUserAgent,
+    int? customerId,
+    String? viewOrderUrl,
+    List<LineItem>? lineItems,
+    List<ShippingLine>? shippingLines,
+    List<TaxLine>? taxLines,
+    List<FeeLine>? feeLines,
+    List<CouponLine>? couponLines,
+    Customer? customer,
   }) {
     return Order(
       id: id ?? this.id,
@@ -178,8 +178,6 @@ class Order {
   }
 
   factory Order.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Order(
       id: map['id']?.toInt(),
       orderNumber: map['order_number']?.toInt(),
@@ -211,8 +209,8 @@ class Order {
           map['shipping_lines']?.map((x) => ShippingLine.fromMap(x))),
       taxLines:
           List<TaxLine>.from(map['tax_lines']?.map((x) => TaxLine.fromMap(x))),
-      feeLines: List<dynamic>.from(map['fee_lines']),
-      couponLines: List<dynamic>.from(map['coupon_lines']),
+      feeLines: List<dynamic>.from(map['fee_lines']) as List<FeeLine>?,
+      couponLines: List<dynamic>.from(map['coupon_lines']) as List<CouponLine>?,
       customer: Customer.fromMap(map['customer']),
     );
   }

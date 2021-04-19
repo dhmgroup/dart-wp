@@ -2,30 +2,30 @@ import 'dart:convert';
 
 class Category {
   ///Unique identifier for the term.
-  final int id;
+  final int? id;
 
   ///Number of published posts for the term.
-  final int count;
+  final int? count;
 
   ///HTML description of the term.
-  final String description;
+  final String? description;
 
   ///URL of the term.
-  final String link;
+  final String? link;
 
   ///HTML title for the term.
-  final String name;
+  final String? name;
 
   ///An alphanumeric identifier for the term unique to its type.
-  final String slug;
+  final String? slug;
 
   ///Type attribution for the term.
   ///
   ///One of: "category", "post_tag", "nav_menu", "linkCategory", "postFormat"
-  final String taxonomy;
+  final String? taxonomy;
 
   ///The parent term ID.
-  final int parent;
+  final int? parent;
 
   ///Meta fields.
   final dynamic meta;
@@ -42,14 +42,14 @@ class Category {
   });
 
   Category copyWith({
-    int id,
-    int count,
-    String description,
-    String link,
-    String name,
-    String slug,
-    String taxonomy,
-    int parent,
+    int? id,
+    int? count,
+    String? description,
+    String? link,
+    String? name,
+    String? slug,
+    String? taxonomy,
+    int? parent,
     dynamic meta,
   }) {
     return Category(
@@ -80,8 +80,6 @@ class Category {
   }
 
   factory Category.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Category(
       id: map['id'],
       count: map['count'],
@@ -135,7 +133,7 @@ class Category {
   }
 }
 
-List<Category> parseCategories(dynamic data) {
+List<Category>? parseCategories(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

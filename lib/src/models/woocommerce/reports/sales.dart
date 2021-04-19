@@ -3,18 +3,18 @@ import 'dart:convert';
 import 'package:wordpress_api/src/models/woocommerce/reports/totals.dart';
 
 class SalesReport {
-  final String totalSales;
-  final String netSales;
-  final String averageSales;
-  final int totalOrders;
-  final int totalItems;
-  final String totalTax;
-  final String totalShipping;
-  final int totalRefunds;
-  final String totalDiscount;
-  final String totalsGroupedBy;
-  final Totals totals;
-  final int totalCustomers;
+  final String? totalSales;
+  final String? netSales;
+  final String? averageSales;
+  final int? totalOrders;
+  final int? totalItems;
+  final String? totalTax;
+  final String? totalShipping;
+  final int? totalRefunds;
+  final String? totalDiscount;
+  final String? totalsGroupedBy;
+  final Totals? totals;
+  final int? totalCustomers;
   SalesReport({
     this.totalSales,
     this.netSales,
@@ -31,18 +31,18 @@ class SalesReport {
   });
 
   SalesReport copyWith({
-    String totalSales,
-    String netSales,
-    String averageSales,
-    int totalOrders,
-    int totalItems,
-    String totalTax,
-    String totalShipping,
-    int totalRefunds,
-    String totalDiscount,
-    String totalsGroupedBy,
-    Totals totals,
-    int totalCustomers,
+    String? totalSales,
+    String? netSales,
+    String? averageSales,
+    int? totalOrders,
+    int? totalItems,
+    String? totalTax,
+    String? totalShipping,
+    int? totalRefunds,
+    String? totalDiscount,
+    String? totalsGroupedBy,
+    Totals? totals,
+    int? totalCustomers,
   }) {
     return SalesReport(
       totalSales: totalSales ?? this.totalSales,
@@ -78,8 +78,6 @@ class SalesReport {
   }
 
   factory SalesReport.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return SalesReport(
       totalSales: map['total_sales'],
       netSales: map['net_sales'],

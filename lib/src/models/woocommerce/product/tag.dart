@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 class ProductTag {
-  final int id;
-  final String name;
-  final String slug;
-  final String description;
-  final int count;
+  final int? id;
+  final String? name;
+  final String? slug;
+  final String? description;
+  final int? count;
   ProductTag({
     this.id,
     this.name,
@@ -15,11 +15,11 @@ class ProductTag {
   });
 
   ProductTag copyWith({
-    int id,
-    String name,
-    String slug,
-    String description,
-    int count,
+    int? id,
+    String? name,
+    String? slug,
+    String? description,
+    int? count,
   }) {
     return ProductTag(
       id: id ?? this.id,
@@ -41,8 +41,6 @@ class ProductTag {
   }
 
   factory ProductTag.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return ProductTag(
       id: map['id'],
       name: map['name'],

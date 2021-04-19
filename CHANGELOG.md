@@ -4,6 +4,7 @@
 
 ### What's new?
 
+- Added null-safety support. [issue #20](https://github.com/dhmgroup/dart-wp/issues/20)
 - An option to intiailize a custom `Dio` instance. Thanks [kellvembarbosa](https://github.com/kellvembarbosa)
 - Added support for a `Job` model to render [WP Job Manager](https://wpjobmanager.com/)
 - Added support for `Application Passwords` model introduced in [WordPress 5.6](https://make.wordpress.org/core/2020/11/05/application-passwords-integration-guide/)

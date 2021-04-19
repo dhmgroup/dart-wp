@@ -4,9 +4,9 @@ import 'dart:convert';
 ///
 /// Represents report totals for `Coupons`, `Customers`, `Orders`, `Products` and `Reviews`
 class Total {
-  final String slug;
-  final String name;
-  final int total;
+  final String? slug;
+  final String? name;
+  final int? total;
   Total({
     this.slug,
     this.name,
@@ -14,9 +14,9 @@ class Total {
   });
 
   Total copyWith({
-    String slug,
-    String name,
-    int total,
+    String? slug,
+    String? name,
+    int? total,
   }) {
     return Total(
       slug: slug ?? this.slug,
@@ -34,8 +34,6 @@ class Total {
   }
 
   factory Total.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Total(
       slug: map['slug'],
       name: map['name'],

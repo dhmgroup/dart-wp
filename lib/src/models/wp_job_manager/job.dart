@@ -5,25 +5,25 @@ import 'package:wordpress_api/src/models/wp_job_manager/job_meta.dart';
 import 'package:wordpress_api/src/utils.dart';
 
 class Job {
-  final int id;
-  final String date;
-  final String dateGmt;
-  final String guid;
-  final String modified;
-  final String modifiedGmt;
-  final String slug;
-  final String status;
-  final String type;
-  final String link;
-  final String title;
-  final String content;
-  final int author;
-  final int featuredMedia;
-  final String template;
-  final JobMeta meta;
-  final List<dynamic> jobListingRegion;
-  final List<dynamic> jobCategories;
-  final List<dynamic> jobTypes;
+  final int? id;
+  final String? date;
+  final String? dateGmt;
+  final String? guid;
+  final String? modified;
+  final String? modifiedGmt;
+  final String? slug;
+  final String? status;
+  final String? type;
+  final String? link;
+  final String? title;
+  final String? content;
+  final int? author;
+  final int? featuredMedia;
+  final String? template;
+  final JobMeta? meta;
+  final List<dynamic>? jobListingRegion;
+  final List<dynamic>? jobCategories;
+  final List<dynamic>? jobTypes;
   Job({
     this.id,
     this.date,
@@ -47,25 +47,25 @@ class Job {
   });
 
   Job copyWith({
-    int id,
-    String date,
-    String dateGmt,
-    String guid,
-    String modified,
-    String modifiedGmt,
-    String slug,
-    String status,
-    String type,
-    String link,
-    String title,
-    String content,
-    int author,
-    int featuredMedia,
-    String template,
-    JobMeta meta,
-    List<int> jobListingRegion,
-    List<int> jobCategories,
-    List<int> jobTypes,
+    int? id,
+    String? date,
+    String? dateGmt,
+    String? guid,
+    String? modified,
+    String? modifiedGmt,
+    String? slug,
+    String? status,
+    String? type,
+    String? link,
+    String? title,
+    String? content,
+    int? author,
+    int? featuredMedia,
+    String? template,
+    JobMeta? meta,
+    List<int>? jobListingRegion,
+    List<int>? jobCategories,
+    List<int>? jobTypes,
   }) {
     return Job(
       id: id ?? this.id,
@@ -115,7 +115,6 @@ class Job {
   }
 
   factory Job.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
 
     return Job(
       id: map['id'],
@@ -200,7 +199,7 @@ class Job {
   }
 }
 
-List<Job> parseJobs(dynamic data) {
+List<Job>? parseJobs(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

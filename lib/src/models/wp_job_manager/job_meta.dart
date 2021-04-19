@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 class JobMeta {
-  final String jobLocation;
-  final String application;
-  final String companyName;
-  final String companyWebsite;
-  final String companyTagline;
-  final String companyTwitter;
-  final String companyVideo;
-  final int filled;
-  final int featured;
+  final String? jobLocation;
+  final String? application;
+  final String? companyName;
+  final String? companyWebsite;
+  final String? companyTagline;
+  final String? companyTwitter;
+  final String? companyVideo;
+  final int? filled;
+  final int? featured;
   JobMeta({
     this.jobLocation,
     this.application,
@@ -23,15 +23,15 @@ class JobMeta {
   });
 
   JobMeta copyWith({
-    String jobLocation,
-    String application,
-    String companyName,
-    String companyWebsite,
-    String companyTagline,
-    String companyTwitter,
-    String companyVideo,
-    int filled,
-    int featured,
+    String? jobLocation,
+    String? application,
+    String? companyName,
+    String? companyWebsite,
+    String? companyTagline,
+    String? companyTwitter,
+    String? companyVideo,
+    int? filled,
+    int? featured,
   }) {
     return JobMeta(
       jobLocation: jobLocation ?? this.jobLocation,
@@ -61,7 +61,6 @@ class JobMeta {
   }
 
   factory JobMeta.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
 
     return JobMeta(
       jobLocation: map['_job_location'],

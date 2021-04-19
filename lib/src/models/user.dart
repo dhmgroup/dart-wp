@@ -4,60 +4,60 @@ import 'package:collection/collection.dart';
 
 class User {
   ///Unique identifier for the user.
-  final int id;
+  final int? id;
 
   ///Login name for the user.
-  final String username;
+  final String? username;
 
   /// Display name for the user.
-  final String name;
+  final String? name;
 
   ///First name for the user.
-  final String firstName;
+  final String? firstName;
 
   ///Last name for the user.
-  final String lastName;
+  final String? lastName;
 
   ///The email address for the user.
-  final String email;
+  final String? email;
 
   ///URL of the user.
-  final String url;
+  final String? url;
 
   ///Description of the user.
-  final String description;
+  final String? description;
 
   ///Author URL of the user.
-  final String link;
+  final String? link;
 
   ///Locale for the user.
   ///
   ///One of: , enUS
-  final String locale;
+  final String? locale;
 
   ///The nickname for the user.
-  final String nickname;
+  final String? nickname;
 
   ///An alphanumeric identifier for the user.
-  final String slug;
+  final String? slug;
 
   ///Registration date for the user.
-  final String registeredDate;
+  final String? registeredDate;
 
   ///Roles assigned to the user.
-  final List roles;
+  final List? roles;
 
   ///Password for the user (never included).
-  final String password;
+  final String? password;
 
   ///All capabilities assigned to the user.
-  final Map<String, dynamic> capabilities;
+  final Map<String, dynamic>? capabilities;
 
   ///Any extra capabilities assigned to the user.
-  final Map<String, dynamic> extraCapabilities;
+  final Map<String, dynamic>? extraCapabilities;
 
   ///Avatar URLs for the user.
-  final Map<String, dynamic> avatarUrls;
+  final Map<String, dynamic>? avatarUrls;
 
   ///Meta fields.
   final dynamic meta;
@@ -84,24 +84,24 @@ class User {
   });
 
   User copyWith({
-    int id,
-    String username,
-    String name,
-    String firstName,
-    String lastName,
-    String email,
-    String url,
-    String description,
-    String link,
-    String locale,
-    String nickname,
-    String slug,
-    String registeredDate,
-    List roles,
-    String password,
-    Map<String, dynamic> capabilities,
-    Map<String, dynamic> extraCapabilities,
-    Map<String, dynamic> avatarUrls,
+    int? id,
+    String? username,
+    String? name,
+    String? firstName,
+    String? lastName,
+    String? email,
+    String? url,
+    String? description,
+    String? link,
+    String? locale,
+    String? nickname,
+    String? slug,
+    String? registeredDate,
+    List? roles,
+    String? password,
+    Map<String, dynamic>? capabilities,
+    Map<String, dynamic>? extraCapabilities,
+    Map<String, dynamic>? avatarUrls,
     dynamic meta,
   }) {
     return User(
@@ -152,8 +152,6 @@ class User {
   }
 
   factory User.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return User(
       id: map['id'],
       username: map['username'],
@@ -237,7 +235,7 @@ class User {
   }
 }
 
-List<User> parseUsers(dynamic data) {
+List<User>? parseUsers(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

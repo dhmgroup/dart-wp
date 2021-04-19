@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class TopSeller {
-  final String title;
-  final int productId;
-  final int quantity;
+  final String? title;
+  final int? productId;
+  final int? quantity;
   TopSeller({
     this.title,
     this.productId,
@@ -11,9 +11,9 @@ class TopSeller {
   });
 
   TopSeller copyWith({
-    String title,
-    int productId,
-    int quantity,
+    String? title,
+    int? productId,
+    int? quantity,
   }) {
     return TopSeller(
       title: title ?? this.title,
@@ -31,8 +31,6 @@ class TopSeller {
   }
 
   factory TopSeller.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return TopSeller(
       title: map['title'],
       productId: map['productId'],

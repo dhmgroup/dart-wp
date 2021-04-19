@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 class ProductDimensions {
-  final String height;
-  final String width;
-  final String length;
-  final String unit;
+  final String? height;
+  final String? width;
+  final String? length;
+  final String? unit;
   ProductDimensions({
     this.height,
     this.width,
@@ -13,10 +13,10 @@ class ProductDimensions {
   });
 
   ProductDimensions copyWith({
-    String height,
-    String width,
-    String length,
-    String unit,
+    String? height,
+    String? width,
+    String? length,
+    String? unit,
   }) {
     return ProductDimensions(
       height: height ?? this.height,
@@ -36,8 +36,6 @@ class ProductDimensions {
   }
 
   factory ProductDimensions.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return ProductDimensions(
       height: map['height'],
       width: map['width'],

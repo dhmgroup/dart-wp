@@ -4,82 +4,82 @@ import 'package:wordpress_api/src/utils.dart';
 
 class Page {
   ///The date the object was published, in the site's timezone.
-  final String date;
+  final String? date;
 
   ///The date the object was published, as GMT.
-  final String dateGmt;
+  final String? dateGmt;
 
   ///The globally unique identifier for the object.
-  final String guid;
+  final String? guid;
 
   ///Unique identifier for the object.
-  final int id;
+  final int? id;
 
   ///URL to the object.
-  final String link;
+  final String? link;
 
   ///The date the object was last modified, in the site's timezone.
-  final String modified;
+  final String? modified;
 
   ///The date the object was last modified, as GMT.
-  final String modifitedGmt;
+  final String? modifitedGmt;
 
   ///An alphanumeric identifier for the object unique to its type.
-  final String slug;
+  final String? slug;
 
   ///A named status for the object.
   ///
   /// One of: "publish", "future", "draft", "pending", "private"
-  final String status;
+  final String? status;
 
   ///Type of Post for the object.
-  final String type;
+  final String? type;
 
   ///A password to protect access to the content and excerpt.
-  final String password;
+  final String? password;
 
   ///Permalink template for the object.
-  final String permalinkTemplate;
+  final String? permalinkTemplate;
 
   ///Slug automatically generated from the object title.
-  final String generatedSlug;
+  final String? generatedSlug;
 
   ///The ID for the parent of the object.
-  final int parent;
+  final int? parent;
 
   ///The title for the object.
-  final String title;
+  final String? title;
 
   ///The content for the object.
-  final String content;
+  final String? content;
 
   ///The ID for the author of the object.
-  final int author;
+  final int? author;
 
   ///The excerpt for the object.
-  final String excerpt;
+  final String? excerpt;
 
   ///The ID of the featured media for the object.
-  final int featuredMedia;
+  final int? featuredMedia;
 
   ///Whether or not comments are open on the object.
   ///
   /// One of: "open", "closed"
-  final String commentStatus;
+  final String? commentStatus;
 
   ///Whether or not the object can be pinged.
   ///
   /// One of: "open", "closed"
-  final String pingStatus;
+  final String? pingStatus;
 
   ///The order of the object in relation to other object of its type.
-  final int menuOrder;
+  final int? menuOrder;
 
   ///Meta fields.
   final dynamic meta;
 
   ///The theme file to use to display the object.
-  final String template;
+  final String? template;
   Page({
     this.date,
     this.dateGmt,
@@ -108,30 +108,30 @@ class Page {
   });
 
   Page copyWith({
-    String date,
-    String dateGmt,
-    String guid,
-    int id,
-    String link,
-    String modified,
-    String modifitedGmt,
-    String slug,
-    String status,
-    String type,
-    String password,
-    String permalinkTemplate,
-    String generatedSlug,
-    int parent,
-    String title,
-    String content,
-    int author,
-    String excerpt,
-    int featuredMedia,
-    String commentStatus,
-    String pingStatus,
-    int menuOrder,
+    String? date,
+    String? dateGmt,
+    String? guid,
+    int? id,
+    String? link,
+    String? modified,
+    String? modifitedGmt,
+    String? slug,
+    String? status,
+    String? type,
+    String? password,
+    String? permalinkTemplate,
+    String? generatedSlug,
+    int? parent,
+    String? title,
+    String? content,
+    int? author,
+    String? excerpt,
+    int? featuredMedia,
+    String? commentStatus,
+    String? pingStatus,
+    int? menuOrder,
     dynamic meta,
-    String template,
+    String? template,
   }) {
     return Page(
       date: date ?? this.date,
@@ -191,8 +191,6 @@ class Page {
   }
 
   factory Page.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Page(
       date: map['date'],
       dateGmt: map['date_gmt'],
@@ -290,7 +288,7 @@ class Page {
   }
 }
 
-List<Page> parsePages(dynamic data) {
+List<Page>? parsePages(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 class CouponLine {
-  final int id;
-  final String code;
-  final String amount;
+  final int? id;
+  final String? code;
+  final String? amount;
   CouponLine({
     this.id,
     this.code,
@@ -11,9 +11,9 @@ class CouponLine {
   });
 
   CouponLine copyWith({
-    int id,
-    String code,
-    String amount,
+    int? id,
+    String? code,
+    String? amount,
   }) {
     return CouponLine(
       id: id ?? this.id,
@@ -31,8 +31,6 @@ class CouponLine {
   }
 
   factory CouponLine.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return CouponLine(
       id: map['id'],
       code: map['code'],

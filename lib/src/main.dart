@@ -15,14 +15,13 @@ class WordPressAPI {
   final Dio _dio;
 
   /// WooCommerce API credentials
-  final WooCredentials wooCredentials;
+  final WooCredentials? wooCredentials;
 
   WordPressAPI(
     this.site, {
     this.wooCredentials,
-    Dio dio,
-  })  : assert(site != null),
-        _dio = dio ?? Dio();
+    Dio? dio,
+  }) : _dio = dio ?? Dio();
 
 // ***********************************************************
   // GET DATA FROM CUSTOM ENDPOINT //
@@ -36,7 +35,7 @@ class WordPressAPI {
     String namespace = wpNamespace,
 
     /// Additional wordpress arguments
-    Map<String, dynamic> args,
+    Map<String, dynamic>? args,
   }) async {
     final url = await _discover(site);
 
@@ -72,8 +71,8 @@ class WordPressAPI {
     if (wooCredentials != null) {
       _dio.options.queryParameters ??= {};
       _dio.options.queryParameters.addAll({
-        "consumer_key": wooCredentials.consumerKey,
-        "consumer_secret": wooCredentials.consumerSecret
+        "consumer_key": wooCredentials!.consumerKey,
+        "consumer_secret": wooCredentials!.consumerSecret
       });
     }
 
@@ -81,15 +80,15 @@ class WordPressAPI {
     // FETCH REQUESTED DATA AND RETURN WP A RESPONSE
     //******************************************* */
     try {
-      int total, totalPages;
+      int? total, totalPages;
       final res = await _dio.get(
         '$namespace/$endpoint',
         queryParameters: args,
       );
 
       if (res.headers.value('x-wp-total') != null) {
-        total = int.tryParse(res.headers?.value('x-wp-total'));
-        totalPages = int.tryParse(res.headers?.value('x-wp-totalpages'));
+        total = int.tryParse(res.headers.value('x-wp-total')!);
+        totalPages = int.tryParse(res.headers.value('x-wp-totalpages')!);
       }
 
       return WPResponse(
@@ -98,7 +97,7 @@ class WordPressAPI {
           total: total,
           totalPages: totalPages,
         ),
-        statusCode: res.statusCode,
+        statusCode: res.statusCode!,
       );
     } on DioError catch (e) {
       Utils.logger.e(e.message);
@@ -113,7 +112,7 @@ class WordPressAPI {
   /// [GET] categories from WP categories endpoint
   ///
   /// `/wp/v2/categories`
-  Future getCategories({int id, Map<String, dynamic> args}) async {
+  Future getCategories({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('categories/$id', args: args);
       return Category.fromMap(res.data);
@@ -125,7 +124,7 @@ class WordPressAPI {
   /// [GET] comments from WP comments endpoint
   ///
   /// `/wp/v2/comments`
-  Future getComments({int id, Map<String, dynamic> args}) async {
+  Future getComments({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('comments/$id', args: args);
       return Comment.fromMap(res.data);
@@ -137,7 +136,7 @@ class WordPressAPI {
   /// [GET] media from WP media endpoint
   ///
   /// `/wp/v2/media`
-  Future getMedia({int id, Map<String, dynamic> args}) async {
+  Future getMedia({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('media/$id', args: args);
       return Media.fromMap(res.data);
@@ -149,7 +148,7 @@ class WordPressAPI {
   /// [GET] pages from WP pages endpoint
   ///
   /// `/wp/v2/pages`
-  Future getPages({int id, Map<String, dynamic> args}) async {
+  Future getPages({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('pages/$id', args: args);
       return Page.fromMap(res.data);
@@ -161,7 +160,7 @@ class WordPressAPI {
   /// [GET] posts from WP posts endpoint
   ///
   /// `/wp/v2/posts`
-  Future getPosts({int id, Map<String, dynamic> args}) async {
+  Future getPosts({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('posts/$id', args: args);
       return Post.fromMap(res.data);
@@ -173,7 +172,7 @@ class WordPressAPI {
   /// [GET] search results from WP search endpoint
   ///
   /// `/wp/v2/search`
-  Future search({int id, Map<String, dynamic> args}) async {
+  Future search({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('search/$id', args: args);
       return Search.fromMap(res.data);
@@ -185,7 +184,7 @@ class WordPressAPI {
   /// [GET] tags from WP tags endpoint
   ///
   /// `/wp/v2/tags`
-  Future getTags({int id, Map<String, dynamic> args}) async {
+  Future getTags({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('tags/$id', args: args);
       return Tag.fromMap(res.data);
@@ -197,7 +196,7 @@ class WordPressAPI {
   /// [GET] taxonomies from WP taxonomies endpoint
   ///
   /// `/wp/v2/taxonomies`
-  Future getTaxonomies({int id, Map<String, dynamic> args}) async {
+  Future getTaxonomies({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('taxonomies/$id', args: args);
       return Taxonomy.fromMap(res.data);
@@ -209,7 +208,7 @@ class WordPressAPI {
   /// [GET] users from WP users endpoint
   ///
   /// `/wp/v2/users`
-  Future getUsers({int id, Map<String, dynamic> args}) async {
+  Future getUsers({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('users/$id', args: args);
       return User.fromMap(res.data);
@@ -221,7 +220,7 @@ class WordPressAPI {
   /// [GET] jobs from WP Job Manager endpoint
   ///
   /// `/wp/v2/job-listings`
-  Future getJobs({int id, Map<String, dynamic> args}) async {
+  Future getJobs({int? id, Map<String, dynamic>? args}) async {
     if (id != null) {
       final WPResponse res = await getAsync('job-listings/$id', args: args);
       return Job.fromMap(res.data);
@@ -252,7 +251,7 @@ Future<String> _discover(String site) async {
     // : Change logger to comment. Used only to debug
     // Utils.logger.i("HEADER: ${res.headers}");
     if (res.headers['link'] != null) {
-      final link = res.headers['link'].first.split(';').first;
+      final link = res.headers['link']!.first.split(';').first;
       return link.substring(1, link.length - 1);
     }
     return "$_site/wp-json";

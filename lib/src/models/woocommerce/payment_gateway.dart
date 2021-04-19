@@ -4,15 +4,15 @@ import 'package:collection/collection.dart';
 import 'package:wordpress_api/src/models/woocommerce/payment_gateway_settings.dart';
 
 class PaymentGateway {
-  final String id;
-  final String title;
-  final String description;
-  final int order;
-  final bool enabled;
-  final String methodTitle;
-  final String methodDescription;
-  final List<String> methodSupports;
-  final Map<String, PaymentGatewaySettings> settings;
+  final String? id;
+  final String? title;
+  final String? description;
+  final int? order;
+  final bool? enabled;
+  final String? methodTitle;
+  final String? methodDescription;
+  final List<String>? methodSupports;
+  final Map<String, PaymentGatewaySettings>? settings;
   PaymentGateway({
     this.id,
     this.title,
@@ -26,15 +26,15 @@ class PaymentGateway {
   });
 
   PaymentGateway copyWith({
-    String id,
-    String title,
-    String description,
-    int order,
-    bool enabled,
-    String methodTitle,
-    String methodDescription,
-    List<String> methodSupports,
-    Map<String, PaymentGatewaySettings> settings,
+    String? id,
+    String? title,
+    String? description,
+    int? order,
+    bool? enabled,
+    String? methodTitle,
+    String? methodDescription,
+    List<String>? methodSupports,
+    Map<String, PaymentGatewaySettings>? settings,
   }) {
     return PaymentGateway(
       id: id ?? this.id,
@@ -64,8 +64,6 @@ class PaymentGateway {
   }
 
   factory PaymentGateway.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return PaymentGateway(
       id: map['id'],
       title: map['title'],

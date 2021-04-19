@@ -5,90 +5,90 @@ import 'package:wordpress_api/src/utils.dart';
 
 class Media {
   ///The date the object was published, in the site's timezone.
-  final String date;
+  final String? date;
 
   ///The date the object was published, as GMT.
-  final String dateGmt;
+  final String? dateGmt;
 
   ///The globally unique identifier for the object.
-  final String guid;
+  final String? guid;
 
   ///Unique identifier for the object.
-  final int id;
+  final int? id;
 
   ///URL to the object.
-  final String link;
+  final String? link;
 
   ///The date the object was last modified, in the site's timezone.
-  final String modified;
+  final String? modified;
 
   ///The date the object was last modified, as GMT.
-  final String modifiedGmt;
+  final String? modifiedGmt;
 
   ///An alphanumeric identifier for the object unique to its type.
-  final String slug;
+  final String? slug;
 
   ///A named status for the object.
   ///
   /// One of: "publish", "future", "draft", "pending", "private"
-  final String status;
+  final String? status;
 
   ///Type of Post for the object.
-  final String type;
+  final String? type;
 
   ///Permalink template for the object.
-  final String permalinkTemplate;
+  final String? permalinkTemplate;
 
   ///Slug automatically generated from the object title.
-  final String generatedSlug;
+  final String? generatedSlug;
 
   ///The title for the object.
-  final String title;
+  final String? title;
 
   ///The ID for the author of the object.
-  final int author;
+  final int? author;
 
   ///Whether or not comments are open on the object.
   ///
   /// One of: "open", "closed"
-  final String commentStatus;
+  final String? commentStatus;
 
   ///Whether or not the object can be pinged.
   ///
   /// One of: "open", "closed"
-  final String pingStatus;
+  final String? pingStatus;
 
   ///Meta fields.
   final dynamic meta;
 
   ///The theme file to use to display the object.
-  final String template;
+  final String? template;
 
   ///Alternative text to display when attachment is not displayed.
-  final String altText;
+  final String? altText;
 
   ///The attachment caption.
-  final String caption;
+  final String? caption;
 
   ///The attachment description.
-  final String description;
+  final String? description;
 
   ///Attachment type.
   ///
   /// One of: "image", "file"
-  final String mediaType;
+  final String? mediaType;
 
   ///The attachment MIME type.
-  final String mimeType;
+  final String? mimeType;
 
   ///Details about the media file, specific to its type.
-  final Map<String, dynamic> mediaDetails;
+  final Map<String, dynamic>? mediaDetails;
 
   ///The ID for the associated post of the attachment.
-  final int post;
+  final int? post;
 
   ///URL to the original attachment file.
-  final String sourceUrl;
+  final String? sourceUrl;
   Media({
     this.date,
     this.dateGmt,
@@ -119,32 +119,32 @@ class Media {
   });
 
   Media copyWith({
-    String date,
-    String dateGmt,
-    String guid,
-    int id,
-    String link,
-    String modified,
-    String modifiedGmt,
-    String slug,
-    String status,
-    String type,
-    String permalinkTemplate,
-    String generatedSlug,
-    String title,
-    int author,
-    String commentStatus,
-    String pingStatus,
+    String? date,
+    String? dateGmt,
+    String? guid,
+    int? id,
+    String? link,
+    String? modified,
+    String? modifiedGmt,
+    String? slug,
+    String? status,
+    String? type,
+    String? permalinkTemplate,
+    String? generatedSlug,
+    String? title,
+    int? author,
+    String? commentStatus,
+    String? pingStatus,
     dynamic meta,
-    String template,
-    String altText,
-    String caption,
-    String description,
-    String mediaType,
-    String mimeType,
-    Map<String, dynamic> mediaDetails,
-    int post,
-    String sourceUrl,
+    String? template,
+    String? altText,
+    String? caption,
+    String? description,
+    String? mediaType,
+    String? mimeType,
+    Map<String, dynamic>? mediaDetails,
+    int? post,
+    String? sourceUrl,
   }) {
     return Media(
       date: date ?? this.date,
@@ -208,8 +208,6 @@ class Media {
   }
 
   factory Media.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Media(
       date: map['date'],
       dateGmt: map['date_gmt'],
@@ -314,7 +312,7 @@ class Media {
   }
 }
 
-List<Media> parseMedia(dynamic data) {
+List<Media>? parseMedia(dynamic data) {
   if (data is String) {
     return jsonDecode(data)
         .cast<Map<String, dynamic>>()

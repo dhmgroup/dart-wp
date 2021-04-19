@@ -4,21 +4,21 @@ import 'package:wordpress_api/src/models/woocommerce/product/product.dart'
     show ProductImage;
 
 class ProductCategory {
-  final int id;
-  final String name;
-  final String slug;
-  final int parent;
-  final String description;
+  final int? id;
+  final String? name;
+  final String? slug;
+  final int? parent;
+  final String? description;
 
   ///[String] Category archive display type.
   ///
   ///Options: `default`, `products`, `subcategories` and `both`.
   ///
   ///Default is default.
-  final String display;
-  final ProductImage image;
-  final int menuOrder;
-  final int count;
+  final String? display;
+  final ProductImage? image;
+  final int? menuOrder;
+  final int? count;
   ProductCategory({
     this.id,
     this.name,
@@ -32,15 +32,15 @@ class ProductCategory {
   });
 
   ProductCategory copyWith({
-    int id,
-    String name,
-    String slug,
-    int parent,
-    String description,
-    String display,
-    ProductImage image,
-    int menuOrder,
-    int count,
+    int? id,
+    String? name,
+    String? slug,
+    int? parent,
+    String? description,
+    String? display,
+    ProductImage? image,
+    int? menuOrder,
+    int? count,
   }) {
     return ProductCategory(
       id: id ?? this.id,
@@ -70,8 +70,6 @@ class ProductCategory {
   }
 
   factory ProductCategory.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return ProductCategory(
       id: map['id']?.toInt(),
       name: map['name'],

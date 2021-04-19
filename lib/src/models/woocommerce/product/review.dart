@@ -3,23 +3,23 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 
 class ProductReview {
-  final int id;
-  final String dateCreated;
-  final String dateCreatedGmt;
-  final int productId;
+  final int? id;
+  final String? dateCreated;
+  final String? dateCreatedGmt;
+  final int? productId;
 
   ///[String] Status of the review.
   ///
   ///Options: `approved`, `hold`, `spam`, `unspam`, `trash` and `untrash`.
   ///
   ///Defaults to `approved`.
-  final String status;
-  final String reviewer;
-  final String reviewerEmail;
-  final String review;
-  final int rating;
-  final bool verified;
-  final Map<String, String> reviewerAvatarUrls;
+  final String? status;
+  final String? reviewer;
+  final String? reviewerEmail;
+  final String? review;
+  final int? rating;
+  final bool? verified;
+  final Map<String, String>? reviewerAvatarUrls;
   ProductReview({
     this.id,
     this.dateCreated,
@@ -35,17 +35,17 @@ class ProductReview {
   });
 
   ProductReview copyWith({
-    int id,
-    String dateCreated,
-    String dateCreatedGmt,
-    int productId,
-    String status,
-    String reviewer,
-    String reviewerEmail,
-    String review,
-    int rating,
-    bool verified,
-    Map<String, String> reviewerAvatarUrls,
+    int? id,
+    String? dateCreated,
+    String? dateCreatedGmt,
+    int? productId,
+    String? status,
+    String? reviewer,
+    String? reviewerEmail,
+    String? review,
+    int? rating,
+    bool? verified,
+    Map<String, String>? reviewerAvatarUrls,
   }) {
     return ProductReview(
       id: id ?? this.id,
@@ -79,8 +79,6 @@ class ProductReview {
   }
 
   factory ProductReview.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return ProductReview(
       id: map['id'],
       dateCreated: map['date_created'],

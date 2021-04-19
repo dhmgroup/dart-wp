@@ -2,53 +2,53 @@ import 'dart:convert';
 
 class Setting {
   ///Site title.
-  final String title;
+  final String? title;
 
   ///Site tagline.
-  final String description;
+  final String? description;
 
   ///Site URL.
-  final String url;
+  final String? url;
 
   /// This address is used for admin purposes, like new user notification.
-  final String email;
+  final String? email;
 
   /// A city in the same timezone as you.
-  final String timezone;
+  final String? timezone;
 
   /// A date format for all date strings.
-  final String dateFormat;
+  final String? dateFormat;
 
   /// A time format for all time strings.
-  final String timeFormat;
+  final String? timeFormat;
 
   /// A day number of the week that the week should start on.
-  final int startOfWeek;
+  final int? startOfWeek;
 
   ///WordPress locale code.
-  final String language;
+  final String? language;
 
   ///Convert emoticons to graphics on display.
-  final bool useSmilies;
+  final bool? useSmilies;
 
   ///Default post category.
-  final int defaultCategory;
+  final int? defaultCategory;
 
   ///Default post format.
-  final String defaultPostFormat;
+  final String? defaultPostFormat;
 
   ///Blog pages show at most.
-  final int postsPerPage;
+  final int? postsPerPage;
 
   ///Allow link notifications from other blogs (pingbacks and trackbacks) on new articles.
   ///
   ///One of: "open", "closed"
-  final String defaultPingStatus;
+  final String? defaultPingStatus;
 
   ///Allow people to submit comments on new posts.
   ///
   ///One of: "open", "closed"
-  final String defaultCommentStatus;
+  final String? defaultCommentStatus;
   Setting({
     this.title,
     this.description,
@@ -68,21 +68,21 @@ class Setting {
   });
 
   Setting copyWith({
-    String title,
-    String description,
-    String url,
-    String email,
-    String timezone,
-    String dateFormat,
-    String timeFormat,
-    int startOfWeek,
-    String language,
-    bool useSmilies,
-    int defaultCategory,
-    String defaultPostFormat,
-    int postsPerPage,
-    String defaultPingStatus,
-    String defaultCommentStatus,
+    String? title,
+    String? description,
+    String? url,
+    String? email,
+    String? timezone,
+    String? dateFormat,
+    String? timeFormat,
+    int? startOfWeek,
+    String? language,
+    bool? useSmilies,
+    int? defaultCategory,
+    String? defaultPostFormat,
+    int? postsPerPage,
+    String? defaultPingStatus,
+    String? defaultCommentStatus,
   }) {
     return Setting(
       title: title ?? this.title,
@@ -124,8 +124,6 @@ class Setting {
   }
 
   factory Setting.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return Setting(
       title: map['title'],
       description: map['description'],
