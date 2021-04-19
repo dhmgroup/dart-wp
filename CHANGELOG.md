@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.3.0+1]
+
+- Implemented rethrow on caught exceptions as suggested on [pub.dev](https://pub.dev/packages/wordpress_api/score)
+
 ## [0.3.0]
 
 ### What's new?

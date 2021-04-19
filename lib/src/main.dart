@@ -99,7 +99,7 @@ class WordPressAPI {
       );
     } on DioError catch (e) {
       Utils.logger.e(e.message);
-      throw e;
+      rethrow;
     }
   }
 
@@ -255,6 +255,6 @@ Future<String> _discover(String site) async {
     return "$_site/wp-json";
   } catch (e) {
     Utils.logger.e(e);
-    throw e;
+    rethrow;
   }
 }
