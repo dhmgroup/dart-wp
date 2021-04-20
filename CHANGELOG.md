@@ -1,5 +1,8 @@
 # Changelog
 
+## [0.3.1]
+
+- Fixed return value in `Media Model` for `caption` and `description`
 ## [0.3.0+2]
 
 - Renamed libraries to use `lowercase_with_underscores` as suggested on [pub.dev](https://pub.dev/packages/wordpress_api/score)
