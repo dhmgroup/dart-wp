@@ -66,7 +66,7 @@ import 'package:wordpress_api/wordpress_api';
 ```dart
   void main() async {
     final api = WordPressAPI('wp-site.com');
-    final WPResponse res = await api.get(endpoint: 'your-custom-endpoint');
+    final WPResponse res = await api.fetch(endpoint: 'your-custom-endpoint');
     print(res.data);
   }
 ```
