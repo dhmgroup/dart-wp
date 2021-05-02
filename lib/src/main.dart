@@ -32,11 +32,11 @@ class WordPressAPI {
     this.site, {
     this.wooCredentials,
     Dio? dio,
-  }) : _dio = dio ?? Dio();
+  }) : _dio = dio ??= Dio();
 
   // GET DATA FROM CUSTOM ENDPOINT //
   /// Retrieves data from a given endpoint and resturns a [WPResponse]
-  Future<WPResponse> get(
+  Future<WPResponse> fetch(
     /// Provide an API endpoint
     String endpoint, {
 
@@ -128,7 +128,7 @@ class WordPressAPI {
   /// Job Listings endpoints provided by `[WP Job Manager]` plugin
   ///
   /// `/wp/v2/job-listings`
-  _JobListings get wp_jobs => _JobListings(this);
+  _JobListings get jobs => _JobListings(this);
 }
 
 /// Wordpress `REST API Discovery` from Link Header

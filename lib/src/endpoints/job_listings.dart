@@ -1,6 +1,7 @@
 part of '../main.dart';
 
 class _JobListings {
+  static const String _name = 'job-listings';
   WordPressAPI _api;
 
   _JobListings(this._api);
@@ -8,12 +9,24 @@ class _JobListings {
   /// [GET] job listings from `WP Job Manager` endpoint
   ///
   /// `/wp/v2/job-listings`
-  Future get({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await _api.get('job-listings/$id', args: args);
-      return Job.fromMap(res.data);
+  Future<WPResponse> fetch({int? id, Map<String, dynamic>? args}) async {
+    try {
+      if (id != null) {
+        final WPResponse res = await _api.fetch('$_name/$id', args: args);
+        return WPResponse(
+          statusCode: res.statusCode,
+          data: Job.fromMap(res.data),
+          meta: res.meta,
+        );
+      }
+      final WPResponse res = await _api.fetch('$_name', args: args);
+      return WPResponse(
+        statusCode: res.statusCode,
+        data: parseJobs(res.data),
+        meta: res.meta,
+      );
+    } catch (e) {
+      rethrow;
     }
-    final WPResponse res = await _api.get('job-listings', args: args);
-    return parseJobs(res.data);
   }
 }

@@ -1,6 +1,7 @@
 part of '../main.dart';
 
 class _Users {
+  static const String _name = 'users';
   WordPressAPI _api;
 
   _Users(this._api);
@@ -8,12 +9,24 @@ class _Users {
   /// [GET] users from WP users endpoint
   ///
   /// `/wp/v2/users`
-  Future get({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await _api.get('users/$id', args: args);
-      return User.fromMap(res.data);
+  Future<WPResponse> fetch({int? id, Map<String, dynamic>? args}) async {
+    try {
+      if (id != null) {
+        final WPResponse res = await _api.fetch('$_name/$id', args: args);
+        return WPResponse(
+          statusCode: res.statusCode,
+          data: User.fromMap(res.data),
+          meta: res.meta,
+        );
+      }
+      final WPResponse res = await _api.fetch('$_name', args: args);
+      return WPResponse(
+        statusCode: res.statusCode,
+        data: parseUsers(res.data),
+        meta: res.meta,
+      );
+    } catch (e) {
+      rethrow;
     }
-    final WPResponse res = await _api.get('users', args: args);
-    return parseUsers(res.data);
   }
 }

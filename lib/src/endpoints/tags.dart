@@ -1,6 +1,7 @@
 part of '../main.dart';
 
 class _Tags {
+  static const String _name = 'tags';
   WordPressAPI _api;
 
   _Tags(this._api);
@@ -8,12 +9,24 @@ class _Tags {
   /// [GET] tags from WP tags endpoint
   ///
   /// `/wp/v2/tags`
-  Future get({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await _api.get('tags/$id', args: args);
-      return Tag.fromMap(res.data);
+  Future<WPResponse> fetch({int? id, Map<String, dynamic>? args}) async {
+    try {
+      if (id != null) {
+        final WPResponse res = await _api.fetch('$_name/$id', args: args);
+        return WPResponse(
+          statusCode: res.statusCode,
+          data: Tag.fromMap(res.data),
+          meta: res.meta,
+        );
+      }
+      final WPResponse res = await _api.fetch('$_name', args: args);
+      return WPResponse(
+        statusCode: res.statusCode,
+        data: parseTags(res.data),
+        meta: res.meta,
+      );
+    } catch (e) {
+      rethrow;
     }
-    final WPResponse res = await _api.get('tags', args: args);
-    return parseTags(res.data);
   }
 }

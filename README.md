@@ -44,8 +44,8 @@ import 'package:wordpress_api/wordpress_api';
   ```dart
     void main() async {
       final api = WordPressAPI('wp-site.com');
-      final List<Post> posts = await api.posts.get();
-      for (final post in posts) {
+      final WPResponse res = await api.posts.fetch();
+      for (final post in res.data) {
         print(post.title);
       }
     }
@@ -56,8 +56,8 @@ import 'package:wordpress_api/wordpress_api';
     ```dart
     void main() async {
       final api = WordPressAPI('wp-site.com');
-      final Post posts = await api.posts.get(id: 1);
-      print(post.title);
+      final WPResponse res = await api.posts.fetch(id: 1);
+      print(res.data.title);
     }
   ```
 
