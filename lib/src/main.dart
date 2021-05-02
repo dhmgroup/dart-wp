@@ -1,9 +1,20 @@
 import 'package:dio/dio.dart';
 import 'package:wordpress_api/src/constants.dart';
 import 'package:wordpress_api/src/helpers.dart';
-import 'package:wordpress_api/src/helpers/wp_meta.dart';
 import 'package:wordpress_api/src/models.dart';
 import 'package:wordpress_api/src/utils.dart';
+
+part 'endpoints/application_passwords.dart';
+part 'endpoints/categories.dart';
+part 'endpoints/comments.dart';
+part 'endpoints/media.dart';
+part 'endpoints/pages.dart';
+part 'endpoints/posts.dart';
+part 'endpoints/users.dart';
+part 'endpoints/taxonomies.dart';
+part 'endpoints/tags.dart';
+part 'endpoints/job_listings.dart';
+part 'endpoints/search.dart';
 
 class WordPressAPI {
   /// WordPress website base url
@@ -23,11 +34,9 @@ class WordPressAPI {
     Dio? dio,
   }) : _dio = dio ?? Dio();
 
-// ***********************************************************
   // GET DATA FROM CUSTOM ENDPOINT //
   /// Retrieves data from a given endpoint and resturns a [WPResponse]
-// ***********************************************************
-  Future<WPResponse> getAsync(
+  Future<WPResponse> get(
     /// Provide an API endpoint
     String endpoint, {
 
@@ -37,7 +46,7 @@ class WordPressAPI {
     /// Additional wordpress arguments
     Map<String, dynamic>? args,
   }) async {
-    final url = await _discover(site);
+    final uri = await _discover(site);
 
     //***************************** */
     // Remove any starting '/' if any
@@ -46,22 +55,18 @@ class WordPressAPI {
       endpoint = endpoint.substring(1);
     }
 
-    if (url.contains('?') && endpoint.contains('?')) {
+    if (uri.contains('?') && endpoint.contains('?')) {
       endpoint = endpoint.replaceAll('?', '&');
     }
 
-    //********************* */
     // NAMESPACE DISCOVERY
-    //******************** */
-    // CHECK IF NAMESPACE HAS A TRAILING SLASH
+    // Check if the provided namespace has a trailing `/`
     if (namespace.endsWith('/')) {
       namespace = namespace.substring(0, namespace.length - 1).toLowerCase();
     }
 
-    //************************
-    // SET BASE URL
-    //********************** */
-    _dio.options.baseUrl = url;
+    // Set [Dio] base Url
+    _dio.options.baseUrl = uri;
 
     // **********************************************
     //  SET WOOCOMMERCE CREDENTIALS
@@ -100,135 +105,33 @@ class WordPressAPI {
     } on DioError catch (e) {
       Utils.logger.e(e.message);
       rethrow;
+    } catch (e) {
+      rethrow;
     }
   }
 
-  //********************** */
-// WORDPRESS ENDPOINTS //
-//********************* */
+// WP Standard Endpoints
 
-  /// [GET] categories from WP categories endpoint
-  ///
-  /// `/wp/v2/categories`
-  Future getCategories({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('categories/$id', args: args);
-      return Category.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('categories', args: args);
-    return parseCategories(res.data);
-  }
+  _ApplicationPasswords get application_passwords =>
+      _ApplicationPasswords(this);
+  _Posts get posts => _Posts(this);
+  _Pages get pages => _Pages(this);
+  _Media get media => _Media(this);
+  _Categories get categories => _Categories(this);
+  _Comments get comments => _Comments(this);
+  _Users get users => _Users(this);
+  _Search get search => _Search(this);
+  _Taxonomies get taxonomies => _Taxonomies(this);
+  _Tags get tags => _Tags(this);
 
-  /// [GET] comments from WP comments endpoint
-  ///
-  /// `/wp/v2/comments`
-  Future getComments({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('comments/$id', args: args);
-      return Comment.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('comments', args: args);
-    return parseComments(res.data);
-  }
-
-  /// [GET] media from WP media endpoint
-  ///
-  /// `/wp/v2/media`
-  Future getMedia({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('media/$id', args: args);
-      return Media.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('media', args: args);
-    return parseMedia(res.data);
-  }
-
-  /// [GET] pages from WP pages endpoint
-  ///
-  /// `/wp/v2/pages`
-  Future getPages({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('pages/$id', args: args);
-      return Page.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('pages', args: args);
-    return parsePages(res.data);
-  }
-
-  /// [GET] posts from WP posts endpoint
-  ///
-  /// `/wp/v2/posts`
-  Future getPosts({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('posts/$id', args: args);
-      return Post.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('posts', args: args);
-    return parsePosts(res.data);
-  }
-
-  /// [GET] search results from WP search endpoint
-  ///
-  /// `/wp/v2/search`
-  Future search({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('search/$id', args: args);
-      return Search.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('search', args: args);
-    return parseSearches(res.data);
-  }
-
-  /// [GET] tags from WP tags endpoint
-  ///
-  /// `/wp/v2/tags`
-  Future getTags({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('tags/$id', args: args);
-      return Tag.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('tags', args: args);
-    return parseTags(res.data);
-  }
-
-  /// [GET] taxonomies from WP taxonomies endpoint
-  ///
-  /// `/wp/v2/taxonomies`
-  Future getTaxonomies({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('taxonomies/$id', args: args);
-      return Taxonomy.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('taxonomies', args: args);
-    return parseTaxonomies(res.data);
-  }
-
-  /// [GET] users from WP users endpoint
-  ///
-  /// `/wp/v2/users`
-  Future getUsers({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('users/$id', args: args);
-      return User.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('users', args: args);
-    return parseUsers(res.data);
-  }
-
-  /// [GET] job listings from `WP Job Manager` endpoint
+// WP Plugins Endpoints
+  /// Job Listings endpoints provided by `[WP Job Manager]` plugin
   ///
   /// `/wp/v2/job-listings`
-  Future getJobs({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await getAsync('job-listings/$id', args: args);
-      return Job.fromMap(res.data);
-    }
-    final WPResponse res = await getAsync('job-listings', args: args);
-    return parseJobs(res.data);
-  }
+  _JobListings get wp_jobs => _JobListings(this);
 }
 
-// Wordpress REST API Discovery from Link Header
+/// Wordpress `REST API Discovery` from Link Header
 Future<String> _discover(String site) async {
   String _site = site;
   final Dio dio = Dio(
