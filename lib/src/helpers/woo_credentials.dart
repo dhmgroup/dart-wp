@@ -9,4 +9,14 @@ class WooCredentials {
   final String consumerSecret;
 
   WooCredentials(this.consumerKey, this.consumerSecret);
+
+  @override
+  String toString() {
+    return """
+    WooCredentials: {
+      consumerKey: $consumerKey,
+      consumberSecret: $consumerSecret,
+    }
+    """;
+  }
 }

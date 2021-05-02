@@ -11,4 +11,14 @@ class WPMeta {
     this.total,
     this.totalPages,
   });
+
+  @override
+  toString() {
+    return """
+    WPMeta: {
+      total: $total,
+      totalPages: $totalPages,
+    }
+    """;
+  }
 }

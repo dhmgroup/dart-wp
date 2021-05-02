@@ -1,6 +1,7 @@
 part of '../main.dart';
 
 class _Search {
+  static const String _name = 'search';
   WordPressAPI _api;
 
   _Search(this._api);
@@ -9,11 +10,23 @@ class _Search {
   ///
   /// `/wp/v2/search`
   Future search({int? id, Map<String, dynamic>? args}) async {
-    if (id != null) {
-      final WPResponse res = await _api.get('search/$id', args: args);
-      return Search.fromMap(res.data);
+    try {
+      if (id != null) {
+        final WPResponse res = await _api.fetch('$_name/$id', args: args);
+        return WPResponse(
+          statusCode: res.statusCode,
+          data: Search.fromMap(res.data),
+          meta: res.meta,
+        );
+      }
+      final WPResponse res = await _api.fetch('$_name', args: args);
+      return WPResponse(
+        statusCode: res.statusCode,
+        data: parseSearches(res.data),
+        meta: res.meta,
+      );
+    } catch (e) {
+      rethrow;
     }
-    final WPResponse res = await _api.get('search', args: args);
-    return parseSearches(res.data);
   }
 }

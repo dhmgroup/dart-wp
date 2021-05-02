@@ -16,4 +16,14 @@ class WPResponse {
     this.meta,
     required this.statusCode,
   });
+
+  @override
+  String toString() {
+    return """
+    $WPResponse: {
+      statusCode: $statusCode,
+      data: $data,
+      meta: $meta,
+    }""";
+  }
 }

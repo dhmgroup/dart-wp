@@ -1,10 +1,8 @@
 import 'package:wordpress_api/wordpress_api.dart';
 
 void main() async {
-  final api = WordPressAPI('wp-site.com');
-  final List<Post> posts = await api.posts.get();
+  final api = WordPressAPI('wp-site.domain');
+  final posts = await api.posts.fetch();
 
-  for (var post in posts) {
-    print(post.title);
-  }
+  print(posts.data);
 }
