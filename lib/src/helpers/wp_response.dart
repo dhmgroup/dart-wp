@@ -1,4 +1,4 @@
-import 'package:wordpress_api/src/helpers/wp_meta.dart';
+part of '../helpers.dart';
 
 /// WordPress Repsonse that returns the data, meta and a statusCode
 class WPResponse {

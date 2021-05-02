@@ -1,3 +1,5 @@
+part of '../helpers.dart';
+
 /// WooCommerce REST API Credentials
 class WooCredentials {
   /// WooCommerce consumer key generate in the WooCommerce dashboard

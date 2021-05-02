@@ -37,26 +37,26 @@ import 'package:wordpress_api/wordpress_api';
   WordPressAPI api = WordPressAPI('wp-site.com');
 ```
 
-- Retrieve posts from `getPosts`
+- Retrieve posts from `.posts` getter
 
-  - You can fetch a list of posts by simply calling `.getPosts`. More arguments can be passed to further filter the data returned
+  - You can fetch a list of posts by simply calling `.posts`. More arguments can be passed to further filter the data returned
 
   ```dart
     void main() async {
       final api = WordPressAPI('wp-site.com');
-      final List<Post> posts = await api.getPosts();
+      final List<Post> posts = await api.posts.get();
       for (final post in posts) {
         print(post.title);
       }
     }
   ```
 
-  - As of `v3.0`, you can query a single post from the same endpoint by passing an `id`
+  - As of `v0.3.0`, you can query a single post from the same endpoint by passing an `id`
 
     ```dart
     void main() async {
       final api = WordPressAPI('wp-site.com');
-      final Post posts = await api.getPosts(id: 1);
+      final Post posts = await api.posts.get(id: 1);
       print(post.title);
     }
   ```
@@ -66,14 +66,13 @@ import 'package:wordpress_api/wordpress_api';
 ```dart
   void main() async {
     final api = WordPressAPI('wp-site.com');
-    final WPResponse res = await api.getAsyc(endpoint: 'your-custom-endpoint');
+    final WPResponse res = await api.get(endpoint: 'your-custom-endpoint');
     print(res.data);
   }
 ```
 
 ## ToDo
 
-- Support for `WP Job Manager`.
 - Authentication using `Application Passwords`. *WordPress 5.6+ only*
 - Fully integrated WooCommerce support.
 - Full CRUD operations.

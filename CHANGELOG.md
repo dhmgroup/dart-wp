@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.0.0]
+
+### Breaking Changes/ What's New
+
+As of v1+, every api `endpoint` is set to a `getter`. For example, 
+
+```dart
+final WordPressAPI api = WordPressAPI('wp-site.domain');
+
+// Getting posts the OLD WAY
+final List<Post> posts = await api.getPosts();
+
+// The new way as of v1.0+
+final List<Post> posts = await api.posts.get();
+```
+
+The new way is applicable to `categories`, `pages`, `users`, `tags`, `taxonomies`, `media`, `application-passwords` and any other endpoints to be added.
 ## [0.3.1]
 
 - Fixed return value in `Media Model` for `caption` and `description`

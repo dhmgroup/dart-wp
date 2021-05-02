@@ -1,3 +1,5 @@
+part of '../helpers.dart';
+
 /// WordPress response meta obtained from the response header `X-WP-*`
 class WPMeta {
   /// The total number of items
