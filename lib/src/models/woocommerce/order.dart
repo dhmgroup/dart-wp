@@ -209,8 +209,8 @@ class Order {
           map['shipping_lines']?.map((x) => ShippingLine.fromMap(x))),
       taxLines:
           List<TaxLine>.from(map['tax_lines']?.map((x) => TaxLine.fromMap(x))),
-      feeLines: List<dynamic>.from(map['fee_lines']) as List<FeeLine>?,
-      couponLines: List<dynamic>.from(map['coupon_lines']) as List<CouponLine>?,
+      feeLines: List<dynamic>.from(map['fee_lines']??[]) as List<FeeLine>?,
+      couponLines: List<dynamic>.from(map['coupon_lines']??[]) as List<CouponLine>?,
       customer: Customer.fromMap(map['customer']),
     );
   }

@@ -13,6 +13,7 @@ class PaymentGateway {
   final String? methodDescription;
   final List<String>? methodSupports;
   final Map<String, PaymentGatewaySettings>? settings;
+
   PaymentGateway({
     this.id,
     this.title,
@@ -72,8 +73,8 @@ class PaymentGateway {
       enabled: map['enabled'],
       methodTitle: map['method_title'],
       methodDescription: map['method_description'],
-      methodSupports: List<String>.from(map['method_supports']),
-      settings: Map<String, PaymentGatewaySettings>.from(map['settings']),
+      methodSupports: List<String>.from(map['method_supports'] ?? []),
+      settings: Map<String, PaymentGatewaySettings>.from(map['settings'] ?? {}),
     );
   }
 

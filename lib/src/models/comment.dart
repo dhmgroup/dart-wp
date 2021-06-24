@@ -145,7 +145,7 @@ class Comment {
       authorName: map['author_name'],
       authorUrl: map['author_url'],
       authorUserAgent: map['author_user_agent'],
-      content: Utils.renderHtml(map['content']['rendered']),
+      content: map['content']?['rendered'],
       date: map['date'],
       dateGmt: map['date_gmt'],
       link: map['link'],
@@ -153,7 +153,7 @@ class Comment {
       post: map['post'],
       status: map['status'],
       type: map['type'],
-      authorAvatarUrls: Map<String, dynamic>.from(map['author_avatar_urls']),
+      authorAvatarUrls: Map<String, dynamic>.from(map['author_avatar_urls']?? {}),
       meta: map['meta'],
     );
   }
