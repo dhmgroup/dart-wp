@@ -6,7 +6,8 @@ import 'package:logger/logger.dart';
 /// `[logger]` is used for better console logs
 ///
 /// `[renderHtml]` is used to parse any `html` string
-class Utils {
+class WPUtils {
   static Logger logger = Logger();
+
   static String renderHtml(String? html) => parse(html).body!.text;
 }

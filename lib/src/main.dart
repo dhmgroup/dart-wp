@@ -3,7 +3,6 @@ import 'package:wordpress_api/src/constants.dart';
 import 'package:wordpress_api/src/helpers.dart';
 import 'package:wordpress_api/src/models.dart';
 import 'package:wordpress_api/src/utils.dart';
-
 part 'endpoints/application_passwords.dart';
 part 'endpoints/categories.dart';
 part 'endpoints/comments.dart';
@@ -103,7 +102,7 @@ class WordPressAPI {
         statusCode: res.statusCode!,
       );
     } on DioError catch (e) {
-      Utils.logger.e(e.message);
+      WPUtils.logger.e(e.message);
       rethrow;
     } catch (e) {
       rethrow;
@@ -150,14 +149,14 @@ Future<String> _discover(String site) async {
   try {
     final res = await dio.head(_site);
     // : Change logger to comment. Used only to debug
-    // Utils.logger.i("HEADER: ${res.headers}");
+    // WPUtils.logger.i("HEADER: ${res.headers}");
     if (res.headers['link'] != null) {
       final link = res.headers['link']!.first.split(';').first;
       return link.substring(1, link.length - 1);
     }
     return "$_site/wp-json";
   } catch (e) {
-    Utils.logger.e(e);
+    WPUtils.logger.e(e);
     rethrow;
   }
 }

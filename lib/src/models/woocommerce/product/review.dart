@@ -90,7 +90,7 @@ class ProductReview {
       review: map['review'],
       rating: map['rating'],
       verified: map['verified'],
-      reviewerAvatarUrls: Map<String, String>.from(map['reviewer_avatar_urls']),
+      reviewerAvatarUrls: Map<String, String>.from(map['reviewer_avatar_urls']?? {}),
     );
   }
 

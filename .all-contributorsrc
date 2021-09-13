@@ -1,0 +1,33 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "ankiimation",
+      "name": "anKii",
+      "avatar_url": "https://avatars.githubusercontent.com/u/41232001?v=4",
+      "profile": "https://github.com/ankiimation",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kellvembarbosa",
+      "name": "Kellvem Barbosa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3621135?v=4",
+      "profile": "https://kellvem.pt",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "dart-wp",
+  "projectOwner": "dhmgroup",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
