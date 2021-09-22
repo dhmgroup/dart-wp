@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:wordpress_api/src/models/wp_job_manager/job_meta.dart';
-import 'package:wordpress_api/src/utils.dart';
 
 class Job {
   final int? id;
