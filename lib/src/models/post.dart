@@ -92,6 +92,7 @@ class Post {
   ///The terms assigned to the object in the post_tag taxonomy.
   final List<int>? tags;
 
+  /// Embedded Data
   final EmbedModel? embedModel;
 
   Post(

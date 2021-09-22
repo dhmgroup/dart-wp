@@ -168,9 +168,10 @@ class User {
       registeredDate: map['registered_date'],
       roles: List.from(map['roles']),
       password: map['password'],
-      capabilities: Map<String, dynamic>.from(map['capabilities']?? {}),
-      extraCapabilities: Map<String, dynamic>.from(map['extra_capabilities']?? {}),
-      avatarUrls: Map<String, dynamic>.from(map['avatar_urls']?? {}),
+      capabilities: Map<String, dynamic>.from(map['capabilities'] ?? {}),
+      extraCapabilities:
+          Map<String, dynamic>.from(map['extra_capabilities'] ?? {}),
+      avatarUrls: Map<String, dynamic>.from(map['avatar_urls'] ?? {}),
       meta: map['meta'],
     );
   }

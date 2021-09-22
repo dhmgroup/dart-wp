@@ -170,21 +170,21 @@ class Coupon {
       dateExpiresGmt: map['date_expires_gmt'],
       usageCount: map['usage_count']?.toInt(),
       individualUse: map['individual_use'],
-      productIds: List<dynamic>.from(map['product_ids']??[]) as List<int>?,
+      productIds: List<dynamic>.from(map['product_ids'] ?? []) as List<int>?,
       excludedProductIds:
-          List<dynamic>.from(map['excluded_product_ids']??[]) as List<int>?,
+          List<dynamic>.from(map['excluded_product_ids'] ?? []) as List<int>?,
       usageLimit: map['usage_limit']?.toInt(),
       usageLimitPerUser: map['usage_limit_per_user']?.toInt(),
       limitUsageToXItems: map['limit_usage_to_x_items']?.toInt(),
       freeShipping: map['free_shipping'],
-      productCategories: List<int>.from(map['product_categories']??[]),
+      productCategories: List<int>.from(map['product_categories'] ?? []),
       excludedProductCategories:
-          List<int>.from(map['excluded_product_categories']??[]),
+          List<int>.from(map['excluded_product_categories'] ?? []),
       excludeSaleItems: map['exclude_sale_items'],
       minimumAmount: map['minimum_amount'],
       maximumAmount: map['maximum_amount'],
-      emailRestrictions: List<String>.from(map['email_restrictions']??[]),
-      usedBy: List<int>.from(map['used_by']??[]),
+      emailRestrictions: List<String>.from(map['email_restrictions'] ?? []),
+      usedBy: List<int>.from(map['used_by'] ?? []),
       metaData:
           List<WooMeta>.from(map['meta_data']?.map((x) => WooMeta.fromMap(x))),
     );

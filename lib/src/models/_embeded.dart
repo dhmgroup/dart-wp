@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:wordpress_api/src/models.dart';
 
 class EmbedModel {

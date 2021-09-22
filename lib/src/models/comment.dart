@@ -153,7 +153,8 @@ class Comment {
       post: map['post'],
       status: map['status'],
       type: map['type'],
-      authorAvatarUrls: Map<String, dynamic>.from(map['author_avatar_urls']?? {}),
+      authorAvatarUrls:
+          Map<String, dynamic>.from(map['author_avatar_urls'] ?? {}),
       meta: map['meta'],
     );
   }

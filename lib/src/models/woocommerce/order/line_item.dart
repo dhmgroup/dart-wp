@@ -88,7 +88,7 @@ class LineItem {
       name: map['name'],
       productId: map['product_id']?.toInt(),
       sku: map['sku'],
-      meta: List<dynamic>.from(map['meta']??[]),
+      meta: List<dynamic>.from(map['meta'] ?? []),
     );
   }
 

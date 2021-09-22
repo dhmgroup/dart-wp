@@ -88,16 +88,16 @@ class Taxonomy {
 
   factory Taxonomy.fromMap(Map<String, dynamic> map) {
     return Taxonomy(
-      capabilities: Map<String, dynamic>.from(map['capabilities']?? {}),
+      capabilities: Map<String, dynamic>.from(map['capabilities'] ?? {}),
       description: map['description'],
       hierarchical: map['hierarchical'],
-      labels: Map<String, dynamic>.from(map['labels']?? {}),
+      labels: Map<String, dynamic>.from(map['labels'] ?? {}),
       name: map['name'],
       slug: map['slug'],
       showCloud: map['show_cloud'],
       types: List.from(map['types']),
       restBase: map['rest_base'],
-      visibility: Map<String, dynamic>.from(map['visibility']?? {}),
+      visibility: Map<String, dynamic>.from(map['visibility'] ?? {}),
     );
   }
 

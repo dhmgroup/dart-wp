@@ -1,15 +1,50 @@
 # Changelog
 
+## [1.2.0]
+
+### What's New
+
+- A new utility abstract class `WPUtils` has been introduced. This class contains some useful functions.
+-
+- Added `EmbedModel` thanks [Ankii](https://github.com/dhmgroup/dart-wp/pull/28)
+
+### What Changed
+
+- In response to [issue #26](https://github.com/dhmgroup/dart-wp/issues/26), the HTML tags have been preserved. In order to parse the html, a utility function from `WPUtils` is now available as shown in the example below.
+
+```dart
+    void main() async {
+      final api = WordPressAPI('site.com');
+      final res = await api.posts.fetch();
+
+      for (final post in res.data as List<Post>) {
+
+        // This will provide the content as it is without stripping the HTML tags.
+        print(post.content);
+
+        // This will strip all the HTML tags using parseHtml from WPUtils
+        print(WPUtils.parseHtml(post.content));
+      }
+    }
+
+```
+
+### Other contributions
+
+- Thanks [NemesisX1](https://github.com/dhmgroup/dart-wp/pull/31) for prefixing the `Utils` class
+- Updated `Logger` to `v1.1.0`
+
 ## [1.1.0]
 
 - Changed the `get` method on endpoints to `fetch`. This has been done to preserve the `dart` keyword `get`.
 - Changed the return turn for each endpoint to `WPResponse`. This changed was made to enable more control over the response returned and also get the necessary meta data returned from the response.
-Refer to `example` or `README.md`
+  Refer to `example` or `README.md`
+
 ## [1.0.0]
 
 ### Breaking Changes/ What's New
 
-As of v1+, every api `endpoint` is set to a `getter`. For example, 
+As of v1+, every api `endpoint` is set to a `getter`. For example,
 
 ```dart
 final WordPressAPI api = WordPressAPI('wp-site.domain');
@@ -22,9 +57,11 @@ final List<Post> posts = await api.posts.get();
 ```
 
 The new way is applicable to `categories`, `pages`, `users`, `tags`, `taxonomies`, `media`, `application-passwords` and any other endpoints to be added.
+
 ## [0.3.1]
 
 - Fixed return value in `Media Model` for `caption` and `description`
+
 ## [0.3.0+2]
 
 - Renamed libraries to use `lowercase_with_underscores` as suggested on [pub.dev](https://pub.dev/packages/wordpress_api/score)

@@ -232,7 +232,7 @@ class Media {
       description: map['description']?['rendered'],
       mediaType: map['media_type'],
       mimeType: map['mime_type'],
-      mediaDetails: Map<String, dynamic>.from(map['media_details']?? {}),
+      mediaDetails: Map<String, dynamic>.from(map['media_details'] ?? {}),
       post: map['post'],
       sourceUrl: map['source_url'],
     );

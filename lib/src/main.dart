@@ -124,6 +124,7 @@ class WordPressAPI {
   _Tags get tags => _Tags(this);
 
 // WP Plugins Endpoints
+
   /// Job Listings endpoints provided by `[WP Job Manager]` plugin
   ///
   /// `/wp/v2/job-listings`

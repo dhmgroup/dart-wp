@@ -434,9 +434,9 @@ class Product {
       reviewsAllowed: map['reviews_allowed'],
       averagedRating: map['averaged_rating'],
       ratingCount: map['rating_count'],
-      relatedIds: List<int>.from(map['related_ids']??[]),
-      upsellIds: List<int>.from(map['upsell_ids']??[]),
-      crossSellIds: List<int>.from(map['cross_sell_ids']??[]),
+      relatedIds: List<int>.from(map['related_ids'] ?? []),
+      upsellIds: List<int>.from(map['upsell_ids'] ?? []),
+      crossSellIds: List<int>.from(map['cross_sell_ids'] ?? []),
       parentId: map['parent_id'],
       purchaseNote: map['purchase_note'],
       categories: List<ProductCategory>.from(
