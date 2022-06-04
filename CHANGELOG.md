@@ -5,7 +5,7 @@
 ### What's New
 
 - A new utility abstract class `WPUtils` has been introduced. This class contains some useful functions.
--
+
 - Added `EmbedModel` thanks [Ankii](https://github.com/dhmgroup/dart-wp/pull/28)
 
 ### What Changed

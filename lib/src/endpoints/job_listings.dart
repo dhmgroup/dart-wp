@@ -15,7 +15,7 @@ class _JobListings {
         final WPResponse res = await _api.fetch('$_name/$id', args: args);
         return WPResponse(
           statusCode: res.statusCode,
-          data: Job.fromMap(res.data),
+          data: Job.fromJson(res.data),
           meta: res.meta,
         );
       }

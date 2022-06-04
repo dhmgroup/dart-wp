@@ -1,115 +1,53 @@
-import 'dart:convert';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class JobMeta {
-  final String? jobLocation;
-  final String? application;
-  final String? companyName;
-  final String? companyWebsite;
-  final String? companyTagline;
-  final String? companyTwitter;
-  final String? companyVideo;
-  final int? filled;
-  final int? featured;
-  JobMeta({
-    this.jobLocation,
-    this.application,
-    this.companyName,
-    this.companyWebsite,
-    this.companyTagline,
-    this.companyTwitter,
-    this.companyVideo,
-    this.filled,
-    this.featured,
-  });
+part 'job_meta.freezed.dart';
+part 'job_meta.g.dart';
 
-  JobMeta copyWith({
-    String? jobLocation,
-    String? application,
-    String? companyName,
-    String? companyWebsite,
-    String? companyTagline,
-    String? companyTwitter,
-    String? companyVideo,
-    int? filled,
-    int? featured,
-  }) {
-    return JobMeta(
-      jobLocation: jobLocation ?? this.jobLocation,
-      application: application ?? this.application,
-      companyName: companyName ?? this.companyName,
-      companyWebsite: companyWebsite ?? this.companyWebsite,
-      companyTagline: companyTagline ?? this.companyTagline,
-      companyTwitter: companyTwitter ?? this.companyTwitter,
-      companyVideo: companyVideo ?? this.companyVideo,
-      filled: filled ?? this.filled,
-      featured: featured ?? this.featured,
-    );
-  }
+@freezed
+class JobMeta with _$JobMeta {
+  const factory JobMeta(
+      {
 
-  Map<String, dynamic> toMap() {
-    return {
-      '_job_location': jobLocation,
-      '_application': application,
-      '_company_name': companyName,
-      '_company_website': companyWebsite,
-      '_company_tagline': companyTagline,
-      '_company_twitter': companyTwitter,
-      '_company_video': companyVideo,
-      '_filled': filled,
-      '_featured': featured,
-    };
-  }
+      /// Location
+      ///
+      @JsonKey(name: '_job_location') String? jobLocation,
 
-  factory JobMeta.fromMap(Map<String, dynamic> map) {
-    return JobMeta(
-      jobLocation: map['_job_location'],
-      application: map['_application'],
-      companyName: map['_company_name'],
-      companyWebsite: map['_company_website'],
-      companyTagline: map['_company_tagline'],
-      companyTwitter: map['_company_twitter'],
-      companyVideo: map['_company_video'],
-      filled: map['_filled'],
-      featured: map['_featured'],
-    );
-  }
+      /// Application Email/URL
+      ///
+      @JsonKey(name: '_application') String? application,
 
-  String toJson() => json.encode(toMap());
+      /// Company Name
+      ///
+      @JsonKey(name: '_company_name') String? companyName,
 
-  factory JobMeta.fromJson(String source) =>
-      JobMeta.fromMap(json.decode(source));
+      /// Company Website
+      ///
+      @JsonKey(name: '_company_website') String? companyWebsite,
 
-  @override
-  String toString() {
-    return 'JobMeta(jobLocation: $jobLocation, application: $application, companyName: $companyName, companyWebsite: $companyWebsite, companyTagline: $companyTagline, companyTwitter: $companyTwitter, companyVideo: $companyVideo, filled: $filled, featured: $featured)';
-  }
+      /// Company Tagline
+      ///
+      @JsonKey(name: '_company_tagline') String? companyTagline,
 
-  @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+      /// Company Twitter
+      ///
+      @JsonKey(name: '_company_twitter') String? companyTwitter,
 
-    return o is JobMeta &&
-        o.jobLocation == jobLocation &&
-        o.application == application &&
-        o.companyName == companyName &&
-        o.companyWebsite == companyWebsite &&
-        o.companyTagline == companyTagline &&
-        o.companyTwitter == companyTwitter &&
-        o.companyVideo == companyVideo &&
-        o.filled == filled &&
-        o.featured == featured;
-  }
+      /// Company Video
+      ///
+      @JsonKey(name: '_company_video') String? companyVideo,
 
-  @override
-  int get hashCode {
-    return jobLocation.hashCode ^
-        application.hashCode ^
-        companyName.hashCode ^
-        companyWebsite.hashCode ^
-        companyTagline.hashCode ^
-        companyTwitter.hashCode ^
-        companyVideo.hashCode ^
-        filled.hashCode ^
-        featured.hashCode;
-  }
+      /// Position Filled
+      ///
+      @JsonKey(name: '_filled') int? filled,
+
+      /// Featured Listing
+      ///
+      @JsonKey(name: '_featured') int? featured,
+
+      ///Listing Expiry Date
+      ///
+      @JsonKey(name: '_job_expires') String? jobExpires}) = _JobMeta;
+
+  factory JobMeta.fromJson(Map<String, Object?> json) =>
+      _$JobMetaFromJson(json);
 }

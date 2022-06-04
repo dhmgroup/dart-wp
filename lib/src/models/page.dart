@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:wordpress_api/src/utils.dart';
-
 class Page {
   ///The date the object was published, in the site's timezone.
   final String? date;

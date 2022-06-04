@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the copyWith method from the Comment class, for the Dart programming language.">
+  <title>copyWith method - Comment class - wordpress_api library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">wordpress_api</a></li>
+    <li><a href="../../wordpress_api/wordpress_api-library.html">wordpress_api</a></li>
+    <li><a href="../../wordpress_api/Comment-class.html">Comment</a></li>
+    <li class="self-crumb">copyWith method</li>
+  </ol>
+  <div class="self-name">copyWith</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">copyWith</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype"><a href="../../wordpress_api/Comment-class.html">Comment</a></span>
+<span class="name ">copyWith</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="copyWith-param-id">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">id</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-author"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">author</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-authorEmail"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorEmail</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-authorIp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorIp</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-authorName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorName</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-authorUrl"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorUrl</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-authorUserAgent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorUserAgent</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-content"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">content</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-date"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">date</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-dateGmt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">dateGmt</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-link"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">link</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-parent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">parent</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-post"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">post</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-status"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">status</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-type"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">type</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-authorAvatarUrls"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> <span class="parameter-name">authorAvatarUrls</span>, </span></li>
+<li><span class="parameter" id="copyWith-param-meta"><span class="type-annotation">dynamic</span> <span class="parameter-name">meta</span>}</span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Comment copyWith({
+  int? id,
+  int? author,
+  String? authorEmail,
+  String? authorIp,
+  String? authorName,
+  String? authorUrl,
+  String? authorUserAgent,
+  String? content,
+  String? date,
+  String? dateGmt,
+  String? link,
+  int? parent,
+  int? post,
+  String? status,
+  String? type,
+  Map&lt;String, dynamic&gt;? authorAvatarUrls,
+  dynamic meta,
+}) {
+  return Comment(
+    id: id ?? this.id,
+    author: author ?? this.author,
+    authorEmail: authorEmail ?? this.authorEmail,
+    authorIp: authorIp ?? this.authorIp,
+    authorName: authorName ?? this.authorName,
+    authorUrl: authorUrl ?? this.authorUrl,
+    authorUserAgent: authorUserAgent ?? this.authorUserAgent,
+    content: content ?? this.content,
+    date: date ?? this.date,
+    dateGmt: dateGmt ?? this.dateGmt,
+    link: link ?? this.link,
+    parent: parent ?? this.parent,
+    post: post ?? this.post,
+    status: status ?? this.status,
+    type: type ?? this.type,
+    authorAvatarUrls: authorAvatarUrls ?? this.authorAvatarUrls,
+    meta: meta ?? this.meta,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">wordpress_api</a></li>
+  <li><a href="../../wordpress_api/wordpress_api-library.html">wordpress_api</a></li>
+  <li><a href="../../wordpress_api/Comment-class.html">Comment</a></li>
+  <li class="self-crumb">copyWith method</li>
+</ol>
+
+
+    <h5>Comment class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../wordpress_api/Comment-class.html#constructors">Constructors</a></li>
+          <li><a href="../../wordpress_api/Comment/Comment.html">Comment</a></li>
+          <li><a href="../../wordpress_api/Comment/Comment.fromJson.html">fromJson</a></li>
+          <li><a href="../../wordpress_api/Comment/Comment.fromMap.html">fromMap</a></li>
+
+
+    <li class="section-title">
+      <a href="../../wordpress_api/Comment-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../wordpress_api/Comment/author.html">author</a></li>
+    <li><a href="../../wordpress_api/Comment/authorAvatarUrls.html">authorAvatarUrls</a></li>
+    <li><a href="../../wordpress_api/Comment/authorEmail.html">authorEmail</a></li>
+    <li><a href="../../wordpress_api/Comment/authorIp.html">authorIp</a></li>
+    <li><a href="../../wordpress_api/Comment/authorName.html">authorName</a></li>
+    <li><a href="../../wordpress_api/Comment/authorUrl.html">authorUrl</a></li>
+    <li><a href="../../wordpress_api/Comment/authorUserAgent.html">authorUserAgent</a></li>
+    <li><a href="../../wordpress_api/Comment/content.html">content</a></li>
+    <li><a href="../../wordpress_api/Comment/date.html">date</a></li>
+    <li><a href="../../wordpress_api/Comment/dateGmt.html">dateGmt</a></li>
+    <li><a href="../../wordpress_api/Comment/hashCode.html">hashCode</a></li>
+    <li><a href="../../wordpress_api/Comment/id.html">id</a></li>
+    <li><a href="../../wordpress_api/Comment/link.html">link</a></li>
+    <li><a href="../../wordpress_api/Comment/meta.html">meta</a></li>
+    <li><a href="../../wordpress_api/Comment/parent.html">parent</a></li>
+    <li><a href="../../wordpress_api/Comment/post.html">post</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../wordpress_api/Comment/status.html">status</a></li>
+    <li><a href="../../wordpress_api/Comment/type.html">type</a></li>
+
+    <li class="section-title"><a href="../../wordpress_api/Comment-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../wordpress_api/Comment/copyWith.html">copyWith</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../../wordpress_api/Comment/toJson.html">toJson</a></li>
+    <li><a href="../../wordpress_api/Comment/toMap.html">toMap</a></li>
+    <li><a href="../../wordpress_api/Comment/toString.html">toString</a></li>
+
+    <li class="section-title"><a href="../../wordpress_api/Comment-class.html#operators">Operators</a></li>
+    <li><a href="../../wordpress_api/Comment/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    wordpress_api
+      2.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

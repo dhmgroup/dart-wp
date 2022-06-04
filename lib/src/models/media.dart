@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:wordpress_api/src/utils.dart';
 
 class Media {
   ///The date the object was published, in the site's timezone.

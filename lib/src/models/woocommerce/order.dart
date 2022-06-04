@@ -3,10 +3,7 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 
 import 'package:wordpress_api/src/models/woocommerce/billing.dart';
-import 'package:wordpress_api/src/models/woocommerce/order/coupon_line.dart';
 import 'package:wordpress_api/src/models/woocommerce/customer.dart';
-import 'package:wordpress_api/src/models/woocommerce/order/fee_line.dart';
-import 'package:wordpress_api/src/models/woocommerce/order/line_item.dart';
 import 'package:wordpress_api/src/models/woocommerce/shipping.dart';
 
 import 'order/order.dart';

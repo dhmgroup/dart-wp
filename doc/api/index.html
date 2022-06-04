@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 5.1.0-dev">
+  <meta name="description" content="wordpress_api API docs, for the Dart programming language.">
+  <title>wordpress_api - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href=""
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://github.com/dhmgroup/dart-wp">wordpress_api package</a></li>
+  </ol>
+  <div class="self-name">wordpress_api</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="wordpress-rest-api-client-for-darthttpsdartdev--flutterhttpsflutterdev">WordPress REST API client for <a href="https://dart.dev/">Dart</a> | <a href="https://flutter.dev">Flutter</a></h1><!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<p><a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square" alt="All Contributors"></a></p><!-- ALL-CONTRIBUTORS-BADGE:END -->
+<p><a href="https://github.com/dhmgroup/dart-wp/stargazers/"><img src="https://img.shields.io/github/stars/dhmgroup/dart-wp.svg?style=social&amp;label=Star&amp;maxAge=2592000" alt="GitHub stars"></a>
+<a href="https://pub.dartlang.org/packages/wordpress_api"><img src="https://img.shields.io/pub/v/wordpress_api.svg?style=flat-square" alt="Pub"></a>
+<a href="https://travis-ci.org/dhmgroup/dart-wp"><img src="https://travis-ci.org/dhmgroup/dart-wp.svg?branch=master" alt="Build Status"></a>
+<a href="https://GitHub.com/dhmgroup/dart-wp/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a></p>
+<h2 id="description">Description</h2>
+<p>A WordPress REST API client for dart with support for WooCommerce and custom namespaces/endpoints.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Retrieve data from standard WordPress endpoints.</li>
+<li>Retrieve data from any custom namespace</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>In the <code>dependencies:</code> section of your <code>pubspec.yaml</code>, add the following line:</p>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  wordpress_api: &lt;latest_version&gt;
+</code></pre>
+<h2 id="usage">Usage</h2>
+<ul>
+<li>Import the package</li>
+</ul>
+<pre class="language-dart"><code class="language-dart">import 'package:wordpress_api/wordpress_api';
+</code></pre>
+<ul>
+<li>Initialize WPAPI</li>
+</ul>
+<pre class="language-dart"><code class="language-dart">  WordPressAPI api = WordPressAPI('wp-site.com');
+</code></pre>
+<ul>
+<li>
+<p>Retrieve posts from <code>.posts</code> getter</p>
+<ul>
+<li>You can fetch a list of posts by simply calling <code>.posts</code>. More arguments can be passed to further filter the data returned</li>
+</ul>
+<pre class="language-dart"><code class="language-dart">  void main() async {
+    final api = WordPressAPI('wp-site.com');
+    final WPResponse res = await api.posts.fetch();
+    for (final post in res.data) {
+      print(post.title);
+    }
+  }
+</code></pre>
+<ul>
+<li>
+<p>As of <code>v0.3.0</code>, you can query a single post from the same endpoint by passing an <code>id</code></p>
+<pre class="language-dart"><code class="language-dart">void main() async {
+  final api = WordPressAPI('wp-site.com');
+  final WPResponse res = await api.posts.fetch(id: 1);
+  print(res.data.title);
+}
+</code></pre>
+</li>
+</ul>
+<pre class="language-dart"><code></code></pre>
+</li>
+<li>
+<p>Retrieve data from a custom endpoint</p>
+</li>
+</ul>
+<pre class="language-dart"><code class="language-dart">  void main() async {
+    final api = WordPressAPI('wp-site.com');
+    final WPResponse res = await api.fetch(endpoint: 'your-custom-endpoint');
+    print(res.data);
+  }
+</code></pre>
+<h2 id="todo">ToDo</h2>
+<ul>
+<li>Authentication using <code>Application Passwords</code>. <em>WordPress 5.6+ only</em></li>
+<li>Fully integrated WooCommerce support.</li>
+<li>Full CRUD operations.</li>
+<li>Support for other popular WordPress Plugins.</li>
+</ul>
+<p>Contributions are welcome, report any issues <a href="https://github.com/dhmgroup/dart-wp/issues">here</a></p>
+<h2 id="special-thanks">Special Thanks</h2>
+<ul>
+<li><a href="https://developer.wordpress.org/rest-api/reference/">WordPress REST API Handbook</a> - Read the Handbank for additional arguments/query parameter.</li>
+</ul>
+<h2 id="contributors-">Contributors ✨</h2>
+<p>Thanks goes to these wonderful people (<a href="https://allcontributors.org/docs/en/emoji-key">emoji key</a>):</p><!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section --><!-- prettier-ignore-start --><!-- markdownlint-disable --><table>
+  <tbody><tr>
+    <td align="center"><a href="https://github.com/ankiimation"><img src="https://avatars.githubusercontent.com/u/41232001?v=4?s=100" width="100px;" alt=""><br><sub><b>anKii</b></sub></a><br><a href="https://github.com/dhmgroup/dart-wp/commits?author=ankiimation" title="Code">💻</a></td>
+    <td align="center"><a href="https://kellvem.pt"><img src="https://avatars.githubusercontent.com/u/3621135?v=4?s=100" width="100px;" alt=""><br><sub><b>Kellvem Barbosa</b></sub></a><br><a href="https://github.com/dhmgroup/dart-wp/commits?author=kellvembarbosa" title="Code">💻</a></td>
+  </tr>
+</tbody></table><!-- markdownlint-restore --><!-- prettier-ignore-end --><!-- ALL-CONTRIBUTORS-LIST:END -->
+<p>This project follows the <a href="https://github.com/all-contributors/all-contributors">all-contributors</a> specification. Contributions of any kind welcome!</p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="wordpress_api">
+  <span class="name"><a href="wordpress_api/wordpress_api-library.html">wordpress_api</a></span> 
+
+</dt>
+<dd>A WordPress REST API client for Dart
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="https://github.com/dhmgroup/dart-wp">wordpress_api package</a></li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">wordpress_api</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="wordpress_api/wordpress_api-library.html">wordpress_api</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    wordpress_api
+      2.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

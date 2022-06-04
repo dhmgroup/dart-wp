@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the Comment class from the wordpress_api library, for the Dart programming language.">
+  <title>Comment class - wordpress_api library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">wordpress_api</a></li>
+    <li><a href="../wordpress_api/wordpress_api-library.html">wordpress_api</a></li>
+    <li class="self-crumb">Comment class</li>
+  </ol>
+  <div class="self-name">Comment</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-class">Comment</span> class 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    
+
+
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+
+    <dl class="constructor-summary-list">
+        <dt id="Comment" class="callable">
+          <span class="name"><a href="../wordpress_api/Comment/Comment.html">Comment</a></span><span class="signature">(<span class="parameter" id="-param-id">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">id</span>, </span><span class="parameter" id="-param-author"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">author</span>, </span><span class="parameter" id="-param-authorEmail"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorEmail</span>, </span><span class="parameter" id="-param-authorIp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorIp</span>, </span><span class="parameter" id="-param-authorName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorName</span>, </span><span class="parameter" id="-param-authorUrl"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorUrl</span>, </span><span class="parameter" id="-param-authorUserAgent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorUserAgent</span>, </span><span class="parameter" id="-param-content"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">content</span>, </span><span class="parameter" id="-param-date"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">date</span>, </span><span class="parameter" id="-param-dateGmt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">dateGmt</span>, </span><span class="parameter" id="-param-link"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">link</span>, </span><span class="parameter" id="-param-parent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">parent</span>, </span><span class="parameter" id="-param-post"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">post</span>, </span><span class="parameter" id="-param-status"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="-param-type"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">type</span>, </span><span class="parameter" id="-param-authorAvatarUrls"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> <span class="parameter-name">authorAvatarUrls</span>, </span><span class="parameter" id="-param-meta"><span class="type-annotation">dynamic</span> <span class="parameter-name">meta</span>}</span>)</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="Comment.fromJson" class="callable">
+          <span class="name"><a href="../wordpress_api/Comment/Comment.fromJson.html">Comment.fromJson</a></span><span class="signature">(<span class="parameter" id="fromJson-param-source"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">source</span></span>)</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+        <dt id="Comment.fromMap" class="callable">
+          <span class="name"><a href="../wordpress_api/Comment/Comment.fromMap.html">Comment.fromMap</a></span><span class="signature">(<span class="parameter" id="fromMap-param-map"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span> <span class="parameter-name">map</span></span>)</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">factory</div>
+        </dd>
+    </dl>
+  </section>
+
+    <section class="summary offset-anchor" id="instance-properties">
+      <h2>Properties</h2>
+
+      <dl class="properties">
+        <dt id="author" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/author.html">author</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> 
+
+</dt>
+<dd>
+  The ID of the user object, if author was a user.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="authorAvatarUrls" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/authorAvatarUrls.html">authorAvatarUrls</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> 
+
+</dt>
+<dd>
+  Avatar URLs for the object author.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="authorEmail" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/authorEmail.html">authorEmail</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  Email address for the object author.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="authorIp" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/authorIp.html">authorIp</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  IP address for the object author.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="authorName" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/authorName.html">authorName</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  Display name for the object author.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="authorUrl" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/authorUrl.html">authorUrl</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  URL for the object author.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="authorUserAgent" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/authorUserAgent.html">authorUserAgent</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  User agent for the object author.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="content" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/content.html">content</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  The content for the object.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="date" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/date.html">date</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  The date the object was published, in the site's timezone.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="dateGmt" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/dateGmt.html">dateGmt</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  The date the object was published, as GMT.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="hashCode" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> 
+
+</dt>
+<dd>
+  The hash code for this object.
+  <div class="features">read-only, override</div>
+
+</dd>
+
+        <dt id="id" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/id.html">id</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> 
+
+</dt>
+<dd>
+  Unique identifier for the object.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="link" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/link.html">link</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  URL to the object.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="meta" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/meta.html">meta</a></span>
+  <span class="signature">&#8594; dynamic</span> 
+
+</dt>
+<dd>
+  Meta fields.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="parent" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/parent.html">parent</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> 
+
+</dt>
+<dd>
+  The ID for the parent of the object.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="post" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/post.html">post</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> 
+
+</dt>
+<dd>
+  The ID of the associated post object.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span> 
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features">read-only, inherited</div>
+
+</dd>
+
+        <dt id="status" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/status.html">status</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  State of the object.
+  <div class="features">final</div>
+
+</dd>
+
+        <dt id="type" class="property">
+  <span class="name"><a href="../wordpress_api/Comment/type.html">type</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> 
+
+</dt>
+<dd>
+  Type of Comment for the object.
+  <div class="features">final</div>
+
+</dd>
+
+      </dl>
+    </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="copyWith" class="callable">
+  <span class="name"><a href="../wordpress_api/Comment/copyWith.html">copyWith</a></span><span class="signature">(<wbr><span class="parameter" id="copyWith-param-id">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">id</span>, </span><span class="parameter" id="copyWith-param-author"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">author</span>, </span><span class="parameter" id="copyWith-param-authorEmail"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorEmail</span>, </span><span class="parameter" id="copyWith-param-authorIp"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorIp</span>, </span><span class="parameter" id="copyWith-param-authorName"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorName</span>, </span><span class="parameter" id="copyWith-param-authorUrl"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorUrl</span>, </span><span class="parameter" id="copyWith-param-authorUserAgent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">authorUserAgent</span>, </span><span class="parameter" id="copyWith-param-content"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">content</span>, </span><span class="parameter" id="copyWith-param-date"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">date</span>, </span><span class="parameter" id="copyWith-param-dateGmt"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">dateGmt</span>, </span><span class="parameter" id="copyWith-param-link"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">link</span>, </span><span class="parameter" id="copyWith-param-parent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">parent</span>, </span><span class="parameter" id="copyWith-param-post"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">post</span>, </span><span class="parameter" id="copyWith-param-status"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">status</span>, </span><span class="parameter" id="copyWith-param-type"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">type</span>, </span><span class="parameter" id="copyWith-param-authorAvatarUrls"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>?</span> <span class="parameter-name">authorAvatarUrls</span>, </span><span class="parameter" id="copyWith-param-meta"><span class="type-annotation">dynamic</span> <span class="parameter-name">meta</span>}</span>)
+    <span class="returntype parameter">&#8594; <a href="../wordpress_api/Comment-class.html">Comment</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a non-existent method or property is accessed.
+  <div class="features">inherited</div>
+
+</dd>
+
+        <dt id="toJson" class="callable">
+  <span class="name"><a href="../wordpress_api/Comment/toJson.html">toJson</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="toMap" class="callable">
+  <span class="name"><a href="../wordpress_api/Comment/toMap.html">toMap</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="toString" class="callable">
+  <span class="name"><a href="../wordpress_api/Comment/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  A string representation of this object.
+  <div class="features">override</div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable">
+  <span class="name"><a href="../wordpress_api/Comment/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-o"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">o</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  The equality operator.
+  <div class="features">override</div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">wordpress_api</a></li>
+  <li><a href="../wordpress_api/wordpress_api-library.html">wordpress_api</a></li>
+  <li class="self-crumb">Comment class</li>
+</ol>
+
+
+    <h5>wordpress_api library</h5>
+    <ol>
+  <li class="section-title"><a href="../wordpress_api/wordpress_api-library.html#classes">Classes</a></li>
+  <li><a href="../wordpress_api/ApplicationPassword-class.html">ApplicationPassword</a></li>
+  <li><a href="../wordpress_api/Billing-class.html">Billing</a></li>
+  <li><a href="../wordpress_api/Category-class.html">Category</a></li>
+  <li><a href="../wordpress_api/Comment-class.html">Comment</a></li>
+  <li><a href="../wordpress_api/Coupon-class.html">Coupon</a></li>
+  <li><a href="../wordpress_api/Customer-class.html">Customer</a></li>
+  <li><a href="../wordpress_api/Job-class.html">Job</a></li>
+  <li><a href="../wordpress_api/JobMeta-class.html">JobMeta</a></li>
+  <li><a href="../wordpress_api/Media-class.html">Media</a></li>
+  <li><a href="../wordpress_api/Order-class.html">Order</a></li>
+  <li><a href="../wordpress_api/Page-class.html">Page</a></li>
+  <li><a href="../wordpress_api/PaymentGateway-class.html">PaymentGateway</a></li>
+  <li><a href="../wordpress_api/PaymentGatewaySettings-class.html">PaymentGatewaySettings</a></li>
+  <li><a href="../wordpress_api/Post-class.html">Post</a></li>
+  <li><a href="../wordpress_api/Product-class.html">Product</a></li>
+  <li><a href="../wordpress_api/Search-class.html">Search</a></li>
+  <li><a href="../wordpress_api/Setting-class.html">Setting</a></li>
+  <li><a href="../wordpress_api/Shipping-class.html">Shipping</a></li>
+  <li><a href="../wordpress_api/Tag-class.html">Tag</a></li>
+  <li><a href="../wordpress_api/Taxonomy-class.html">Taxonomy</a></li>
+  <li><a href="../wordpress_api/TaxRate-class.html">TaxRate</a></li>
+  <li><a href="../wordpress_api/User-class.html">User</a></li>
+  <li><a href="../wordpress_api/WooCredentials-class.html">WooCredentials</a></li>
+  <li><a href="../wordpress_api/WooMeta-class.html">WooMeta</a></li>
+  <li><a href="../wordpress_api/WordPressAPI-class.html">WordPressAPI</a></li>
+  <li><a href="../wordpress_api/WPMeta-class.html">WPMeta</a></li>
+  <li><a href="../wordpress_api/WPResponse-class.html">WPResponse</a></li>
+  <li><a href="../wordpress_api/WPUtils-class.html">WPUtils</a></li>
+
+
+
+
+
+  <li class="section-title"><a href="../wordpress_api/wordpress_api-library.html#functions">Functions</a></li>
+  <li><a href="../wordpress_api/parseApplicationPasswords.html">parseApplicationPasswords</a></li>
+  <li><a href="../wordpress_api/parseCategories.html">parseCategories</a></li>
+  <li><a href="../wordpress_api/parseComments.html">parseComments</a></li>
+  <li><a href="../wordpress_api/parseJobs.html">parseJobs</a></li>
+  <li><a href="../wordpress_api/parseMedia.html">parseMedia</a></li>
+  <li><a href="../wordpress_api/parsePages.html">parsePages</a></li>
+  <li><a href="../wordpress_api/parsePosts.html">parsePosts</a></li>
+  <li><a href="../wordpress_api/parseSearches.html">parseSearches</a></li>
+  <li><a href="../wordpress_api/parseTags.html">parseTags</a></li>
+  <li><a href="../wordpress_api/parseTaxonomies.html">parseTaxonomies</a></li>
+  <li><a href="../wordpress_api/parseUsers.html">parseUsers</a></li>
+
+
+
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <ol>
+
+        <li class="section-title"><a href="../wordpress_api/Comment-class.html#constructors">Constructors</a></li>
+          <li><a href="../wordpress_api/Comment/Comment.html">Comment</a></li>
+          <li><a href="../wordpress_api/Comment/Comment.fromJson.html">fromJson</a></li>
+          <li><a href="../wordpress_api/Comment/Comment.fromMap.html">fromMap</a></li>
+
+
+    <li class="section-title">
+      <a href="../wordpress_api/Comment-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../wordpress_api/Comment/author.html">author</a></li>
+    <li><a href="../wordpress_api/Comment/authorAvatarUrls.html">authorAvatarUrls</a></li>
+    <li><a href="../wordpress_api/Comment/authorEmail.html">authorEmail</a></li>
+    <li><a href="../wordpress_api/Comment/authorIp.html">authorIp</a></li>
+    <li><a href="../wordpress_api/Comment/authorName.html">authorName</a></li>
+    <li><a href="../wordpress_api/Comment/authorUrl.html">authorUrl</a></li>
+    <li><a href="../wordpress_api/Comment/authorUserAgent.html">authorUserAgent</a></li>
+    <li><a href="../wordpress_api/Comment/content.html">content</a></li>
+    <li><a href="../wordpress_api/Comment/date.html">date</a></li>
+    <li><a href="../wordpress_api/Comment/dateGmt.html">dateGmt</a></li>
+    <li><a href="../wordpress_api/Comment/hashCode.html">hashCode</a></li>
+    <li><a href="../wordpress_api/Comment/id.html">id</a></li>
+    <li><a href="../wordpress_api/Comment/link.html">link</a></li>
+    <li><a href="../wordpress_api/Comment/meta.html">meta</a></li>
+    <li><a href="../wordpress_api/Comment/parent.html">parent</a></li>
+    <li><a href="../wordpress_api/Comment/post.html">post</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../wordpress_api/Comment/status.html">status</a></li>
+    <li><a href="../wordpress_api/Comment/type.html">type</a></li>
+
+    <li class="section-title"><a href="../wordpress_api/Comment-class.html#instance-methods">Methods</a></li>
+    <li><a href="../wordpress_api/Comment/copyWith.html">copyWith</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li><a href="../wordpress_api/Comment/toJson.html">toJson</a></li>
+    <li><a href="../wordpress_api/Comment/toMap.html">toMap</a></li>
+    <li><a href="../wordpress_api/Comment/toString.html">toString</a></li>
+
+    <li class="section-title"><a href="../wordpress_api/Comment-class.html#operators">Operators</a></li>
+    <li><a href="../wordpress_api/Comment/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    wordpress_api
+      2.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

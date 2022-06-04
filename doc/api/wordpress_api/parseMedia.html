@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the parseMedia function from the wordpress_api library, for the Dart programming language.">
+  <title>parseMedia function - wordpress_api library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../"
+      data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">wordpress_api</a></li>
+    <li><a href="../wordpress_api/wordpress_api-library.html">wordpress_api</a></li>
+    <li class="self-crumb">parseMedia function</li>
+  </ol>
+  <div class="self-name">parseMedia</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">parseMedia</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../wordpress_api/Media-class.html">Media</a></span>&gt;</span>?</span>
+<span class="name ">parseMedia</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="parseMedia-param-data"><span class="type-annotation">dynamic</span> <span class="parameter-name">data</span></span></li>
+</ol>)
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">List&lt;Media&gt;? parseMedia(dynamic data) {
+  if (data is String) {
+    return jsonDecode(data)
+        .cast&lt;Map&lt;String, dynamic&gt;&gt;()
+        .map&lt;Media&gt;((json) =&gt; Media.fromMap(json))
+        .toList();
+  } else {
+    return data
+        .cast&lt;Map&lt;String, dynamic&gt;&gt;()
+        .map&lt;Media&gt;((json) =&gt; Media.fromMap(json))
+        .toList();
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">wordpress_api</a></li>
+  <li><a href="../wordpress_api/wordpress_api-library.html">wordpress_api</a></li>
+  <li class="self-crumb">parseMedia function</li>
+</ol>
+
+
+    <h5>wordpress_api library</h5>
+    <ol>
+  <li class="section-title"><a href="../wordpress_api/wordpress_api-library.html#classes">Classes</a></li>
+  <li><a href="../wordpress_api/ApplicationPassword-class.html">ApplicationPassword</a></li>
+  <li><a href="../wordpress_api/Billing-class.html">Billing</a></li>
+  <li><a href="../wordpress_api/Category-class.html">Category</a></li>
+  <li><a href="../wordpress_api/Comment-class.html">Comment</a></li>
+  <li><a href="../wordpress_api/Coupon-class.html">Coupon</a></li>
+  <li><a href="../wordpress_api/Customer-class.html">Customer</a></li>
+  <li><a href="../wordpress_api/Job-class.html">Job</a></li>
+  <li><a href="../wordpress_api/JobMeta-class.html">JobMeta</a></li>
+  <li><a href="../wordpress_api/Media-class.html">Media</a></li>
+  <li><a href="../wordpress_api/Order-class.html">Order</a></li>
+  <li><a href="../wordpress_api/Page-class.html">Page</a></li>
+  <li><a href="../wordpress_api/PaymentGateway-class.html">PaymentGateway</a></li>
+  <li><a href="../wordpress_api/PaymentGatewaySettings-class.html">PaymentGatewaySettings</a></li>
+  <li><a href="../wordpress_api/Post-class.html">Post</a></li>
+  <li><a href="../wordpress_api/Product-class.html">Product</a></li>
+  <li><a href="../wordpress_api/Search-class.html">Search</a></li>
+  <li><a href="../wordpress_api/Setting-class.html">Setting</a></li>
+  <li><a href="../wordpress_api/Shipping-class.html">Shipping</a></li>
+  <li><a href="../wordpress_api/Tag-class.html">Tag</a></li>
+  <li><a href="../wordpress_api/Taxonomy-class.html">Taxonomy</a></li>
+  <li><a href="../wordpress_api/TaxRate-class.html">TaxRate</a></li>
+  <li><a href="../wordpress_api/User-class.html">User</a></li>
+  <li><a href="../wordpress_api/WooCredentials-class.html">WooCredentials</a></li>
+  <li><a href="../wordpress_api/WooMeta-class.html">WooMeta</a></li>
+  <li><a href="../wordpress_api/WordPressAPI-class.html">WordPressAPI</a></li>
+  <li><a href="../wordpress_api/WPMeta-class.html">WPMeta</a></li>
+  <li><a href="../wordpress_api/WPResponse-class.html">WPResponse</a></li>
+  <li><a href="../wordpress_api/WPUtils-class.html">WPUtils</a></li>
+
+
+
+
+
+  <li class="section-title"><a href="../wordpress_api/wordpress_api-library.html#functions">Functions</a></li>
+  <li><a href="../wordpress_api/parseApplicationPasswords.html">parseApplicationPasswords</a></li>
+  <li><a href="../wordpress_api/parseCategories.html">parseCategories</a></li>
+  <li><a href="../wordpress_api/parseComments.html">parseComments</a></li>
+  <li><a href="../wordpress_api/parseJobs.html">parseJobs</a></li>
+  <li><a href="../wordpress_api/parseMedia.html">parseMedia</a></li>
+  <li><a href="../wordpress_api/parsePages.html">parsePages</a></li>
+  <li><a href="../wordpress_api/parsePosts.html">parsePosts</a></li>
+  <li><a href="../wordpress_api/parseSearches.html">parseSearches</a></li>
+  <li><a href="../wordpress_api/parseTags.html">parseTags</a></li>
+  <li><a href="../wordpress_api/parseTaxonomies.html">parseTaxonomies</a></li>
+  <li><a href="../wordpress_api/parseUsers.html">parseUsers</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    wordpress_api
+      2.0.0
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/script.js?v1"></script>
+
+
+
+</body>
+
+</html>
+

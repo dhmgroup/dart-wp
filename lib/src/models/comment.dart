@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:wordpress_api/src/utils.dart';
 
 class Comment {
   ///Unique identifier for the object.

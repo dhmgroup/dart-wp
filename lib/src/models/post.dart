@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:wordpress_api/src/models/_embeded.dart';
 
-import 'package:wordpress_api/src/utils.dart';
-
 class Post {
   ///The date the object was published, in the site's timezone.
   final String? date;
