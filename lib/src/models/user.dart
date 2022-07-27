@@ -166,7 +166,7 @@ class User {
       nickname: map['nickname'],
       slug: map['slug'],
       registeredDate: map['registered_date'],
-      roles: List.from(map['roles']),
+      roles: map.containsKey("roles") ? List.from(map['roles']) : null,
       password: map['password'],
       capabilities: Map<String, dynamic>.from(map['capabilities']?? {}),
       extraCapabilities: Map<String, dynamic>.from(map['extra_capabilities']?? {}),
