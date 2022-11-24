@@ -2,7 +2,7 @@ part of '../main.dart';
 
 class _Users {
   static const String _name = 'users';
-  WordPressAPI _api;
+  final WordPressAPI _api;
 
   _Users(this._api);
 
@@ -19,7 +19,7 @@ class _Users {
           meta: res.meta,
         );
       }
-      final WPResponse res = await _api.fetch('$_name', args: args);
+      final WPResponse res = await _api.fetch(_name, args: args);
       return WPResponse(
         statusCode: res.statusCode,
         data: parseUsers(res.data),

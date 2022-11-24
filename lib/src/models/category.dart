@@ -104,19 +104,19 @@ class Category {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Category &&
-        o.id == id &&
-        o.count == count &&
-        o.description == description &&
-        o.link == link &&
-        o.name == name &&
-        o.slug == slug &&
-        o.taxonomy == taxonomy &&
-        o.parent == parent &&
-        o.meta == meta;
+    return other is Category &&
+        other.id == id &&
+        other.count == count &&
+        other.description == description &&
+        other.link == link &&
+        other.name == name &&
+        other.slug == slug &&
+        other.taxonomy == taxonomy &&
+        other.parent == parent &&
+        other.meta == meta;
   }
 
   @override

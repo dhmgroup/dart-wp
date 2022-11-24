@@ -88,16 +88,16 @@ class Taxonomy {
 
   factory Taxonomy.fromMap(Map<String, dynamic> map) {
     return Taxonomy(
-      capabilities: Map<String, dynamic>.from(map['capabilities']?? {}),
+      capabilities: Map<String, dynamic>.from(map['capabilities'] ?? {}),
       description: map['description'],
       hierarchical: map['hierarchical'],
-      labels: Map<String, dynamic>.from(map['labels']?? {}),
+      labels: Map<String, dynamic>.from(map['labels'] ?? {}),
       name: map['name'],
       slug: map['slug'],
       showCloud: map['show_cloud'],
       types: List.from(map['types']),
       restBase: map['rest_base'],
-      visibility: Map<String, dynamic>.from(map['visibility']?? {}),
+      visibility: Map<String, dynamic>.from(map['visibility'] ?? {}),
     );
   }
 
@@ -112,21 +112,21 @@ class Taxonomy {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final collectionEquals = const DeepCollectionEquality().equals;
 
-    return o is Taxonomy &&
-        collectionEquals(o.capabilities, capabilities) &&
-        o.description == description &&
-        o.hierarchical == hierarchical &&
-        collectionEquals(o.labels, labels) &&
-        o.name == name &&
-        o.slug == slug &&
-        o.showCloud == showCloud &&
-        collectionEquals(o.types, types) &&
-        o.restBase == restBase &&
-        collectionEquals(o.visibility, visibility);
+    return other is Taxonomy &&
+        collectionEquals(other.capabilities, capabilities) &&
+        other.description == description &&
+        other.hierarchical == hierarchical &&
+        collectionEquals(other.labels, labels) &&
+        other.name == name &&
+        other.slug == slug &&
+        other.showCloud == showCloud &&
+        collectionEquals(other.types, types) &&
+        other.restBase == restBase &&
+        collectionEquals(other.visibility, visibility);
   }
 
   @override

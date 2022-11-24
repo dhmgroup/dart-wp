@@ -170,21 +170,21 @@ class Coupon {
       dateExpiresGmt: map['date_expires_gmt'],
       usageCount: map['usage_count']?.toInt(),
       individualUse: map['individual_use'],
-      productIds: List<dynamic>.from(map['product_ids']??[]) as List<int>?,
+      productIds: List<dynamic>.from(map['product_ids'] ?? []) as List<int>?,
       excludedProductIds:
-          List<dynamic>.from(map['excluded_product_ids']??[]) as List<int>?,
+          List<dynamic>.from(map['excluded_product_ids'] ?? []) as List<int>?,
       usageLimit: map['usage_limit']?.toInt(),
       usageLimitPerUser: map['usage_limit_per_user']?.toInt(),
       limitUsageToXItems: map['limit_usage_to_x_items']?.toInt(),
       freeShipping: map['free_shipping'],
-      productCategories: List<int>.from(map['product_categories']??[]),
+      productCategories: List<int>.from(map['product_categories'] ?? []),
       excludedProductCategories:
-          List<int>.from(map['excluded_product_categories']??[]),
+          List<int>.from(map['excluded_product_categories'] ?? []),
       excludeSaleItems: map['exclude_sale_items'],
       minimumAmount: map['minimum_amount'],
       maximumAmount: map['maximum_amount'],
-      emailRestrictions: List<String>.from(map['email_restrictions']??[]),
-      usedBy: List<int>.from(map['used_by']??[]),
+      emailRestrictions: List<String>.from(map['email_restrictions'] ?? []),
+      usedBy: List<int>.from(map['used_by'] ?? []),
       metaData:
           List<WooMeta>.from(map['meta_data']?.map((x) => WooMeta.fromMap(x))),
     );
@@ -231,37 +231,38 @@ class Coupon {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final listEquals = const DeepCollectionEquality().equals;
 
-    return o is Coupon &&
-        o.id == id &&
-        o.code == code &&
-        o.amount == amount &&
-        o.dateCreated == dateCreated &&
-        o.dateCreatedGmt == dateCreatedGmt &&
-        o.dateModified == dateModified &&
-        o.dateModifiedGmt == dateModifiedGmt &&
-        o.discountType == discountType &&
-        o.description == description &&
-        o.dateExpires == dateExpires &&
-        o.dateExpiresGmt == dateExpiresGmt &&
-        o.usageCount == usageCount &&
-        o.individualUse == individualUse &&
-        listEquals(o.productIds, productIds) &&
-        listEquals(o.excludedProductIds, excludedProductIds) &&
-        o.usageLimit == usageLimit &&
-        o.usageLimitPerUser == usageLimitPerUser &&
-        o.limitUsageToXItems == limitUsageToXItems &&
-        o.freeShipping == freeShipping &&
-        listEquals(o.productCategories, productCategories) &&
-        listEquals(o.excludedProductCategories, excludedProductCategories) &&
-        o.excludeSaleItems == excludeSaleItems &&
-        o.minimumAmount == minimumAmount &&
-        o.maximumAmount == maximumAmount &&
-        listEquals(o.emailRestrictions, emailRestrictions) &&
-        listEquals(o.usedBy, usedBy) &&
-        listEquals(o.metaData, metaData);
+    return other is Coupon &&
+        other.id == id &&
+        other.code == code &&
+        other.amount == amount &&
+        other.dateCreated == dateCreated &&
+        other.dateCreatedGmt == dateCreatedGmt &&
+        other.dateModified == dateModified &&
+        other.dateModifiedGmt == dateModifiedGmt &&
+        other.discountType == discountType &&
+        other.description == description &&
+        other.dateExpires == dateExpires &&
+        other.dateExpiresGmt == dateExpiresGmt &&
+        other.usageCount == usageCount &&
+        other.individualUse == individualUse &&
+        listEquals(other.productIds, productIds) &&
+        listEquals(other.excludedProductIds, excludedProductIds) &&
+        other.usageLimit == usageLimit &&
+        other.usageLimitPerUser == usageLimitPerUser &&
+        other.limitUsageToXItems == limitUsageToXItems &&
+        other.freeShipping == freeShipping &&
+        listEquals(other.productCategories, productCategories) &&
+        listEquals(
+            other.excludedProductCategories, excludedProductCategories) &&
+        other.excludeSaleItems == excludeSaleItems &&
+        other.minimumAmount == minimumAmount &&
+        other.maximumAmount == maximumAmount &&
+        listEquals(other.emailRestrictions, emailRestrictions) &&
+        listEquals(other.usedBy, usedBy) &&
+        listEquals(other.metaData, metaData);
   }
 }

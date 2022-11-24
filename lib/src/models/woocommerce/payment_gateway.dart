@@ -89,20 +89,20 @@ class PaymentGateway {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final collectionEquals = const DeepCollectionEquality().equals;
 
-    return o is PaymentGateway &&
-        o.id == id &&
-        o.title == title &&
-        o.description == description &&
-        o.order == order &&
-        o.enabled == enabled &&
-        o.methodTitle == methodTitle &&
-        o.methodDescription == methodDescription &&
-        collectionEquals(o.methodSupports, methodSupports) &&
-        collectionEquals(o.settings, settings);
+    return other is PaymentGateway &&
+        other.id == id &&
+        other.title == title &&
+        other.description == description &&
+        other.order == order &&
+        other.enabled == enabled &&
+        other.methodTitle == methodTitle &&
+        other.methodDescription == methodDescription &&
+        collectionEquals(other.methodSupports, methodSupports) &&
+        collectionEquals(other.settings, settings);
   }
 
   @override

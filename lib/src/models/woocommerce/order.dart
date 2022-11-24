@@ -1,12 +1,8 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-
 import 'package:wordpress_api/src/models/woocommerce/billing.dart';
-import 'package:wordpress_api/src/models/woocommerce/order/coupon_line.dart';
 import 'package:wordpress_api/src/models/woocommerce/customer.dart';
-import 'package:wordpress_api/src/models/woocommerce/order/fee_line.dart';
-import 'package:wordpress_api/src/models/woocommerce/order/line_item.dart';
 import 'package:wordpress_api/src/models/woocommerce/shipping.dart';
 
 import 'order/order.dart';
@@ -209,8 +205,9 @@ class Order {
           map['shipping_lines']?.map((x) => ShippingLine.fromMap(x))),
       taxLines:
           List<TaxLine>.from(map['tax_lines']?.map((x) => TaxLine.fromMap(x))),
-      feeLines: List<dynamic>.from(map['fee_lines']??[]) as List<FeeLine>?,
-      couponLines: List<dynamic>.from(map['coupon_lines']??[]) as List<CouponLine>?,
+      feeLines: List<dynamic>.from(map['fee_lines'] ?? []) as List<FeeLine>?,
+      couponLines:
+          List<dynamic>.from(map['coupon_lines'] ?? []) as List<CouponLine>?,
       customer: Customer.fromMap(map['customer']),
     );
   }
@@ -259,40 +256,40 @@ class Order {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final listEquals = const DeepCollectionEquality().equals;
 
-    return o is Order &&
-        o.id == id &&
-        o.orderNumber == orderNumber &&
-        o.createdAt == createdAt &&
-        o.updatedAt == updatedAt &&
-        o.completedAt == completedAt &&
-        o.status == status &&
-        o.currency == currency &&
-        o.total == total &&
-        o.subtotal == subtotal &&
-        o.totalLineItemsQuantity == totalLineItemsQuantity &&
-        o.totalTax == totalTax &&
-        o.totalShipping == totalShipping &&
-        o.cartTax == cartTax &&
-        o.shippingTax == shippingTax &&
-        o.totalDiscount == totalDiscount &&
-        o.shippingMethods == shippingMethods &&
-        o.paymentDetails == paymentDetails &&
-        o.billingAddress == billingAddress &&
-        o.shippingAddress == shippingAddress &&
-        o.note == note &&
-        o.customerIp == customerIp &&
-        o.customerUserAgent == customerUserAgent &&
-        o.customerId == customerId &&
-        o.viewOrderUrl == viewOrderUrl &&
-        listEquals(o.lineItems, lineItems) &&
-        listEquals(o.shippingLines, shippingLines) &&
-        listEquals(o.taxLines, taxLines) &&
-        listEquals(o.feeLines, feeLines) &&
-        listEquals(o.couponLines, couponLines) &&
-        o.customer == customer;
+    return other is Order &&
+        other.id == id &&
+        other.orderNumber == orderNumber &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
+        other.completedAt == completedAt &&
+        other.status == status &&
+        other.currency == currency &&
+        other.total == total &&
+        other.subtotal == subtotal &&
+        other.totalLineItemsQuantity == totalLineItemsQuantity &&
+        other.totalTax == totalTax &&
+        other.totalShipping == totalShipping &&
+        other.cartTax == cartTax &&
+        other.shippingTax == shippingTax &&
+        other.totalDiscount == totalDiscount &&
+        other.shippingMethods == shippingMethods &&
+        other.paymentDetails == paymentDetails &&
+        other.billingAddress == billingAddress &&
+        other.shippingAddress == shippingAddress &&
+        other.note == note &&
+        other.customerIp == customerIp &&
+        other.customerUserAgent == customerUserAgent &&
+        other.customerId == customerId &&
+        other.viewOrderUrl == viewOrderUrl &&
+        listEquals(other.lineItems, lineItems) &&
+        listEquals(other.shippingLines, shippingLines) &&
+        listEquals(other.taxLines, taxLines) &&
+        listEquals(other.feeLines, feeLines) &&
+        listEquals(other.couponLines, couponLines) &&
+        other.customer == customer;
   }
 }

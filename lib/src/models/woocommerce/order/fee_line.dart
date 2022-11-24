@@ -67,16 +67,16 @@ class FeeLine {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is FeeLine &&
-        o.id == id &&
-        o.title == title &&
-        o.taxable == taxable &&
-        o.taxClass == taxClass &&
-        o.total == total &&
-        o.totalTax == totalTax;
+    return other is FeeLine &&
+        other.id == id &&
+        other.title == title &&
+        other.taxable == taxable &&
+        other.taxClass == taxClass &&
+        other.total == total &&
+        other.totalTax == totalTax;
   }
 
   @override

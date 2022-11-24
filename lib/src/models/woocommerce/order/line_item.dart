@@ -88,7 +88,7 @@ class LineItem {
       name: map['name'],
       productId: map['product_id']?.toInt(),
       sku: map['sku'],
-      meta: List<dynamic>.from(map['meta']??[]),
+      meta: List<dynamic>.from(map['meta'] ?? []),
     );
   }
 
@@ -100,6 +100,25 @@ class LineItem {
   @override
   String toString() {
     return 'LineItem(id: $id, subtotal: $subtotal, subtotalTax: $subtotalTax, total: $total, totalTax: $totalTax, price: $price, quantity: $quantity, taxClass: $taxClass, name: $name, productId: $productId, sku: $sku, meta: $meta)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+
+    return other is LineItem &&
+        other.id == id &&
+        other.subtotal == subtotal &&
+        other.subtotalTax == subtotalTax &&
+        other.total == total &&
+        other.totalTax == totalTax &&
+        other.price == price &&
+        other.quantity == quantity &&
+        other.taxClass == taxClass &&
+        other.name == name &&
+        other.productId == productId &&
+        other.sku == sku &&
+        other.meta == meta;
   }
 
   @override

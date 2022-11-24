@@ -73,17 +73,17 @@ class ProductImage {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is ProductImage &&
-        o.id == id &&
-        o.createdAt == createdAt &&
-        o.updatedAt == updatedAt &&
-        o.src == src &&
-        o.title == title &&
-        o.alt == alt &&
-        o.position == position;
+    return other is ProductImage &&
+        other.id == id &&
+        other.createdAt == createdAt &&
+        other.updatedAt == updatedAt &&
+        other.src == src &&
+        other.title == title &&
+        other.alt == alt &&
+        other.position == position;
   }
 
   @override

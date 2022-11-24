@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:wordpress_api/src/utils.dart';
 
 class Comment {
   ///Unique identifier for the object.
@@ -153,7 +152,8 @@ class Comment {
       post: map['post'],
       status: map['status'],
       type: map['type'],
-      authorAvatarUrls: Map<String, dynamic>.from(map['author_avatar_urls']?? {}),
+      authorAvatarUrls:
+          Map<String, dynamic>.from(map['author_avatar_urls'] ?? {}),
       meta: map['meta'],
     );
   }
@@ -169,28 +169,28 @@ class Comment {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final mapEquals = const DeepCollectionEquality().equals;
 
-    return o is Comment &&
-        o.id == id &&
-        o.author == author &&
-        o.authorEmail == authorEmail &&
-        o.authorIp == authorIp &&
-        o.authorName == authorName &&
-        o.authorUrl == authorUrl &&
-        o.authorUserAgent == authorUserAgent &&
-        o.content == content &&
-        o.date == date &&
-        o.dateGmt == dateGmt &&
-        o.link == link &&
-        o.parent == parent &&
-        o.post == post &&
-        o.status == status &&
-        o.type == type &&
-        mapEquals(o.authorAvatarUrls, authorAvatarUrls) &&
-        o.meta == meta;
+    return other is Comment &&
+        other.id == id &&
+        other.author == author &&
+        other.authorEmail == authorEmail &&
+        other.authorIp == authorIp &&
+        other.authorName == authorName &&
+        other.authorUrl == authorUrl &&
+        other.authorUserAgent == authorUserAgent &&
+        other.content == content &&
+        other.date == date &&
+        other.dateGmt == dateGmt &&
+        other.link == link &&
+        other.parent == parent &&
+        other.post == post &&
+        other.status == status &&
+        other.type == type &&
+        mapEquals(other.authorAvatarUrls, authorAvatarUrls) &&
+        other.meta == meta;
   }
 
   @override

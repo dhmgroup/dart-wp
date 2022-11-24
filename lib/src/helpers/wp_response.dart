@@ -19,11 +19,11 @@ class WPResponse {
 
   @override
   String toString() {
-    return """
+    return '''
     $WPResponse: {
       statusCode: $statusCode,
       data: $data,
       meta: $meta,
-    }""";
+    }''';
   }
 }

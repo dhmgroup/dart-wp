@@ -47,10 +47,13 @@ class WooMeta {
   String toString() => 'WooMeta(id: $id, key: $key, value: $value)';
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is WooMeta && o.id == id && o.key == key && o.value == value;
+    return other is WooMeta &&
+        other.id == id &&
+        other.key == key &&
+        other.value == value;
   }
 
   @override

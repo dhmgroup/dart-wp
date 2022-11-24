@@ -2,7 +2,7 @@ part of '../main.dart';
 
 class _Tags {
   static const String _name = 'tags';
-  WordPressAPI _api;
+  final WordPressAPI _api;
 
   _Tags(this._api);
 
@@ -19,7 +19,7 @@ class _Tags {
           meta: res.meta,
         );
       }
-      final WPResponse res = await _api.fetch('$_name', args: args);
+      final WPResponse res = await _api.fetch(_name, args: args);
       return WPResponse(
         statusCode: res.statusCode,
         data: parseTags(res.data),

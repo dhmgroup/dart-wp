@@ -121,22 +121,22 @@ class TaxRate {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is TaxRate &&
-        o.id == id &&
-        o.country == country &&
-        o.state == state &&
-        o.postcode == postcode &&
-        o.city == city &&
-        o.rate == rate &&
-        o.name == name &&
-        o.priority == priority &&
-        o.compound == compound &&
-        o.shipping == shipping &&
-        o.order == order &&
-        o.taxClass == taxClass;
+    return other is TaxRate &&
+        other.id == id &&
+        other.country == country &&
+        other.state == state &&
+        other.postcode == postcode &&
+        other.city == city &&
+        other.rate == rate &&
+        other.name == name &&
+        other.priority == priority &&
+        other.compound == compound &&
+        other.shipping == shipping &&
+        other.order == order &&
+        other.taxClass == taxClass;
   }
 
   @override

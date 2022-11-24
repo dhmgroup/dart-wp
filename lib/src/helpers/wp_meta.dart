@@ -14,11 +14,11 @@ class WPMeta {
 
   @override
   toString() {
-    return """
+    return '''
     WPMeta: {
       total: $total,
       totalPages: $totalPages,
     }
-    """;
+    ''';
   }
 }

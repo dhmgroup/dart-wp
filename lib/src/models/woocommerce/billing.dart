@@ -97,21 +97,21 @@ class Billing {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Billing &&
-        o.firstName == firstName &&
-        o.lastName == lastName &&
-        o.company == company &&
-        o.address1 == address1 &&
-        o.address2 == address2 &&
-        o.city == city &&
-        o.state == state &&
-        o.postcode == postcode &&
-        o.country == country &&
-        o.email == email &&
-        o.phone == phone;
+    return other is Billing &&
+        other.firstName == firstName &&
+        other.lastName == lastName &&
+        other.company == company &&
+        other.address1 == address1 &&
+        other.address2 == address2 &&
+        other.city == city &&
+        other.state == state &&
+        other.postcode == postcode &&
+        other.country == country &&
+        other.email == email &&
+        other.phone == phone;
   }
 
   @override

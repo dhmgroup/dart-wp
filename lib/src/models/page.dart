@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:wordpress_api/src/utils.dart';
-
 class Page {
   ///The date the object was published, in the site's timezone.
   final String? date;
@@ -229,34 +227,34 @@ class Page {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Page &&
-        o.date == date &&
-        o.dateGmt == dateGmt &&
-        o.guid == guid &&
-        o.id == id &&
-        o.link == link &&
-        o.modified == modified &&
-        o.modifitedGmt == modifitedGmt &&
-        o.slug == slug &&
-        o.status == status &&
-        o.type == type &&
-        o.password == password &&
-        o.permalinkTemplate == permalinkTemplate &&
-        o.generatedSlug == generatedSlug &&
-        o.parent == parent &&
-        o.title == title &&
-        o.content == content &&
-        o.author == author &&
-        o.excerpt == excerpt &&
-        o.featuredMedia == featuredMedia &&
-        o.commentStatus == commentStatus &&
-        o.pingStatus == pingStatus &&
-        o.menuOrder == menuOrder &&
-        o.meta == meta &&
-        o.template == template;
+    return other is Page &&
+        other.date == date &&
+        other.dateGmt == dateGmt &&
+        other.guid == guid &&
+        other.id == id &&
+        other.link == link &&
+        other.modified == modified &&
+        other.modifitedGmt == modifitedGmt &&
+        other.slug == slug &&
+        other.status == status &&
+        other.type == type &&
+        other.password == password &&
+        other.permalinkTemplate == permalinkTemplate &&
+        other.generatedSlug == generatedSlug &&
+        other.parent == parent &&
+        other.title == title &&
+        other.content == content &&
+        other.author == author &&
+        other.excerpt == excerpt &&
+        other.featuredMedia == featuredMedia &&
+        other.commentStatus == commentStatus &&
+        other.pingStatus == pingStatus &&
+        other.menuOrder == menuOrder &&
+        other.meta == meta &&
+        other.template == template;
   }
 
   @override

@@ -90,7 +90,8 @@ class ProductReview {
       review: map['review'],
       rating: map['rating'],
       verified: map['verified'],
-      reviewerAvatarUrls: Map<String, String>.from(map['reviewer_avatar_urls']?? {}),
+      reviewerAvatarUrls:
+          Map<String, String>.from(map['reviewer_avatar_urls'] ?? {}),
     );
   }
 
@@ -105,22 +106,22 @@ class ProductReview {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final mapEquals = const DeepCollectionEquality().equals;
 
-    return o is ProductReview &&
-        o.id == id &&
-        o.dateCreated == dateCreated &&
-        o.dateCreatedGmt == dateCreatedGmt &&
-        o.productId == productId &&
-        o.status == status &&
-        o.reviewer == reviewer &&
-        o.reviewerEmail == reviewerEmail &&
-        o.review == review &&
-        o.rating == rating &&
-        o.verified == verified &&
-        mapEquals(o.reviewerAvatarUrls, reviewerAvatarUrls);
+    return other is ProductReview &&
+        other.id == id &&
+        other.dateCreated == dateCreated &&
+        other.dateCreatedGmt == dateCreatedGmt &&
+        other.productId == productId &&
+        other.status == status &&
+        other.reviewer == reviewer &&
+        other.reviewerEmail == reviewerEmail &&
+        other.review == review &&
+        other.rating == rating &&
+        other.verified == verified &&
+        mapEquals(other.reviewerAvatarUrls, reviewerAvatarUrls);
   }
 
   @override

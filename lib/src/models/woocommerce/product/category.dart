@@ -94,19 +94,19 @@ class ProductCategory {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is ProductCategory &&
-        o.id == id &&
-        o.name == name &&
-        o.slug == slug &&
-        o.parent == parent &&
-        o.description == description &&
-        o.display == display &&
-        o.image == image &&
-        o.menuOrder == menuOrder &&
-        o.count == count;
+    return other is ProductCategory &&
+        other.id == id &&
+        other.name == name &&
+        other.slug == slug &&
+        other.parent == parent &&
+        other.description == description &&
+        other.display == display &&
+        other.image == image &&
+        other.menuOrder == menuOrder &&
+        other.count == count;
   }
 
   @override

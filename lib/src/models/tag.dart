@@ -95,18 +95,18 @@ class Tag {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Tag &&
-        o.id == id &&
-        o.count == count &&
-        o.description == description &&
-        o.link == link &&
-        o.name == name &&
-        o.slug == slug &&
-        o.taxonomy == taxonomy &&
-        o.meta == meta;
+    return other is Tag &&
+        other.id == id &&
+        other.count == count &&
+        other.description == description &&
+        other.link == link &&
+        other.name == name &&
+        other.slug == slug &&
+        other.taxonomy == taxonomy &&
+        other.meta == meta;
   }
 
   @override

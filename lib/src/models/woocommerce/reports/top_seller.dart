@@ -48,13 +48,13 @@ class TopSeller {
       'TopSeller(title: $title, productId: $productId, quantity: $quantity)';
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is TopSeller &&
-        o.title == title &&
-        o.productId == productId &&
-        o.quantity == quantity;
+    return other is TopSeller &&
+        other.title == title &&
+        other.productId == productId &&
+        other.quantity == quantity;
   }
 
   @override

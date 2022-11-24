@@ -83,18 +83,18 @@ class PaymentGatewaySettings {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is PaymentGatewaySettings &&
-        o.id == id &&
-        o.label == label &&
-        o.description == description &&
-        o.type == type &&
-        o.value == value &&
-        o.dDefault == dDefault &&
-        o.tip == tip &&
-        o.placeholder == placeholder;
+    return other is PaymentGatewaySettings &&
+        other.id == id &&
+        other.label == label &&
+        other.description == description &&
+        other.type == type &&
+        other.value == value &&
+        other.dDefault == dDefault &&
+        other.tip == tip &&
+        other.placeholder == placeholder;
   }
 
   @override

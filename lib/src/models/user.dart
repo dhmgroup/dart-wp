@@ -166,11 +166,12 @@ class User {
       nickname: map['nickname'],
       slug: map['slug'],
       registeredDate: map['registered_date'],
-      roles: map.containsKey("roles") ? List.from(map['roles']) : null,
+      roles: map.containsKey('roles') ? List.from(map['roles']) : null,
       password: map['password'],
-      capabilities: Map<String, dynamic>.from(map['capabilities']?? {}),
-      extraCapabilities: Map<String, dynamic>.from(map['extra_capabilities']?? {}),
-      avatarUrls: Map<String, dynamic>.from(map['avatar_urls']?? {}),
+      capabilities: Map<String, dynamic>.from(map['capabilities'] ?? {}),
+      extraCapabilities:
+          Map<String, dynamic>.from(map['extra_capabilities'] ?? {}),
+      avatarUrls: Map<String, dynamic>.from(map['avatar_urls'] ?? {}),
       meta: map['meta'],
     );
   }
@@ -185,30 +186,30 @@ class User {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final collectionEquals = const DeepCollectionEquality().equals;
 
-    return o is User &&
-        o.id == id &&
-        o.username == username &&
-        o.name == name &&
-        o.firstName == firstName &&
-        o.lastName == lastName &&
-        o.email == email &&
-        o.url == url &&
-        o.description == description &&
-        o.link == link &&
-        o.locale == locale &&
-        o.nickname == nickname &&
-        o.slug == slug &&
-        o.registeredDate == registeredDate &&
-        collectionEquals(o.roles, roles) &&
-        o.password == password &&
-        collectionEquals(o.capabilities, capabilities) &&
-        collectionEquals(o.extraCapabilities, extraCapabilities) &&
-        collectionEquals(o.avatarUrls, avatarUrls) &&
-        o.meta == meta;
+    return other is User &&
+        other.id == id &&
+        other.username == username &&
+        other.name == name &&
+        other.firstName == firstName &&
+        other.lastName == lastName &&
+        other.email == email &&
+        other.url == url &&
+        other.description == description &&
+        other.link == link &&
+        other.locale == locale &&
+        other.nickname == nickname &&
+        other.slug == slug &&
+        other.registeredDate == registeredDate &&
+        collectionEquals(other.roles, roles) &&
+        other.password == password &&
+        collectionEquals(other.capabilities, capabilities) &&
+        collectionEquals(other.extraCapabilities, extraCapabilities) &&
+        collectionEquals(other.avatarUrls, avatarUrls) &&
+        other.meta == meta;
   }
 
   @override

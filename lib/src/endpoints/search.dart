@@ -2,7 +2,7 @@ part of '../main.dart';
 
 class _Search {
   static const String _name = 'search';
-  WordPressAPI _api;
+  final WordPressAPI _api;
 
   _Search(this._api);
 
@@ -19,7 +19,7 @@ class _Search {
           meta: res.meta,
         );
       }
-      final WPResponse res = await _api.fetch('$_name', args: args);
+      final WPResponse res = await _api.fetch(_name, args: args);
       return WPResponse(
         statusCode: res.statusCode,
         data: parseSearches(res.data),

@@ -47,13 +47,13 @@ class ProductDownloads {
   String toString() => 'ProductDownloads(id: $id, name: $name, file: $file)';
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is ProductDownloads &&
-        o.id == id &&
-        o.name == name &&
-        o.file == file;
+    return other is ProductDownloads &&
+        other.id == id &&
+        other.name == name &&
+        other.file == file;
   }
 
   @override

@@ -12,3 +12,5 @@ dependencies:
   dio: ^4.0.0
   html: ^0.15.0
   logger: ^1.0.0
+dev_dependencies:
+  lints: ^2.0.1
