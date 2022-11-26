@@ -32,6 +32,15 @@
         "code",
         "bug"
       ]
+    },
+    {
+      "login": "NemesisX1",
+      "name": "Elikem (Junior) Medehou",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55746329?v=4",
+      "profile": "https://nemesisx1.showwcase.com/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
