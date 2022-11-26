@@ -1,6 +1,6 @@
 # WordPress REST API client for [Dart](https://dart.dev/) | [Flutter](https://flutter.dev)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![GitHub stars](https://img.shields.io/github/stars/dhmgroup/dart-wp.svg?style=social&label=Star&maxAge=2592000)](https://github.com/dhmgroup/dart-wp/stargazers/)
@@ -97,10 +97,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://github.com/ankiimation"><img src="https://avatars.githubusercontent.com/u/41232001?v=4?s=100" width="100px;" alt=""/><br /><sub><b>anKii</b></sub></a><br /><a href="https://github.com/dhmgroup/dart-wp/commits?author=ankiimation" title="Code">💻</a></td>
-    <td align="center"><a href="https://kellvem.pt"><img src="https://avatars.githubusercontent.com/u/3621135?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Kellvem Barbosa</b></sub></a><br /><a href="https://github.com/dhmgroup/dart-wp/commits?author=kellvembarbosa" title="Code">💻</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://github.com/ankiimation"><img src="https://avatars.githubusercontent.com/u/41232001?v=4?s=100" width="100px;" alt="anKii"/><br /><sub><b>anKii</b></sub></a><br /><a href="https://github.com/dhmgroup/dart-wp/commits?author=ankiimation" title="Code">💻</a></td>
+      <td align="center"><a href="https://kellvem.pt"><img src="https://avatars.githubusercontent.com/u/3621135?v=4?s=100" width="100px;" alt="Kellvem Barbosa"/><br /><sub><b>Kellvem Barbosa</b></sub></a><br /><a href="https://github.com/dhmgroup/dart-wp/commits?author=kellvembarbosa" title="Code">💻</a></td>
+      <td align="center"><a href="https://github.com/NKlage"><img src="https://avatars.githubusercontent.com/u/18156976?v=4?s=100" width="100px;" alt="NKlage"/><br /><sub><b>NKlage</b></sub></a><br /><a href="https://github.com/dhmgroup/dart-wp/commits?author=NKlage" title="Code">💻</a> <a href="https://github.com/dhmgroup/dart-wp/issues?q=author%3ANKlage" title="Bug reports">🐛</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->
