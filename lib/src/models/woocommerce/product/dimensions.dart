@@ -55,14 +55,14 @@ class ProductDimensions {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is ProductDimensions &&
-        o.height == height &&
-        o.width == width &&
-        o.length == length &&
-        o.unit == unit;
+    return other is ProductDimensions &&
+        other.height == height &&
+        other.width == width &&
+        other.length == length &&
+        other.unit == unit;
   }
 
   @override

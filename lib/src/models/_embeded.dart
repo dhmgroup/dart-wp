@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:wordpress_api/src/models.dart';
 
 class EmbedModel {
@@ -10,82 +8,48 @@ class EmbedModel {
   EmbedModel({this.author, this.media, this.categories});
 
   factory EmbedModel.fromMap(Map<String, dynamic> json) {
-    List<Author>? author = null;
+    List<Author>? authorList;
     if (json['author'] != null && json['author'] is List) {
-      author = [];
+      authorList = [];
       try {
         for (var author in json['author']) {
-          author.add(new Author.fromMap(author));
+          authorList.add(Author.fromMap(author));
         }
-        ;
-      } catch (e) {}
+      } catch (e) {
+        rethrow;
+      }
     }
-    List<Media>? media = null;
+
+    List<Media>? mediaList;
     if (json['wp:featuredmedia'] != null && json['wp:featuredmedia'] is List) {
-      media = [];
+      mediaList = [];
 
       for (var mediaMap in json['wp:featuredmedia']) {
         try {
-          media.add(Media.fromMap(mediaMap));
+          mediaList.add(Media.fromMap(mediaMap));
         } catch (e) {
-          throw e;
+          rethrow;
         }
       }
-      ;
     }
-    List<Category>? categories = null;
+
+    List<Category>? categoriesList;
     if (json['wp:term'] != null && json['wp:term'] is List) {
-      categories = [];
+      categoriesList = [];
 
       for (var term in json['wp:term']) {
         if (term is List && term.isNotEmpty) {
           for (var categoryJson in term) {
             try {
-              categories.add(Category.fromMap(categoryJson));
+              categoriesList.add(Category.fromMap(categoryJson));
             } catch (e) {
-              print('cannot cast $categoryJson to CATEGORY');
+              rethrow;
             }
           }
         }
       }
     }
-    return EmbedModel(author: author, categories: categories, media: media);
-  }
-}
-
-class Author {
-  final int? id;
-  final String? name;
-  final String? url;
-  final String? description;
-  final String? link;
-  final String? slug;
-  final Map<String, dynamic>? avatarUrls;
-
-  Author(
-      {this.id,
-      this.name,
-      this.url,
-      this.description,
-      this.link,
-      this.slug,
-      this.avatarUrls});
-
-  factory Author.fromMap(Map<String, dynamic> json) {
-    final id = json['id'];
-    final name = json['name'];
-    final url = json['url'];
-    final description = json['description'];
-    final link = json['link'];
-    final slug = json['slug'];
-    final avatarUrls = json['avatar_urls'] != null ? json['avatar_urls'] : null;
-    return Author(
-        id: id,
-        name: name,
-        url: url,
-        description: description,
-        link: link,
-        slug: slug,
-        avatarUrls: avatarUrls);
+    return EmbedModel(
+        author: authorList, categories: categoriesList, media: mediaList);
   }
 }

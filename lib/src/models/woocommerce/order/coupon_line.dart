@@ -47,13 +47,13 @@ class CouponLine {
   String toString() => 'CouponLine(id: $id, code: $code, amount: $amount)';
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is CouponLine &&
-        o.id == id &&
-        o.code == code &&
-        o.amount == amount;
+    return other is CouponLine &&
+        other.id == id &&
+        other.code == code &&
+        other.amount == amount;
   }
 
   @override

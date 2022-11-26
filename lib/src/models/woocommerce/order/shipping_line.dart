@@ -55,14 +55,14 @@ class ShippingLine {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is ShippingLine &&
-        o.id == id &&
-        o.methodId == methodId &&
-        o.methodTitle == methodTitle &&
-        o.total == total;
+    return other is ShippingLine &&
+        other.id == id &&
+        other.methodId == methodId &&
+        other.methodTitle == methodTitle &&
+        other.total == total;
   }
 
   @override

@@ -2,7 +2,7 @@ part of '../main.dart';
 
 class _ApplicationPasswords {
   static const String _name = 'application-passwords';
-  WordPressAPI _api;
+  final WordPressAPI _api;
 
   _ApplicationPasswords(this._api);
 

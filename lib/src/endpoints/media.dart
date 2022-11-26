@@ -2,7 +2,7 @@ part of '../main.dart';
 
 class _Media {
   static const String _name = 'media';
-  WordPressAPI _api;
+  final WordPressAPI _api;
 
   _Media(this._api);
 
@@ -19,7 +19,7 @@ class _Media {
           meta: res.meta,
         );
       }
-      final WPResponse res = await _api.fetch('$_name', args: args);
+      final WPResponse res = await _api.fetch(_name, args: args);
       return WPResponse(
         statusCode: res.statusCode,
         data: parseMedia(res.data),

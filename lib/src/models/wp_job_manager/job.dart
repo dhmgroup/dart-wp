@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:collection/collection.dart';
 import 'package:wordpress_api/src/models/wp_job_manager/job_meta.dart';
-import 'package:wordpress_api/src/utils.dart';
 
 class Job {
   final int? id;
@@ -148,30 +147,30 @@ class Job {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final listEquals = const DeepCollectionEquality().equals;
 
-    return o is Job &&
-        o.id == id &&
-        o.date == date &&
-        o.dateGmt == dateGmt &&
-        o.guid == guid &&
-        o.modified == modified &&
-        o.modifiedGmt == modifiedGmt &&
-        o.slug == slug &&
-        o.status == status &&
-        o.type == type &&
-        o.link == link &&
-        o.title == title &&
-        o.content == content &&
-        o.author == author &&
-        o.featuredMedia == featuredMedia &&
-        o.template == template &&
-        o.meta == meta &&
-        listEquals(o.jobListingRegion, jobListingRegion) &&
-        listEquals(o.jobCategories, jobCategories) &&
-        listEquals(o.jobTypes, jobTypes);
+    return other is Job &&
+        other.id == id &&
+        other.date == date &&
+        other.dateGmt == dateGmt &&
+        other.guid == guid &&
+        other.modified == modified &&
+        other.modifiedGmt == modifiedGmt &&
+        other.slug == slug &&
+        other.status == status &&
+        other.type == type &&
+        other.link == link &&
+        other.title == title &&
+        other.content == content &&
+        other.author == author &&
+        other.featuredMedia == featuredMedia &&
+        other.template == template &&
+        other.meta == meta &&
+        listEquals(other.jobListingRegion, jobListingRegion) &&
+        listEquals(other.jobCategories, jobCategories) &&
+        listEquals(other.jobTypes, jobTypes);
   }
 
   @override

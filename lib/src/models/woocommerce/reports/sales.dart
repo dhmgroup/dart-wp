@@ -105,22 +105,22 @@ class SalesReport {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is SalesReport &&
-        o.totalSales == totalSales &&
-        o.netSales == netSales &&
-        o.averageSales == averageSales &&
-        o.totalOrders == totalOrders &&
-        o.totalItems == totalItems &&
-        o.totalTax == totalTax &&
-        o.totalShipping == totalShipping &&
-        o.totalRefunds == totalRefunds &&
-        o.totalDiscount == totalDiscount &&
-        o.totalsGroupedBy == totalsGroupedBy &&
-        o.totals == totals &&
-        o.totalCustomers == totalCustomers;
+    return other is SalesReport &&
+        other.totalSales == totalSales &&
+        other.netSales == netSales &&
+        other.averageSales == averageSales &&
+        other.totalOrders == totalOrders &&
+        other.totalItems == totalItems &&
+        other.totalTax == totalTax &&
+        other.totalShipping == totalShipping &&
+        other.totalRefunds == totalRefunds &&
+        other.totalDiscount == totalDiscount &&
+        other.totalsGroupedBy == totalsGroupedBy &&
+        other.totals == totals &&
+        other.totalCustomers == totalCustomers;
   }
 
   @override

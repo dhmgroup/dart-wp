@@ -2,7 +2,7 @@ part of '../main.dart';
 
 class _Categories {
   static const String _name = 'categories';
-  WordPressAPI _api;
+  final WordPressAPI _api;
 
   _Categories(this._api);
 
@@ -19,7 +19,7 @@ class _Categories {
           meta: res.meta,
         );
       }
-      final WPResponse res = await _api.fetch('$_name', args: args);
+      final WPResponse res = await _api.fetch(_name, args: args);
       return WPResponse(
         statusCode: res.statusCode,
         data: parseCategories(res.data),

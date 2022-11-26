@@ -434,9 +434,9 @@ class Product {
       reviewsAllowed: map['reviews_allowed'],
       averagedRating: map['averaged_rating'],
       ratingCount: map['rating_count'],
-      relatedIds: List<int>.from(map['related_ids']??[]),
-      upsellIds: List<int>.from(map['upsell_ids']??[]),
-      crossSellIds: List<int>.from(map['cross_sell_ids']??[]),
+      relatedIds: List<int>.from(map['related_ids'] ?? []),
+      upsellIds: List<int>.from(map['upsell_ids'] ?? []),
+      crossSellIds: List<int>.from(map['cross_sell_ids'] ?? []),
       parentId: map['parent_id'],
       purchaseNote: map['purchase_note'],
       categories: List<ProductCategory>.from(
@@ -470,76 +470,76 @@ class Product {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final listEquals = const DeepCollectionEquality().equals;
 
-    return o is Product &&
-        o.id == id &&
-        o.name == name &&
-        o.slug == slug &&
-        o.permalink == permalink &&
-        o.dateCreated == dateCreated &&
-        o.dateCreatedGmt == dateCreatedGmt &&
-        o.dateModified == dateModified &&
-        o.dateModifiedGmt == dateModifiedGmt &&
-        o.type == type &&
-        o.status == status &&
-        o.featured == featured &&
-        o.catalogVisibility == catalogVisibility &&
-        o.description == description &&
-        o.shortDescription == shortDescription &&
-        o.sku == sku &&
-        o.price == price &&
-        o.regularPrice == regularPrice &&
-        o.salePrice == salePrice &&
-        o.dateOnSaleFrom == dateOnSaleFrom &&
-        o.dateOnSaleFromGmt == dateOnSaleFromGmt &&
-        o.dateOnSaleTo == dateOnSaleTo &&
-        o.dateOnSaleToGmt == dateOnSaleToGmt &&
-        o.priceHtml == priceHtml &&
-        o.onSale == onSale &&
-        o.purchasable == purchasable &&
-        o.totalSales == totalSales &&
-        o.virtual == virtual &&
-        o.downloadable == downloadable &&
-        listEquals(o.downloads, downloads) &&
-        o.downloadLimit == downloadLimit &&
-        o.downloadExpiry == downloadExpiry &&
-        o.externalUrl == externalUrl &&
-        o.buttondText == buttondText &&
-        o.taxStatus == taxStatus &&
-        o.taxClass == taxClass &&
-        o.manageStock == manageStock &&
-        o.stockQuantity == stockQuantity &&
-        o.stockStatus == stockStatus &&
-        o.backorders == backorders &&
-        o.backordersAllowed == backordersAllowed &&
-        o.backordered == backordered &&
-        o.soldIndividually == soldIndividually &&
-        o.weight == weight &&
-        o.dimensions == dimensions &&
-        o.shippingdRequired == shippingdRequired &&
-        o.shippingdTaxable == shippingdTaxable &&
-        o.shippingClass == shippingClass &&
-        o.shippingClassId == shippingClassId &&
-        o.reviewsAllowed == reviewsAllowed &&
-        o.averagedRating == averagedRating &&
-        o.ratingCount == ratingCount &&
-        listEquals(o.relatedIds, relatedIds) &&
-        listEquals(o.upsellIds, upsellIds) &&
-        listEquals(o.crossSellIds, crossSellIds) &&
-        o.parentId == parentId &&
-        o.purchaseNote == purchaseNote &&
-        listEquals(o.categories, categories) &&
-        listEquals(o.tags, tags) &&
-        listEquals(o.images, images) &&
-        listEquals(o.attributes, attributes) &&
-        listEquals(o.defaultAttributes, defaultAttributes) &&
-        listEquals(o.variations, variations) &&
-        listEquals(o.groupedProducts, groupedProducts) &&
-        o.menuOrder == menuOrder &&
-        listEquals(o.metaData, metaData);
+    return other is Product &&
+        other.id == id &&
+        other.name == name &&
+        other.slug == slug &&
+        other.permalink == permalink &&
+        other.dateCreated == dateCreated &&
+        other.dateCreatedGmt == dateCreatedGmt &&
+        other.dateModified == dateModified &&
+        other.dateModifiedGmt == dateModifiedGmt &&
+        other.type == type &&
+        other.status == status &&
+        other.featured == featured &&
+        other.catalogVisibility == catalogVisibility &&
+        other.description == description &&
+        other.shortDescription == shortDescription &&
+        other.sku == sku &&
+        other.price == price &&
+        other.regularPrice == regularPrice &&
+        other.salePrice == salePrice &&
+        other.dateOnSaleFrom == dateOnSaleFrom &&
+        other.dateOnSaleFromGmt == dateOnSaleFromGmt &&
+        other.dateOnSaleTo == dateOnSaleTo &&
+        other.dateOnSaleToGmt == dateOnSaleToGmt &&
+        other.priceHtml == priceHtml &&
+        other.onSale == onSale &&
+        other.purchasable == purchasable &&
+        other.totalSales == totalSales &&
+        other.virtual == virtual &&
+        other.downloadable == downloadable &&
+        listEquals(other.downloads, downloads) &&
+        other.downloadLimit == downloadLimit &&
+        other.downloadExpiry == downloadExpiry &&
+        other.externalUrl == externalUrl &&
+        other.buttondText == buttondText &&
+        other.taxStatus == taxStatus &&
+        other.taxClass == taxClass &&
+        other.manageStock == manageStock &&
+        other.stockQuantity == stockQuantity &&
+        other.stockStatus == stockStatus &&
+        other.backorders == backorders &&
+        other.backordersAllowed == backordersAllowed &&
+        other.backordered == backordered &&
+        other.soldIndividually == soldIndividually &&
+        other.weight == weight &&
+        other.dimensions == dimensions &&
+        other.shippingdRequired == shippingdRequired &&
+        other.shippingdTaxable == shippingdTaxable &&
+        other.shippingClass == shippingClass &&
+        other.shippingClassId == shippingClassId &&
+        other.reviewsAllowed == reviewsAllowed &&
+        other.averagedRating == averagedRating &&
+        other.ratingCount == ratingCount &&
+        listEquals(other.relatedIds, relatedIds) &&
+        listEquals(other.upsellIds, upsellIds) &&
+        listEquals(other.crossSellIds, crossSellIds) &&
+        other.parentId == parentId &&
+        other.purchaseNote == purchaseNote &&
+        listEquals(other.categories, categories) &&
+        listEquals(other.tags, tags) &&
+        listEquals(other.images, images) &&
+        listEquals(other.attributes, attributes) &&
+        listEquals(other.defaultAttributes, defaultAttributes) &&
+        listEquals(other.variations, variations) &&
+        listEquals(other.groupedProducts, groupedProducts) &&
+        other.menuOrder == menuOrder &&
+        listEquals(other.metaData, metaData);
   }
 
   @override

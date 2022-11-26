@@ -12,11 +12,11 @@ class WooCredentials {
 
   @override
   String toString() {
-    return """
+    return '''
     WooCredentials: {
       consumerKey: $consumerKey,
       consumberSecret: $consumerSecret,
     }
-    """;
+    ''';
   }
 }

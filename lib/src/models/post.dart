@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:collection/collection.dart';
 import 'package:wordpress_api/src/models/_embeded.dart';
 
-import 'package:wordpress_api/src/utils.dart';
-
 class Post {
   ///The date the object was published, in the site's timezone.
   final String? date;
@@ -255,37 +253,37 @@ class Post {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final listEquals = const DeepCollectionEquality().equals;
 
-    return o is Post &&
-        o.date == date &&
-        o.dateGmt == dateGmt &&
-        o.guid == guid &&
-        o.id == id &&
-        o.link == link &&
-        o.modified == modified &&
-        o.modifiedGmt == modifiedGmt &&
-        o.slug == slug &&
-        o.status == status &&
-        o.type == type &&
-        o.password == password &&
-        o.permalinkTemplate == permalinkTemplate &&
-        o.generatedSlug == generatedSlug &&
-        o.title == title &&
-        o.content == content &&
-        o.author == author &&
-        o.excerpt == excerpt &&
-        o.featuredMedia == featuredMedia &&
-        o.commentStatus == commentStatus &&
-        o.pingStatus == pingStatus &&
-        o.format == format &&
-        o.meta == meta &&
-        o.sticky == sticky &&
-        o.template == template &&
-        listEquals(o.categories, categories) &&
-        listEquals(o.tags, tags);
+    return other is Post &&
+        other.date == date &&
+        other.dateGmt == dateGmt &&
+        other.guid == guid &&
+        other.id == id &&
+        other.link == link &&
+        other.modified == modified &&
+        other.modifiedGmt == modifiedGmt &&
+        other.slug == slug &&
+        other.status == status &&
+        other.type == type &&
+        other.password == password &&
+        other.permalinkTemplate == permalinkTemplate &&
+        other.generatedSlug == generatedSlug &&
+        other.title == title &&
+        other.content == content &&
+        other.author == author &&
+        other.excerpt == excerpt &&
+        other.featuredMedia == featuredMedia &&
+        other.commentStatus == commentStatus &&
+        other.pingStatus == pingStatus &&
+        other.format == format &&
+        other.meta == meta &&
+        other.sticky == sticky &&
+        other.template == template &&
+        listEquals(other.categories, categories) &&
+        listEquals(other.tags, tags);
   }
 
   @override

@@ -86,17 +86,17 @@ class ApplicationPassword {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is ApplicationPassword &&
-        o.uuid == uuid &&
-        o.appId == appId &&
-        o.name == name &&
-        o.password == password &&
-        o.created == created &&
-        o.lastUsed == lastUsed &&
-        o.lastIp == lastIp;
+    return other is ApplicationPassword &&
+        other.uuid == uuid &&
+        other.appId == appId &&
+        other.name == name &&
+        other.password == password &&
+        other.created == created &&
+        other.lastUsed == lastUsed &&
+        other.lastIp == lastIp;
   }
 
   @override

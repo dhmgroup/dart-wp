@@ -154,25 +154,25 @@ class Setting {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Setting &&
-        o.title == title &&
-        o.description == description &&
-        o.url == url &&
-        o.email == email &&
-        o.timezone == timezone &&
-        o.dateFormat == dateFormat &&
-        o.timeFormat == timeFormat &&
-        o.startOfWeek == startOfWeek &&
-        o.language == language &&
-        o.useSmilies == useSmilies &&
-        o.defaultCategory == defaultCategory &&
-        o.defaultPostFormat == defaultPostFormat &&
-        o.postsPerPage == postsPerPage &&
-        o.defaultPingStatus == defaultPingStatus &&
-        o.defaultCommentStatus == defaultCommentStatus;
+    return other is Setting &&
+        other.title == title &&
+        other.description == description &&
+        other.url == url &&
+        other.email == email &&
+        other.timezone == timezone &&
+        other.dateFormat == dateFormat &&
+        other.timeFormat == timeFormat &&
+        other.startOfWeek == startOfWeek &&
+        other.language == language &&
+        other.useSmilies == useSmilies &&
+        other.defaultCategory == defaultCategory &&
+        other.defaultPostFormat == defaultPostFormat &&
+        other.postsPerPage == postsPerPage &&
+        other.defaultPingStatus == defaultPingStatus &&
+        other.defaultCommentStatus == defaultCommentStatus;
   }
 
   @override

@@ -48,13 +48,13 @@ class ProductDefaultAttributes {
       'ProductDefaultAttributes(id: $id, name: $name, option: $option)';
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is ProductDefaultAttributes &&
-        o.id == id &&
-        o.name == name &&
-        o.option == option;
+    return other is ProductDefaultAttributes &&
+        other.id == id &&
+        other.name == name &&
+        other.option == option;
   }
 
   @override

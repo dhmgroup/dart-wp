@@ -2,7 +2,7 @@ part of '../main.dart';
 
 class _Pages {
   static const String _name = 'pages';
-  WordPressAPI _api;
+  final WordPressAPI _api;
 
   _Pages(this._api);
 
@@ -19,7 +19,7 @@ class _Pages {
           meta: res.meta,
         );
       }
-      final WPResponse res = await _api.fetch('$_name', args: args);
+      final WPResponse res = await _api.fetch(_name, args: args);
       return WPResponse(
         statusCode: res.statusCode,
         data: parsePages(res.data),

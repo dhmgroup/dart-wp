@@ -49,10 +49,13 @@ class Total {
   String toString() => 'Total(slug: $slug, name: $name, total: $total)';
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Total && o.slug == slug && o.name == name && o.total == total;
+    return other is Total &&
+        other.slug == slug &&
+        other.name == name &&
+        other.total == total;
   }
 
   @override

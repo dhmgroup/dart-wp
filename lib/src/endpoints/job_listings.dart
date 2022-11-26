@@ -2,7 +2,7 @@ part of '../main.dart';
 
 class _JobListings {
   static const String _name = 'job-listings';
-  WordPressAPI _api;
+  final WordPressAPI _api;
 
   _JobListings(this._api);
 
@@ -19,7 +19,7 @@ class _JobListings {
           meta: res.meta,
         );
       }
-      final WPResponse res = await _api.fetch('$_name', args: args);
+      final WPResponse res = await _api.fetch(_name, args: args);
       return WPResponse(
         statusCode: res.statusCode,
         data: parseJobs(res.data),

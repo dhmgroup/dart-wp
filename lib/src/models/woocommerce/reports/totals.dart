@@ -72,17 +72,17 @@ class Totals {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Totals &&
-        o.sales == sales &&
-        o.orders == orders &&
-        o.items == items &&
-        o.tax == tax &&
-        o.shipping == shipping &&
-        o.discount == discount &&
-        o.customers == customers;
+    return other is Totals &&
+        other.sales == sales &&
+        other.orders == orders &&
+        other.items == items &&
+        other.tax == tax &&
+        other.shipping == shipping &&
+        other.discount == discount &&
+        other.customers == customers;
   }
 
   @override

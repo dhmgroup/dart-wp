@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
-import 'package:wordpress_api/src/utils.dart';
 
 class Media {
   ///The date the object was published, in the site's timezone.
@@ -232,7 +231,7 @@ class Media {
       description: map['description']?['rendered'],
       mediaType: map['media_type'],
       mimeType: map['mime_type'],
-      mediaDetails: Map<String, dynamic>.from(map['media_details']?? {}),
+      mediaDetails: Map<String, dynamic>.from(map['media_details'] ?? {}),
       post: map['post'],
       sourceUrl: map['source_url'],
     );
@@ -248,37 +247,37 @@ class Media {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final mapEquals = const DeepCollectionEquality().equals;
 
-    return o is Media &&
-        o.date == date &&
-        o.dateGmt == dateGmt &&
-        o.guid == guid &&
-        o.id == id &&
-        o.link == link &&
-        o.modified == modified &&
-        o.modifiedGmt == modifiedGmt &&
-        o.slug == slug &&
-        o.status == status &&
-        o.type == type &&
-        o.permalinkTemplate == permalinkTemplate &&
-        o.generatedSlug == generatedSlug &&
-        o.title == title &&
-        o.author == author &&
-        o.commentStatus == commentStatus &&
-        o.pingStatus == pingStatus &&
-        o.meta == meta &&
-        o.template == template &&
-        o.altText == altText &&
-        o.caption == caption &&
-        o.description == description &&
-        o.mediaType == mediaType &&
-        o.mimeType == mimeType &&
-        mapEquals(o.mediaDetails, mediaDetails) &&
-        o.post == post &&
-        o.sourceUrl == sourceUrl;
+    return other is Media &&
+        other.date == date &&
+        other.dateGmt == dateGmt &&
+        other.guid == guid &&
+        other.id == id &&
+        other.link == link &&
+        other.modified == modified &&
+        other.modifiedGmt == modifiedGmt &&
+        other.slug == slug &&
+        other.status == status &&
+        other.type == type &&
+        other.permalinkTemplate == permalinkTemplate &&
+        other.generatedSlug == generatedSlug &&
+        other.title == title &&
+        other.author == author &&
+        other.commentStatus == commentStatus &&
+        other.pingStatus == pingStatus &&
+        other.meta == meta &&
+        other.template == template &&
+        other.altText == altText &&
+        other.caption == caption &&
+        other.description == description &&
+        other.mediaType == mediaType &&
+        other.mimeType == mimeType &&
+        mapEquals(other.mediaDetails, mediaDetails) &&
+        other.post == post &&
+        other.sourceUrl == sourceUrl;
   }
 
   @override

@@ -85,19 +85,19 @@ class JobMeta {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is JobMeta &&
-        o.jobLocation == jobLocation &&
-        o.application == application &&
-        o.companyName == companyName &&
-        o.companyWebsite == companyWebsite &&
-        o.companyTagline == companyTagline &&
-        o.companyTwitter == companyTwitter &&
-        o.companyVideo == companyVideo &&
-        o.filled == filled &&
-        o.featured == featured;
+    return other is JobMeta &&
+        other.jobLocation == jobLocation &&
+        other.application == application &&
+        other.companyName == companyName &&
+        other.companyWebsite == companyWebsite &&
+        other.companyTagline == companyTagline &&
+        other.companyTwitter == companyTwitter &&
+        other.companyVideo == companyVideo &&
+        other.filled == filled &&
+        other.featured == featured;
   }
 
   @override

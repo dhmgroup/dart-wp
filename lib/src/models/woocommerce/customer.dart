@@ -118,24 +118,24 @@ class Customer {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Customer &&
-        o.id == id &&
-        o.dateCreated == dateCreated &&
-        o.dateCreatedGmt == dateCreatedGmt &&
-        o.dateModified == dateModified &&
-        o.dateModifiedGmt == dateModifiedGmt &&
-        o.email == email &&
-        o.firstName == firstName &&
-        o.lastName == lastName &&
-        o.role == role &&
-        o.username == username &&
-        o.billing == billing &&
-        o.shipping == shipping &&
-        o.isPayingCustomer == isPayingCustomer &&
-        o.avatarUrl == avatarUrl;
+    return other is Customer &&
+        other.id == id &&
+        other.dateCreated == dateCreated &&
+        other.dateCreatedGmt == dateCreatedGmt &&
+        other.dateModified == dateModified &&
+        other.dateModifiedGmt == dateModifiedGmt &&
+        other.email == email &&
+        other.firstName == firstName &&
+        other.lastName == lastName &&
+        other.role == role &&
+        other.username == username &&
+        other.billing == billing &&
+        other.shipping == shipping &&
+        other.isPayingCustomer == isPayingCustomer &&
+        other.avatarUrl == avatarUrl;
   }
 
   @override

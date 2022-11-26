@@ -2,7 +2,7 @@ part of '../main.dart';
 
 class _Comments {
   static const String _name = 'comments';
-  WordPressAPI _api;
+  final WordPressAPI _api;
 
   _Comments(this._api);
 
@@ -19,7 +19,7 @@ class _Comments {
           meta: res.meta,
         );
       }
-      final WPResponse res = await _api.fetch('$_name', args: args);
+      final WPResponse res = await _api.fetch(_name, args: args);
       return WPResponse(
         statusCode: res.statusCode,
         data: parseComments(res.data),

@@ -61,15 +61,15 @@ class ProductTag {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is ProductTag &&
-        o.id == id &&
-        o.name == name &&
-        o.slug == slug &&
-        o.description == description &&
-        o.count == count;
+    return other is ProductTag &&
+        other.id == id &&
+        other.name == name &&
+        other.slug == slug &&
+        other.description == description &&
+        other.count == count;
   }
 
   @override

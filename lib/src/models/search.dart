@@ -73,15 +73,15 @@ class Search {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is Search &&
-        o.id == id &&
-        o.title == title &&
-        o.url == url &&
-        o.type == type &&
-        o.subtype == subtype;
+    return other is Search &&
+        other.id == id &&
+        other.title == title &&
+        other.url == url &&
+        other.type == type &&
+        other.subtype == subtype;
   }
 
   @override

@@ -48,13 +48,13 @@ class PaymentDetail {
       'PaymentDetail(methodId: $methodId, methodTitle: $methodTitle, paid: $paid)';
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is PaymentDetail &&
-        o.methodId == methodId &&
-        o.methodTitle == methodTitle &&
-        o.paid == paid;
+    return other is PaymentDetail &&
+        other.methodId == methodId &&
+        other.methodTitle == methodTitle &&
+        other.paid == paid;
   }
 
   @override

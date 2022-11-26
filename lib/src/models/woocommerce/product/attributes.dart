@@ -69,17 +69,17 @@ class ProductAttributes {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
     final listEquals = const DeepCollectionEquality().equals;
 
-    return o is ProductAttributes &&
-        o.name == name &&
-        o.slug == slug &&
-        o.position == position &&
-        o.visible == visible &&
-        o.variation == variation &&
-        listEquals(o.options, options);
+    return other is ProductAttributes &&
+        other.name == name &&
+        other.slug == slug &&
+        other.position == position &&
+        other.visible == visible &&
+        other.variation == variation &&
+        listEquals(other.options, options);
   }
 
   @override
