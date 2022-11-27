@@ -18,4 +18,13 @@ class MockWordPressApi extends Mock implements WordPressAPI {
 
   @override
   PostsEndpoint get posts => PostsEndpoint(this);
+
+  @override
+  MediaEndpoint get media => MediaEndpoint(this);
+
+  @override
+  CommentsEndpoint get comments => CommentsEndpoint(this);
+
+  @override
+  UsersEndpoint get users => UsersEndpoint(this);
 }

@@ -8,15 +8,15 @@ import '../json_response/json_response.dart';
 import '../mock_wordpress_api.dart';
 
 void main() {
-  group('test avatar url model from post', () {
-    test('get author avatar urls from embedded', () async {
-      String responseData = await JsonResponses.jsonResponse(
-          JsonResponses.singlePostWithEmbeddedObjects);
+  group('test avatar url model from user', () {
+    test('get author avatar urls from user', () async {
+      String responseData =
+          await JsonResponses.jsonResponse(JsonResponses.user);
       WordPressAPI wpApi = MockWordPressApi(
         httpStatusCode: HttpStatus.ok,
         responseData: jsonDecode(responseData),
       );
-      int postId = 4711;
+      int userId = 1;
       AvatarUrl expectedAvatarUrl = AvatarUrl(
         url24:
             'http://2.gravatar.com/avatar/e8b6e507587b3c4bf89a517925fc32d1?s=24&d=mm&r=g',
@@ -31,10 +31,10 @@ void main() {
         '_embed': 'wp:term,wp:featuredmedia,author,replies',
       };
       WPResponse postResponse =
-          await wpApi.posts.fetch(id: postId, args: queryParams);
+          await wpApi.users.fetch(id: userId, args: queryParams);
 
-      Post post = postResponse.data;
-      AvatarUrl avatarUrl = post.embedModel!.author!.first.avatarUrls!;
+      User user = postResponse.data;
+      AvatarUrl avatarUrl = user.avatarUrls!;
 
       expect(avatarUrl, expectedAvatarUrl);
     });

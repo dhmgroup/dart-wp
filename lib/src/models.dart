@@ -7,6 +7,8 @@ export 'models/category.dart';
 export 'models/comment.dart';
 export 'models/job_manager.dart';
 export 'models/media.dart';
+export 'models/media_details.dart';
+export 'models/media_size.dart';
 export 'models/page.dart';
 export 'models/post.dart';
 export 'models/search.dart';

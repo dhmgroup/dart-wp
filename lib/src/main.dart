@@ -120,13 +120,13 @@ class WordPressAPI {
   //ignore: library_private_types_in_public_api
   _Pages get pages => _Pages(this);
   //ignore: library_private_types_in_public_api
-  _Media get media => _Media(this);
+  MediaEndpoint get media => MediaEndpoint(this);
   //ignore: library_private_types_in_public_api
   _Categories get categories => _Categories(this);
   //ignore: library_private_types_in_public_api
-  _Comments get comments => _Comments(this);
+  CommentsEndpoint get comments => CommentsEndpoint(this);
   //ignore: library_private_types_in_public_api
-  _Users get users => _Users(this);
+  UsersEndpoint get users => UsersEndpoint(this);
   //ignore: library_private_types_in_public_api
   _Search get search => _Search(this);
   //ignore: library_private_types_in_public_api

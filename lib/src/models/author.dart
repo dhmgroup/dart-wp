@@ -25,14 +25,17 @@ class Author {
     final description = json['description'];
     final link = json['link'];
     final slug = json['slug'];
-    final avatarUrls = AvatarUrl.fromJson(json['avatar_urls']);
+    final avatarUrls = null != json['avatar_urls']
+        ? AvatarUrl.fromMap(json['avatar_urls'])
+        : null;
     return Author(
-        id: id,
-        name: name,
-        url: url,
-        description: description,
-        link: link,
-        slug: slug,
-        avatarUrls: avatarUrls);
+      id: id,
+      name: name,
+      url: url,
+      description: description,
+      link: link,
+      slug: slug,
+      avatarUrls: avatarUrls,
+    );
   }
 }

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:collection/collection.dart';
+import 'package:wordpress_api/src/models.dart';
 
 class Media {
   ///The date the object was published, in the site's timezone.
@@ -81,7 +81,7 @@ class Media {
   final String? mimeType;
 
   ///Details about the media file, specific to its type.
-  final Map<String, dynamic>? mediaDetails;
+  final MediaDetail? mediaDetails;
 
   ///The ID for the associated post of the attachment.
   final int? post;
@@ -141,7 +141,7 @@ class Media {
     String? description,
     String? mediaType,
     String? mimeType,
-    Map<String, dynamic>? mediaDetails,
+    MediaDetail? mediaDetails,
     int? post,
     String? sourceUrl,
   }) {
@@ -231,7 +231,10 @@ class Media {
       description: map['description']?['rendered'],
       mediaType: map['media_type'],
       mimeType: map['mime_type'],
-      mediaDetails: Map<String, dynamic>.from(map['media_details'] ?? {}),
+      mediaDetails: null != map['media_details']
+          ? MediaDetail.fromMap(map['media_details'])
+          : null,
+      // mediaDetails: Map<String, dynamic>.from(map['media_details'] ?? {}),
       post: map['post'],
       sourceUrl: map['source_url'],
     );
@@ -249,7 +252,6 @@ class Media {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    final mapEquals = const DeepCollectionEquality().equals;
 
     return other is Media &&
         other.date == date &&
@@ -275,7 +277,7 @@ class Media {
         other.description == description &&
         other.mediaType == mediaType &&
         other.mimeType == mimeType &&
-        mapEquals(other.mediaDetails, mediaDetails) &&
+        other.mediaDetails == mediaDetails &&
         other.post == post &&
         other.sourceUrl == sourceUrl;
   }
