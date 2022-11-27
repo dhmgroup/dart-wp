@@ -2,6 +2,7 @@ library models;
 
 export 'models/applicatication_password.dart';
 export 'models/author.dart';
+export 'models/avatar_url.dart';
 export 'models/category.dart';
 export 'models/comment.dart';
 export 'models/job_manager.dart';

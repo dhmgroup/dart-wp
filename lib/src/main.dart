@@ -116,7 +116,7 @@ class WordPressAPI {
   _ApplicationPasswords get application_passwords =>
       _ApplicationPasswords(this);
   //ignore: library_private_types_in_public_api
-  _Posts get posts => _Posts(this);
+  PostsEndpoint get posts => PostsEndpoint(this);
   //ignore: library_private_types_in_public_api
   _Pages get pages => _Pages(this);
   //ignore: library_private_types_in_public_api
