@@ -56,7 +56,7 @@ import 'package:wordpress_api/wordpress_api';
 
   - As of `v0.3.0`, you can query a single post from the same endpoint by passing an `id`
 
-    ```dart
+  ```dart
     void main() async {
       final api = WordPressAPI('wp-site.com');
       final WPResponse res = await api.posts.fetch(id: 1);
@@ -86,8 +86,6 @@ Contributions are welcome, report any issues [here](https://github.com/dhmgroup/
 ## Special Thanks
 
 - [WordPress REST API Handbook](https://developer.wordpress.org/rest-api/reference/) - Read the Handbank for additional arguments/query parameter.
-
-
 
 ## Contributors ✨
 

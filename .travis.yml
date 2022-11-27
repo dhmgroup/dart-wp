@@ -10,7 +10,7 @@ cache:
 
 branches:
   only:
-    - master
+    - main
 
 after_success:
   - codecov
