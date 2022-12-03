@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "post": 1,
+    "parent": 0,
+    "author": 0,
+    "author_name": "Ein WordPress-Kommentator",
+    "author_url": "https://de.wordpress.org/",
+    "date": "2022-11-27T11:58:15",
+    "date_gmt": "2022-11-27T10:58:15",
+    "content": {
+      "rendered": "<p>Hallo, dies ist ein Kommentar.<br />\nUm mit dem Freischalten, Bearbeiten und Löschen von Kommentaren zu beginnen, besuche bitte die Kommentare-Ansicht im Dashboard.<br />\nDie Avatare der Kommentatoren kommen von <a href=\"https://de.gravatar.com/\">Gravatar</a>.</p>\n"
+    },
+    "link": "http://localhost/?p=1#comment-1",
+    "status": "approved",
+    "type": "comment",
+    "author_avatar_urls": {
+      "24": "http://1.gravatar.com/avatar/d7a973c7dab26985da5f961be7b74480?s=24&d=mm&r=g",
+      "48": "http://1.gravatar.com/avatar/d7a973c7dab26985da5f961be7b74480?s=48&d=mm&r=g",
+      "96": "http://1.gravatar.com/avatar/d7a973c7dab26985da5f961be7b74480?s=96&d=mm&r=g"
+    },
+    "meta": [],
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost/index.php?rest_route=/wp/v2/comments/1"
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost/index.php?rest_route=/wp/v2/comments"
+        }
+      ],
+      "up": [
+        {
+          "embeddable": true,
+          "post_type": "post",
+          "href": "http://localhost/index.php?rest_route=/wp/v2/posts/1"
+        }
+      ]
+    }
+  }
+]

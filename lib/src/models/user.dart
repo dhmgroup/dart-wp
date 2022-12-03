@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
+import 'package:wordpress_api/src/models.dart';
 
 class User {
   ///Unique identifier for the user.
@@ -57,7 +58,7 @@ class User {
   final Map<String, dynamic>? extraCapabilities;
 
   ///Avatar URLs for the user.
-  final Map<String, dynamic>? avatarUrls;
+  final AvatarUrl? avatarUrls;
 
   ///Meta fields.
   final dynamic meta;
@@ -101,7 +102,7 @@ class User {
     String? password,
     Map<String, dynamic>? capabilities,
     Map<String, dynamic>? extraCapabilities,
-    Map<String, dynamic>? avatarUrls,
+    AvatarUrl? avatarUrls,
     dynamic meta,
   }) {
     return User(
@@ -171,7 +172,9 @@ class User {
       capabilities: Map<String, dynamic>.from(map['capabilities'] ?? {}),
       extraCapabilities:
           Map<String, dynamic>.from(map['extra_capabilities'] ?? {}),
-      avatarUrls: Map<String, dynamic>.from(map['avatar_urls'] ?? {}),
+      avatarUrls: null != map['avatar_urls']
+          ? AvatarUrl.fromMap(map['avatar_urls'])
+          : null,
       meta: map['meta'],
     );
   }
