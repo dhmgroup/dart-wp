@@ -1,0 +1,26 @@
+{
+  "id": 1,
+  "name": "NicoK",
+  "url": "http://localhost",
+  "description": "",
+  "link": "http://localhost/?author=1",
+  "slug": "nicok",
+  "avatar_urls": {
+    "24": "http://2.gravatar.com/avatar/e8b6e507587b3c4bf89a517925fc32d1?s=24&d=mm&r=g",
+    "48": "http://2.gravatar.com/avatar/e8b6e507587b3c4bf89a517925fc32d1?s=48&d=mm&r=g",
+    "96": "http://2.gravatar.com/avatar/e8b6e507587b3c4bf89a517925fc32d1?s=96&d=mm&r=g"
+  },
+  "meta": [],
+  "_links": {
+    "self": [
+      {
+        "href": "http://localhost/index.php?rest_route=/wp/v2/users/1"
+      }
+    ],
+    "collection": [
+      {
+        "href": "http://localhost/index.php?rest_route=/wp/v2/users"
+      }
+    ]
+  }
+}

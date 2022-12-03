@@ -1,3 +1,5 @@
+import 'package:wordpress_api/src/models.dart';
+
 class Author {
   final int? id;
   final String? name;
@@ -5,7 +7,7 @@ class Author {
   final String? description;
   final String? link;
   final String? slug;
-  final Map<String, dynamic>? avatarUrls;
+  final AvatarUrl? avatarUrls;
 
   Author(
       {this.id,
@@ -23,14 +25,17 @@ class Author {
     final description = json['description'];
     final link = json['link'];
     final slug = json['slug'];
-    final avatarUrls = json['avatar_urls'];
+    final avatarUrls = null != json['avatar_urls']
+        ? AvatarUrl.fromMap(json['avatar_urls'])
+        : null;
     return Author(
-        id: id,
-        name: name,
-        url: url,
-        description: description,
-        link: link,
-        slug: slug,
-        avatarUrls: avatarUrls);
+      id: id,
+      name: name,
+      url: url,
+      description: description,
+      link: link,
+      slug: slug,
+      avatarUrls: avatarUrls,
+    );
   }
 }

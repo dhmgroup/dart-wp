@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:collection/collection.dart';
+import 'package:wordpress_api/src/models.dart';
 
 class Comment {
   ///Unique identifier for the object.
@@ -49,7 +50,7 @@ class Comment {
   final String? type;
 
   ///Avatar URLs for the object author.
-  final Map<String, dynamic>? authorAvatarUrls;
+  final AvatarUrl? authorAvatarUrls;
 
   ///Meta fields.
   final dynamic meta;
@@ -89,7 +90,7 @@ class Comment {
     int? post,
     String? status,
     String? type,
-    Map<String, dynamic>? authorAvatarUrls,
+    AvatarUrl? authorAvatarUrls,
     dynamic meta,
   }) {
     return Comment(
@@ -152,8 +153,9 @@ class Comment {
       post: map['post'],
       status: map['status'],
       type: map['type'],
-      authorAvatarUrls:
-          Map<String, dynamic>.from(map['author_avatar_urls'] ?? {}),
+      authorAvatarUrls: null != map['author_avatar_urls']
+          ? AvatarUrl.fromMap(map['author_avatar_urls'])
+          : null,
       meta: map['meta'],
     );
   }
