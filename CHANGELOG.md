@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.1.0+1]
+## [1.2.0+1]
 
 - Updated dependencies to the most recent versions
 
