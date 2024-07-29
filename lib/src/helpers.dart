@@ -1,3 +1,5 @@
+/// A collection of WordPress related helper classes.
+///
 library helpers;
 
 part 'helpers/woo_credentials.dart';

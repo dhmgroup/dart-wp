@@ -9,4 +9,6 @@ ios/.generated/
 ios/Flutter/Generated.xcconfig
 ios/Runner/GeneratedPluginRegistrant.*
 
-.idea
+# IDEs and Code Editiors
+.idea/
+.vscode/
