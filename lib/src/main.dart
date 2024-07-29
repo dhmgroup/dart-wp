@@ -39,7 +39,6 @@ class WordPressAPI {
   Future<WPResponse> fetch(
     /// Provide an API endpoint
     String endpoint, {
-
     /// REST API namespace
     String namespace = wpNamespace,
 
@@ -102,7 +101,7 @@ class WordPressAPI {
         ),
         statusCode: res.statusCode!,
       );
-    } on DioError catch (e) {
+    } on DioException catch (e) {
       WPUtils.logger.e(e.message);
       rethrow;
     } catch (e) {
@@ -144,7 +143,7 @@ class WordPressAPI {
 
 /// Wordpress `REST API Discovery` from Link Header
 Future<String> _discover(String site) async {
-  String siteUrl = site;
+  String siteUrl = site.trim();
   final Dio dio = Dio(
     BaseOptions(
       contentType: 'application/json',
